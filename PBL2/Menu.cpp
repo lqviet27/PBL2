@@ -1,12 +1,10 @@
-#define en cout<<endl;
+#define en cout << endl;
 
-#include<iostream>
+#include <iostream>
 
-
-#include<windows.h>
-
+#include <windows.h>
 using namespace std;
-
+string soTaiKhoan,matKhau;
 // bool checkChoose(int choose,const int )
 
 void TextColor(int x)
@@ -22,7 +20,8 @@ void InLine(int n)
 
 void startMenu()
 {
-     TextColor(12);
+     en
+         TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
      cout << endl;
      TextColor(14);
@@ -53,8 +52,9 @@ void startMenu()
 
 void menu()
 {
-    system("cls");
-    TextColor(12);
+     system("cls");
+     en
+         TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
      cout << endl;
      TextColor(14);
@@ -66,13 +66,16 @@ void menu()
      cout << endl;
      cout << ("\t\t\t\t                    2. NGUOI DUNG");
      cout << endl;
-
+     system("pause");
 }
 void menuUser()
 {
      system("cls");
-     TextColor(12);
+     en
+         TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     cout << endl;
+     cout << ("\t\t\t\t\t          -DANG NHAP HOAC DANG KI- ");
      cout << endl;
      TextColor(14);
      cout << ("\t\t               ==========================================================");
@@ -83,26 +86,39 @@ void menuUser()
      cout << endl;
      cout << ("\t\t\t\t                    2. TAO TAI KHOAN");
      cout << endl;
+     cout << ("\t\t\t\t                    3. THOAT");
+     cout << endl;
+     system("pause");
 }
-void menuSignIn(){
+void menuSignIn()
+{
      system("cls");
      TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
      cout << endl;
+     cout << ("\t\t\t\t\t               -DANG NHAP- ");
+     cout << endl;
      TextColor(14);
      cout << ("\t\t               ==========================================================");
      cout << endl;
-     cout << ("\t\t\t\t                MOI BAN LUA CHON THAO TAC!");
-     cout << endl;
-     cout << ("\t\t\t\t                    1. DANG NHAP");
-     cout << endl;
-     cout << ("\t\t\t\t                    2. TAO TAI KHOAN");
-     cout << endl;
+     cout << "\n\t\t"
+          << "\t\t              TAI KHOAN | ";
+     cin >> soTaiKhoan;
+     cout << "\n\t\t"
+          << "\t\t              MAT KHAU  | ";
+     cin >> matKhau;
+     system("pause");
 }
+void menuSignUp(){
+     
+}
+
+
 
 int main()
 {
-    //startMenu();
-    //menu();
-    //menuUser();
+     // startMenu();
+     // menu();
+     // menuUser();
+     menuSignIn();
 }
