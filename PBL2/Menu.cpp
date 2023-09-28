@@ -4,7 +4,7 @@
 
 #include <windows.h>
 using namespace std;
-string soTaiKhoan,matKhau;
+
 // bool checkChoose(int choose,const int )
 
 void TextColor(int x)
