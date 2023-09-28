@@ -4,7 +4,11 @@
 
 #include <windows.h>
 using namespace std;
+<<<<<<< HEAD
 string soTaiKhoan, matKhau;
+=======
+
+>>>>>>> 1468f4be2f489e5563f0828d256a70939f72bf71
 // bool checkChoose(int choose,const int )
 
 void TextColor(int x)
