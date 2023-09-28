@@ -16,4 +16,9 @@ int main(){
     p5.setFlags(true);
     cout<<"hello"<<endl;
     cout<<"nothing to do"<<endl;
+    cout<<"nothing to do"<<endl;
+    cout<<"nothing to do"<<endl;
+    cout<<"nothing to do"<<endl;
+    cout<<"nothing to do"<<endl;
+    cout<<;
 }
