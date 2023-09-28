@@ -90,7 +90,7 @@ void menuUser()
      cout << endl;
      system("pause");
 }
-void menuSignIn(string numAccount, string passWord)
+void menuSignIn(string &numAccount, string &passWord)
 {
      system("cls");
      TextColor(12);
@@ -109,7 +109,7 @@ void menuSignIn(string numAccount, string passWord)
      cin >> passWord;
      system("pause");
 }
-void menuSignUp(string nameBank, string name, string passWord){
+void menuSignUp(string &nameBank, string &name, string &passWord){
      system("cls");
      TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
@@ -120,15 +120,15 @@ void menuSignUp(string nameBank, string name, string passWord){
      cout << ("\t\t               ==========================================================");
      cout << endl;
      cout << "\n\t\t"
-          << "\t\t              THONG TIN CA NHAN! ";
+          << "\t\t\t           THONG TIN CA NHAN! ";
      cout << "\n\t\t"
-          << "\t\t              TEN NGAN HANG | ";
+          << "\t\t         TEN NGAN HANG | ";
      cin >> nameBank;
      cout << "\n\t\t"
-          << "\t\t              HO VA TEN | ";
+          << "\t\t         HO VA TEN | ";
      cin >> name;
      cout << "\n\t\t"
-          << "\t\t              MAT KHAU  | ";
+          << "\t\t         MAT KHAU  | ";
      cin >> passWord;
      system("pause");
 }
@@ -140,5 +140,7 @@ int main()
      // startMenu();
      // menu();
      // menuUser();
-     menuSignIn();
+     //menuSignIn();
+     string a,b,c;
+     menuSignUp(a,b,c);
 }
