@@ -16,9 +16,4 @@ int main(){
     p5.setFlags(true);
 
     
-    p1.Show();
-    p2.Show();
-    p3.Show();
-    p4.Show();
-    p5.Show();
 }
