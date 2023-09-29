@@ -1,8 +1,7 @@
 #define en cout << endl;
-
 #include <iostream>
-
 #include <windows.h>
+
 using namespace std;
 
 // bool checkChoose(int choose,const int )
@@ -12,6 +11,7 @@ void TextColor(int x)
      HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
      SetConsoleTextAttribute(color, x);
 }
+
 void InLine(int n)
 {
      for (int i = 0; i < n; i++)
