@@ -3,7 +3,7 @@
 #include <windows.h>
 
 using namespace std;
-
+string soTaiKhoan, matKhau;
 // bool checkChoose(int choose,const int )
 
 void TextColor(int x)
@@ -103,13 +103,14 @@ void menuSignIn(string &numAccount, string &passWord)
      cout << endl;
      cout << "\n\t\t"
           << "\t\t              TAI KHOAN | ";
-     cin >> numAccount;
+     getline(cin, numAccount);
      cout << "\n\t\t"
           << "\t\t              MAT KHAU  | ";
-     cin >> passWord;
+     getline(cin, passWord);
      system("pause");
 }
-void menuSignUp(string &nameBank, string &name, string &passWord){
+void menuSignUp(string &nameBank, string &name, string &passWord)
+{
      system("cls");
      TextColor(12);
      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
@@ -123,24 +124,74 @@ void menuSignUp(string &nameBank, string &name, string &passWord){
           << "\t\t\t           THONG TIN CA NHAN! ";
      cout << "\n\t\t"
           << "\t\t         TEN NGAN HANG | ";
-     cin >> nameBank;
+     getline(cin, nameBank);
      cout << "\n\t\t"
           << "\t\t         HO VA TEN | ";
-     cin >> name;
+     getline(cin, name);
      cout << "\n\t\t"
           << "\t\t         MAT KHAU  | ";
-     cin >> passWord;
+     getline(cin, passWord);
+     system("pause");
+}
+void menuDebitCard()
+{
+     system("cls");
+     en
+         TextColor(12);
+     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     cout << endl;
+     TextColor(14);
+     cout << ("\t\t               ==========================================================");
+     cout << endl;
+     cout << ("\t\t\t\t                    THAO TAC CUA BAN!");
+     cout << endl;
+     cout << ("\t\t\t                 1. NAP TIEN");
+     cout << endl;
+     cout << ("\t\t\t                 2. CHUYEN TIEN");
+     cout << endl;
+     cout << ("\t\t\t                 3. RUT");
+     cout << endl;
+     cout << ("\t\t\t                 4. TRA CUU SO DU");
+     cout << endl;
+     cout << ("\t\t\t                 5. TRA CUU LICH SU GIAO DICH");
+     cout << endl;
+     cout << ("\t\t\t                 6. THOAT");
+     cout << endl;
+     system("pause");
+}
+void menuSavingCard()
+{
+     system("cls");
+     en
+         TextColor(12);
+     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     cout << endl;
+     TextColor(14);
+     cout << ("\t\t               ==========================================================");
+     cout << endl;
+     cout << ("\t\t\t\t                    THAO TAC CUA BAN!");
+     cout << endl;
+     cout << ("\t\t\t                 1. NAP TIEN");
+     cout << endl;
+     cout << ("\t\t\t                 2. RUT");
+     cout << endl;
+     cout << ("\t\t\t                 3. TRA CUU SO DU");
+     cout << endl;
+     cout << ("\t\t\t                 4. TRA CUU LICH SU GIAO DICH");
+     cout << endl;
+     cout << ("\t\t\t                 5. THOAT");
+     cout << endl;
      system("pause");
 }
 
-
-
 int main()
 {
-     // startMenu();
-     // menu();
-     // menuUser();
-     //menuSignIn();
-     string a,b,c;
-     menuSignUp(a,b,c);
+     startMenu();
+     menu();
+     menuUser();
+     string a, b, c;
+     menuSignIn(a, b);
+     menuSignUp(a, b, c);
+     menuDebitCard();
+     menuSavingCard();
 }
