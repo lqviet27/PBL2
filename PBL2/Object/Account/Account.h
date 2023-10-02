@@ -3,17 +3,19 @@ using namespace std;
 
 class Account{
     private:
-        int _IDNguoiDung;
-        string _Password;
+        string numAccount;
+        string password;
+        double amount;
+        bool typeAccount;
     public:
         Account();
-        Account(int, string);
+        Account(string, string ,bool);
         Account(const Account &);
         ~Account();
-        int IDNguoiDung();
-        string Password();
-        void IDNguoiDung(int);
-        void Password(string);
+        string getNumAccout();
+        string getPassword();
+        void setNumAccount(string);
+        void setPassword(string);
         friend istream &operator>>(istream &, Account &);
         void InsertObjecttoFile(ofstream &);
 };
