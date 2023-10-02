@@ -2,11 +2,10 @@
 #include <fstream>
 #include <iomanip>
 
-KhachHang::KhachHang() {}
+User::User() {}
 
-KhachHang::KhachHang(int id, string name, Date bi, string pn, string address, bool g)
+User::User(string name, Date bi, string pn, string address, bool g)
 {
-    this->_ID = id;
     this->_Name = name;
     this->_Birthday = bi;
     this->_PhoneNumber = pn;
@@ -14,7 +13,7 @@ KhachHang::KhachHang(int id, string name, Date bi, string pn, string address, bo
     this->_Gender = g;
 }
 
-KhachHang::KhachHang(const KhachHang &nv)
+User::User(const User &nv)
 {
     this->_ID = nv._ID;
     this->_Name = nv._Name;
@@ -24,9 +23,9 @@ KhachHang::KhachHang(const KhachHang &nv)
     this->_Gender = nv._Gender;
 }
 
-KhachHang::~KhachHang() {}
+User::~User() {}
 
-void KhachHang::ShowKhachHang()
+void User::ShowUser()
 {
     cout << "\t\t\t|" << setw(5) << right << _ID << " |";
     cout << " " << setw(28) << left << _Name << " |";
@@ -42,42 +41,42 @@ void KhachHang::ShowKhachHang()
     cout << "|" << endl;
 }
 
-int KhachHang::ID()
+int User::ID()
 {
     return this->_ID;
 }
 
-void KhachHang::ID(int value)
+void User::ID(int value)
 {
     this->_ID = value;
 }
 
-void KhachHang::Name(string value)
+void User::Name(string value)
 {
     this->_Name = value;
 }
 
-void KhachHang::Birthday(Date value)
+void User::Birthday(Date value)
 {
     this->_Birthday = value;
 }
 
-void KhachHang::PhoneNumber(string value)
+void User::PhoneNumber(string value)
 {
     this->_PhoneNumber = value;
 }
 
-void KhachHang::Address(string value)
+void User::Address(string value)
 {
     this->_Address = value;
 }
 
-void KhachHang::Gender(bool value)
+void User::Gender(bool value)
 {
     this->_Gender = value;
 }
 
-istream &operator>>(istream &in, KhachHang &nv)
+istream &operator>>(istream &in, User &nv)
 {
     int check;
     cout << "Nhap ten khach hang: ";
@@ -117,7 +116,6 @@ istream &operator>>(istream &in, KhachHang &nv)
 
 void KhachHang::InsertObjecttoFile(ofstream &FileOut)
 {
-    FileOut << _ID << '|';
     FileOut << _Name << '|';
     FileOut << _Birthday << '|';
     FileOut << _PhoneNumber << '|';
