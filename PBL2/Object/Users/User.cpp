@@ -15,7 +15,6 @@ User::User(string name, Date bi, string pn, string address, bool g)
 
 User::User(const User &nv)
 {
-    this->_ID = nv._ID;
     this->_Name = nv._Name;
     this->_Birthday = nv._Birthday;
     this->_PhoneNumber = nv._PhoneNumber;
@@ -27,7 +26,6 @@ User::~User() {}
 
 void User::ShowUser()
 {
-    cout << "\t\t\t|" << setw(5) << right << _ID << " |";
     cout << " " << setw(28) << left << _Name << " |";
     cout << " ";
     _Birthday.ShowDate();
@@ -41,15 +39,6 @@ void User::ShowUser()
     cout << "|" << endl;
 }
 
-int User::ID()
-{
-    return this->_ID;
-}
-
-void User::ID(int value)
-{
-    this->_ID = value;
-}
 
 void User::Name(string value)
 {
@@ -114,11 +103,17 @@ istream &operator>>(istream &in, User &nv)
     return in;
 }
 
-void KhachHang::InsertObjecttoFile(ofstream &FileOut)
+void User::InsertObjecttoFile(ofstream &FileOut)
 {
     FileOut << _Name << '|';
     FileOut << _Birthday << '|';
     FileOut << _PhoneNumber << '|';
     FileOut << _Address << '|';
     FileOut << _Gender;
+}
+
+int main()
+{
+    User X("viet",02/01/2000,"038407443","so 2 le van thiem",1);
+    X.ShowUser();
 }
