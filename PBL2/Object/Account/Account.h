@@ -1,3 +1,4 @@
+
 #include<iostream>
 using namespace std;
 
@@ -18,4 +19,5 @@ class Account{
         void setPassword(string);
         friend istream &operator>>(istream &, Account &);
         void InsertObjecttoFile(ofstream &);
+        void Show();
 };
