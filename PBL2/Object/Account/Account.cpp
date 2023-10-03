@@ -70,3 +70,7 @@ void Account::InsertObjecttoFile(ofstream &FileOut)
     FileOut << amount << "|";
     FileOut << password; 
 }
+
+void Account::Show(){
+    cout<<numAccount<<"|"<<amount<<"|"<<password<<endl;
+}
