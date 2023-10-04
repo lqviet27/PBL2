@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 #include"../Object/Account/Account.cpp"
 
@@ -69,11 +70,11 @@ void erase(node** head, int k) {
 
 
 int main(){
-    Account a1("11111","1",true);
-    Account a2("22222","2",true);
-    Account a3("33333","3",true);
-    Account a4("44444","4",true);
-    Account a5("55555","5",true);
+    Account a1("11111","1",true,1000);
+    Account a2("22222","2",true,1000);
+    Account a3("33333","3",true,1000);
+    Account a4("44444","4",true,1000);
+    Account a5("55555","5",true,1000);
 
     node* head = nullptr;
     push_Back(&head,a1);
@@ -88,6 +89,7 @@ int main(){
         cout<<endl;
         head=head->next;
     }
+    
 }
 
 

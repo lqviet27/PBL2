@@ -1,5 +1,6 @@
 
 #include<iostream>
+
 using namespace std;
 
 class Account{
@@ -10,7 +11,7 @@ class Account{
         bool typeAccount;
     public:
         Account();
-        Account(string, string ,bool);
+        Account(string, string ,bool,double =0);
         Account(const Account &);
         ~Account();
         string getNumAccout();
@@ -20,4 +21,5 @@ class Account{
         friend istream &operator>>(istream &, Account &);
         void InsertObjecttoFile(ofstream &);
         void Show();
+        
 };

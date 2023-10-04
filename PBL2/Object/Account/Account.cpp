@@ -1,14 +1,15 @@
 #pragma once
 #include "Account.h"
 #include <fstream>
+#include <iomanip>
 
 Account::Account() {}
 
-Account::Account(string numAccount, string password, bool typeAccount)
+Account::Account(string numAccount, string password, bool typeAccount,double amount)
 {
     this->numAccount = numAccount;
     this->password = password;
-    this->amount = 0;
+    this->amount = amount;
     this->typeAccount = typeAccount;
 }
 
@@ -72,5 +73,6 @@ void Account::InsertObjecttoFile(ofstream &FileOut)
 }
 
 void Account::Show(){
-    cout<<numAccount<<"|"<<amount<<"|"<<password<<endl;
+    cout<<this->numAccount<<"|"<<fixed<<setprecision(2)<<this->amount<<"|"<<this->password<<endl;
 }
+
