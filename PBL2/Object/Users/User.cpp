@@ -112,8 +112,3 @@ void User::InsertObjecttoFile(ofstream &FileOut)
     FileOut << _Gender;
 }
 
-int main()
-{
-    User X("viet",02/01/2000,"038407443","so 2 le van thiem",1);
-    X.ShowUser();
-}
