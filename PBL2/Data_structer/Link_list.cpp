@@ -7,65 +7,64 @@ Link_list<T>::Link_list()
 template<typename T>
 void Link_list<T>::Add(const T& data){
     Node<T> *new_node = new Node<T>(data);
-    if(head == nullptr){
-        head = new_node;
+    if(this->head == nullptr){
+        this->head = new_node;
         return;
     }
-    Node<T> *temp = head;
-    while(temp->next != nullptr){
-        temp = temp->next;
+    else {
+    new_node->next=head;
+    head = new_node;
     }
-    temp->next = new_node;
-    new_node->prev = temp;
 }
 
-template<typename T>
-void Link_list<T>::Insert(){
-
-}
 
 template<typename T>
 void Link_list<T>::Show(){
     Node<T> *tmp = head;
     while(tmp != nullptr){
         tmp->Show();
-        cout<<" ";
+        tmp=tmp->next;
     }
 }
 
 template<typename T>
 void Link_list<T>::Delete(const T& data){
     Node<T> *tmp = head;
-    while(tmp->next != nullptr){
+    while(tmp != nullptr){
         if(tmp->data == data){
-            if(tmp->next == nullptr){
-                tmp->prev->next = tmp;
+            if(tmp == head)
+            {
+                if(tmp->next == nullptr)
+                this->head =nullptr; 
+                else 
+                this->head = head->next;
+                break;
             }
-            if(tmp->prev == nullptr){
-                tmp->next->prev = tmp;
-                
+            else 
+            {
+                if(tmp->next != nullptr)
+                {
+                    tmp->prev->next= tmp->next;
+                    tmp->next->prev= tmp->prev;
+                }
+                else
+                    tmp->prev->next=nullptr;
+                break;
             }
         }
         tmp = tmp->next;
     }
-    tmp->prev->next = tmp->next;
-    tmp->next = tmp->prev;
     delete tmp;
 }
 
 template<typename T>
-void Link_list<T>::Delete(const int& index){
-
-}
-
-template<typename T>
-bool Link_list<T>::Search(const T& data){
+Node<T>* Link_list<T>::Search(const T& data){
     Node<T> *tmp = head;
     while(tmp != nullptr){
         if(tmp->data == data){
-            return true;
+            return tmp;
         }
         tmp = tmp->next;
     }
-    return false;
+    return nullptr;
 }

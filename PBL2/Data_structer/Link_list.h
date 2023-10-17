@@ -12,7 +12,7 @@ public:
     void Show();
     void Delete(const T& data);
     void Delete(const int& index);
-    bool Search(const T& data);
+    Node<T>* Search(const T& data);
     
 };
 
