@@ -2,9 +2,8 @@
 template<class T>
 class Link_list
 {
-    private:
-        Node<T> *head;
     public:
+        Node<T> *head;
         Link_list();
         void Add(const T& data);
         void Insert(const T& data,const int& index);
