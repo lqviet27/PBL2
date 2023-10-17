@@ -1,4 +1,4 @@
-#pragma once
+
 #include "Account.h"
 #include <fstream>
 #include <iomanip>
@@ -40,7 +40,10 @@ void Account::setPassword(string password)
 {
     this->password = password;
 }
-
+bool Account::operator==(const Account& ac)
+{
+    return (this->numAccount == ac.numAccount);
+} 
 // istream &operator>>(istream &in, Account &acc)
 // {
 //     string in,b,c;

@@ -1,5 +1,5 @@
 #include"Node.h"
-template<typename T>
+template<class T>
 class Link_list
 {
 private:

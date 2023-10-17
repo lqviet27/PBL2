@@ -19,6 +19,7 @@ class Account{
         void setNumAccount(string);
         void setPassword(string);
         friend istream &operator>>(istream &, Account &);
+        bool operator==(const Account &);
         void InsertObjecttoFile(ofstream &);
         void Show();
         

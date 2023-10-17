@@ -1,11 +1,26 @@
+
+
 #include"Node.h"
-template<typename T>
+template<class T>
 Node<T>::Node(const T& data){
     this->data = data;
     this->next = nullptr;
     this->prev = nullptr;
 }
-template<typename T>
+template<class T>
 void Node<T>::Show(){
-    cout<<this->data;
+    this->data.Show();
+}
+template<class T>
+bool Node<T>::operator==(const Node& node)
+{
+    cout<<"Node";
+    return (this->data == node.data);
+} 
+template<class T>
+void Node<T>::operator=(const Node& node)
+{
+    this->data = node.data;
+    this->next = node.next;
+    this->prev = node.prev;
 }

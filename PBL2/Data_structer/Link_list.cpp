@@ -1,10 +1,10 @@
 #include"Link_list.h"
-template<typename T>
+template<class T>
 Link_list<T>::Link_list()
 {
     head = nullptr;
 }
-template<typename T>
+template<class T>
 void Link_list<T>::Add(const T& data){
     Node<T> *new_node = new Node<T>(data);
     if(this->head == nullptr){
@@ -13,26 +13,30 @@ void Link_list<T>::Add(const T& data){
     }
     else {
     new_node->next=head;
+    head->prev=new_node;
     head = new_node;
     }
 }
 
 
-template<typename T>
+template<class T>
 void Link_list<T>::Show(){
     Node<T> *tmp = head;
+    if(tmp==nullptr){
+            cout<<"Link_list is empty!"<<endl;
+        }
     while(tmp != nullptr){
         tmp->Show();
         tmp=tmp->next;
     }
 }
 
-template<typename T>
+template<class T>
 void Link_list<T>::Delete(const T& data){
-    Node<T> *tmp = head;
+    Node<T> *tmp = this->head;
     while(tmp != nullptr){
         if(tmp->data == data){
-            if(tmp == head)
+            if(tmp->data == head->data)
             {
                 if(tmp->next == nullptr)
                 this->head =nullptr; 
@@ -42,10 +46,11 @@ void Link_list<T>::Delete(const T& data){
             }
             else 
             {
+                 
                 if(tmp->next != nullptr)
                 {
-                    tmp->prev->next= tmp->next;
                     tmp->next->prev= tmp->prev;
+                    tmp->prev->next= tmp->next;   
                 }
                 else
                     tmp->prev->next=nullptr;
@@ -54,10 +59,9 @@ void Link_list<T>::Delete(const T& data){
         }
         tmp = tmp->next;
     }
-    delete tmp;
 }
 
-template<typename T>
+template<class T>
 Node<T>* Link_list<T>::Search(const T& data){
     Node<T> *tmp = head;
     while(tmp != nullptr){
