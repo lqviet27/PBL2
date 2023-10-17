@@ -12,7 +12,7 @@ public:
     void Show();
     void Delete(const T& data);
     void Delete(const int& index);
-    void Serch(const T& data);
+    bool Search(const T& data);
     
 };
 
