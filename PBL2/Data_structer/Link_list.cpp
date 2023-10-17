@@ -20,7 +20,7 @@ void Link_list<T>::Add(const T& data){
 }
 
 template<typename T>
-void Link_list<T>::Insert(const T& data,const int& index){
+void Link_list<T>::Insert(){
 
 }
 
@@ -43,6 +43,7 @@ void Link_list<T>::Delete(const T& data){
             }
             if(tmp->prev == nullptr){
                 tmp->next->prev = tmp;
+                
             }
         }
         tmp = tmp->next;
