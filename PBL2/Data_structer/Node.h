@@ -4,6 +4,7 @@ using namespace std;
 template <class T>
 class Node
 {
+        
     public:
         T data;
         Node *next;
@@ -13,4 +14,8 @@ class Node
         bool operator==(const Node&);
         void operator=(const Node&);
 };
+
+
+
+
 

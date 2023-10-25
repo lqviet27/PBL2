@@ -201,7 +201,7 @@ void deposit(Account &X)
      cin>>Money;
      cout << endl;
      X.setAmount(Money);
-     cout << ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<endl;
+     cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<endl;
      system("pause");
 }
 
