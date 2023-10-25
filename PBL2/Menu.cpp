@@ -1,6 +1,8 @@
 #define en cout << endl;
+#include"Object/Account/Account.h"
 #include <iostream>
 #include <windows.h>
+#include <string.h>
 
 using namespace std;
 string soTaiKhoan, matKhau;
@@ -184,14 +186,36 @@ void menuSavingCard()
      system("pause");
 }
 
+void deposit(Account &X)
+{
+     double Money;
+     system("cls");
+     en
+         TextColor(12);
+     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     cout << endl;
+     TextColor(14);
+     cout << ("\t\t               ==========================================================");
+     cout << endl;
+     cout << ("\t\t\t                    NHAP SO TIEN BAN MUON NAP | ");
+     cin>>Money;
+     cout << endl;
+     X.setAmount(Money);
+     cout << ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<endl;
+     system("pause");
+}
+
 int main()
 {
-     startMenu();
-     menu();
-     menuUser();
-     string a, b, c;
-     menuSignIn(a, b);
-     menuSignUp(a, b, c);
-     menuDebitCard();
-     menuSavingCard();
+     // startMenu();
+     // menu();
+     // menuUser();
+     // string a, b, c;
+     // menuSignIn(a, b);
+     // menuSignUp(a, b, c);
+     // menuDebitCard();
+     // menuSavingCard();
+     Account X;
+     deposit(X);
+
 }

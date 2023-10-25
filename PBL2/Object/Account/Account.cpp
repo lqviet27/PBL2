@@ -40,6 +40,13 @@ void Account::setPassword(string password)
 {
     this->password = password;
 }
+void Account::setAmount(double amount)
+{
+    this->amount += amount;
+}
+double Account::getAmount(){
+    return this->amount;
+}
 bool Account::operator==(const Account& ac)
 {
     return (this->numAccount == ac.numAccount);

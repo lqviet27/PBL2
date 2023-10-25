@@ -18,6 +18,8 @@ class Account{
         string getPassword();
         void setNumAccount(string);
         void setPassword(string);
+        void setAmount(double);
+        double getAmount();
         friend istream &operator>>(istream &, Account &);
         bool operator==(const Account &);
         void InsertObjecttoFile(ofstream &);
