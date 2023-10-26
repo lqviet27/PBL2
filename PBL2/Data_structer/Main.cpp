@@ -14,10 +14,10 @@ int main()
 
     Account a4("4","666",true,10000000);
     Account a5("5","666",true,10000000);
-    // AC.Add(a1);
-    // AC.Add(a2);
-    // AC.Add(a3);
-    // AC.Add(a4);
-    // AC.Delete(a3);
+    AC.Add(a1);
+    AC.Add(a2);
+    AC.Add(a3);
+    AC.Add(a4);
+    AC.Delete(a3);
     AC.Show();
 }

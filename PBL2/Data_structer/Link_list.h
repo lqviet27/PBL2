@@ -2,6 +2,8 @@
 template<class T>
 class Link_list
 {
+  
+        
     public:
         Node<T> *head;
         Link_list();
