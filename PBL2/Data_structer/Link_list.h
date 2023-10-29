@@ -1,4 +1,3 @@
-
 #include"Node.h"
 template<typename T>
 class Link_list

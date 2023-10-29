@@ -1,10 +1,10 @@
-#include"../Users/User.h"
 #include"../Account/Account.h"
+#include"../Users/User.h"
 #include"../../Data_structer/Link_list.cpp"
-#include"../..//Data_structer/Node.cpp"
+#include"../../Data_structer/Node.cpp"
 class Bank{
     private:
-        static int countAccount;
+        int countAccount;
         string nameBank;
         string IDBank;
         Link_list<User> parUser;
@@ -14,9 +14,10 @@ class Bank{
         Bank(string,string);
         ~Bank();
         string getIdBank();
-        // static int getCountAccount();
+        string getCountAccount();
         void show_User();
         void show_Account();
-        void addAccount(Account);
+        void addAccount(Account&);
+        void addUser(const User&);
 };
 

@@ -5,10 +5,11 @@
 #include <iostream>
 Account::Account() {}
 
-Account::Account(string Numaccount, string password, bool typeAccount,double amount)
+Account::Account(string idBank,string numAcc,string password, bool typeAccount,double amount)
 {
     // this->numAccount = b.getIdBank() + to_string(b.getCountAccount());
-    this->numAccount =  Numaccount;
+    // this->numAccount = idBank + numAcc_bank + Numaccount;
+    this->numAccount = idBank + numAcc;
     this->password = password;
     this->amount = amount;
     this->typeAccount = typeAccount;

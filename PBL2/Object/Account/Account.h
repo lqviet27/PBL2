@@ -12,8 +12,8 @@ class Account{
         bool typeAccount;
     public:
         Account();
-        Account(string, string ,bool,double =0);
-        // Account(Bank, string, string ,bool,double =0); //* bị lỗi nếu muốn thêm một tham số là bank để lấy idbank + numaccount
+        Account(string,string,string ,bool,double =0);
+        // Account(bank,string, string ,bool,double =0); //* bị lỗi nếu muốn thêm một tham số là bank để lấy idbank + numaccount
         Account(const Account &);
         ~Account();
         string getNumAccout();
