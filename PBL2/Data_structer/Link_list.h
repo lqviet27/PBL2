@@ -1,9 +1,8 @@
+
 #include"Node.h"
-template<class T>
+template<typename T>
 class Link_list
-{
-  
-        
+{ 
     public:
         Node<T> *head;
         Link_list();

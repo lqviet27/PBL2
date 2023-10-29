@@ -2,12 +2,13 @@
 #include "Account.h"
 #include <fstream>
 #include <iomanip>
-
+#include <iostream>
 Account::Account() {}
 
-Account::Account(string numAccount, string password, bool typeAccount,double amount)
+Account::Account(string Numaccount, string password, bool typeAccount,double amount)
 {
-    this->numAccount = numAccount;
+    // this->numAccount = b.getIdBank() + to_string(b.getCountAccount());
+    this->numAccount =  Numaccount;
     this->password = password;
     this->amount = amount;
     this->typeAccount = typeAccount;
@@ -51,29 +52,26 @@ bool Account::operator==(const Account& ac)
 {
     return (this->numAccount == ac.numAccount);
 } 
-// istream &operator>>(istream &in, Account &acc)
-// {
-//     string in,b,c;
-//     menu(in,in,in);
-//     Account(a,b,c);
-    
-//     string a, b;
-//     while (1)
-//     {
-//         in >> a;
-//         cout << "\t\t\t\t\t\tXac nhan password ban vua nhap: ";
-//         in >> b;
-//         if (a == b)
-//         {
-//             cout << "\t\t\t\t\t\tMat khau da duoc xac nhan!";
-//             break;
-//         }
-//         else
-//             cout << "\t\t\t\t\t\tMat khau khong trung khop!!Moi ban nhap lai mat khau: ";
-//     }
-//     acc.password = a;
-//     return in;
-// }
+istream &operator>>(istream &in, Account &acc)
+{
+
+    string a, b;
+    while (1)
+    {
+        in >> a;
+        cout << "\t\t\t\t\t\tXac nhan password ban vua nhap: ";
+        in >> b;
+        if (a == b)
+        {
+            cout << "\t\t\t\t\t\tMat khau da duoc xac nhan!";
+            break;
+        }
+        else
+            cout << "\t\t\t\t\t\tMat khau khong trung khop!!Moi ban nhap lai mat khau: ";
+    }
+    acc.password = a;
+    return in;
+}
 
 void Account::InsertObjecttoFile(ofstream &FileOut)
 {
