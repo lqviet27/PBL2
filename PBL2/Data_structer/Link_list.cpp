@@ -8,15 +8,20 @@ Link_list<T>::Link_list()
 template<typename T>
 void Link_list<T>::Add(const T& data){
     Node<T> *new_node = new Node<T>(data);
+    
     if(this->head == nullptr){
         this->head = new_node;
         return;
     }
     else {
-    new_node->next=head;
-    head->prev=new_node;
-    head = new_node;
+        Node<T> *tmp = this->head;
+        while(tmp->next != nullptr){
+            tmp = tmp->next;
+        }
+        tmp->next = new_node;
+        new_node->prev = tmp;
     }
+    
 }
 
 

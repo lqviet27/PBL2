@@ -1,32 +1,11 @@
 #include "./DangNhap_DangKy/SignIn.cpp"
 #include "./DangNhap_DangKy/Register.cpp"
-
+#include<iostream>
 void DangNhap_DangKy()
 {
     startMenu();
 Menu:
-    system("cls");
-    TextColor(15);
-    cout << "\t\t\t\t       *********************************************" << endl;
-    cout << "\t\t\t\t                  DANG NHAP HOAC DANG KY                       " << endl;
-    cout << "\t\t\t\t       *********************************************" << endl;
-    TextColor(12);
-    cout << "\n\n\t\t\t\t\t         -DANG NHAP HOAC DANG KY-";
-    TextColor(14);
-    cout << "\n\t\t\t _______________________________________________________________________";
-    cout << "\n\t\t\t|"
-         << "                                                          \t\t|";
-    cout << "\n\t\t\t|"
-         << "                           1.Dang nhap                    \t\t|";
-    cout << "\n\t\t\t|"
-         << "                                                          \t\t|";
-    cout << "\n\t\t\t|"
-         << "                           2.Dang ki                      \t\t|";
-    cout << "\n\t\t\t|"
-         << "                                                          \t\t|";
-    cout << "\n\t\t\t|"
-         << "                           3.Thoat                        \t\t|";
-    cout << "\n\t\t\t|_______________________________________________________________________|";
+    menuUser();
 
     int chon;
     cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
@@ -61,6 +40,7 @@ Menu:
 
 int main()
 {
+    
     try
     {
         fflush(stdin);

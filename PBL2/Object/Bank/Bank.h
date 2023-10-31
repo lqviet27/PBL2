@@ -17,6 +17,7 @@ class Bank{
         string getCountAccount();
         void show_User();
         void show_Account();
+        void Show();
         void addAccount(Account&);
         void addUser(const User&);
 };

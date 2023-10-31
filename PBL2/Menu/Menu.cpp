@@ -92,49 +92,8 @@ void menuUser()
      cout << endl;
      system("pause");
 }
-void menuSignIn(string &numAccount, string &passWord)
-{
-     system("cls");
-     TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-     cout << endl;
-     cout << ("\t\t\t\t\t               -DANG NHAP- ");
-     cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << "\n\t\t"
-          << "\t\t              TAI KHOAN | ";
-     getline(cin, numAccount);
-     cout << "\n\t\t"
-          << "\t\t              MAT KHAU  | ";
-     getline(cin, passWord);
-     system("pause");
-}
-void menuSignUp(string &nameBank, string &name, string &passWord)
-{
-     system("cls");
-     TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-     cout << endl;
-     cout << ("\t\t\t\t\t               -DANG KI- ");
-     cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << "\n\t\t"
-          << "\t\t\t           THONG TIN CA NHAN! ";
-     cout << "\n\t\t"
-          << "\t\t         TEN NGAN HANG | ";
-     getline(cin, nameBank);
-     cout << "\n\t\t"
-          << "\t\t         HO VA TEN | ";
-     getline(cin, name);
-     cout << "\n\t\t"
-          << "\t\t         MAT KHAU  | ";
-     getline(cin, passWord);
-     system("pause");
-}
+
+
 void menuDebitCard()
 {
      system("cls");

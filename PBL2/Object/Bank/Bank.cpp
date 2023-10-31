@@ -53,5 +53,12 @@ void Bank::show_Account()
     cout<<"DANH SACH TAI KHOAN CUA NGAN HANG "<<this->nameBank<<" LA:"<<endl;
     parAccount.Show();
 }
+void Bank::show_User(){
+    cout<<"DANH SACH KHACH HANG CUA NGAN HANG "<<this->nameBank<<" LA:"<<endl;
+    parUser.Show();
+}
+void Bank::Show(){
+    
+}
 
 

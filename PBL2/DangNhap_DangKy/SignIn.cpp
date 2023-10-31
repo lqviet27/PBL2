@@ -1,7 +1,7 @@
 #pragma once
 #include "SignIn.h"
+#include ""
 #include <unistd.h>
-
 void SignIn::DangNhapQuaSoLanQuyDinh()
 {
     throw "Ban da dang nhap sai qua so lan quy dinh!!";
@@ -12,39 +12,27 @@ int SignIn::DangNhap()
     cout << "\t\t\t\t      *********************************************" << endl;
     cout << "\t\t\t\t                       DANG NHAP                       " << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
-    int username;
-    char pass;
+    string numAccount;
+    string pass;
     string rightpassword;
-    cout << "\n\t\t\t\t\tEnter User: ";
+    cout << "\n\t\t\t\t\tEnter NumAccount: ";
     int count = 0;
     while (true)
     {
-        cin >> username;
-        if (username < 0)
+        cin >> numAccount;
+        if (numAccount == "ADMIN" )
         {
-            DSAccountQL temp;
-            int index = temp.FindUsername(username);
-            if (-1 != index)
-            {
-                rightpassword = temp.GivePass(index);
-                break;
-            }
+            //Quan ly
         }
-        else if (username > 0)
+        else 
         {
-            DSAccount temp;
-            int index = temp.FindUsername(username);
-            if (-1 != index)
-            {
-                rightpassword = temp.GivePass(index);
-                break;
-            }
+            //Khach hang
         }
-        if (count == 5)
-        {
-            DangNhapQuaSoLanQuyDinh();
+        while(count <= 4){
+            string idB= numAccount.substr(0,3);
+
         }
-        cout << "\t\t\t\t\tKhong co username: " << username << "! Xin hay nhap lai username: ";
+        cout << "\t\t\t\t\tKhong co tai khoan : " << numAccount << "! Xin hay nhap lai so tai khoan: ";
         count++;
     }
     count = 0;
