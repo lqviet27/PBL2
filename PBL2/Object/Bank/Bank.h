@@ -1,15 +1,25 @@
-#include"../Users/User.h"
 #include"../Account/Account.h"
+#include"../Users/User.h"
+#include"../../Data_structer/Link_list.cpp"
+#include"../../Data_structer/Node.cpp"
 class Bank{
     private:
+        int countAccount;
         string nameBank;
         string IDBank;
-        User *parUser;
-        Account *ParAccount;
+        Link_list<User> parUser;
+        Link_list<Account> parAccount;
     public:
         Bank();
+        Bank(string,string);
         ~Bank();
+        string getIdBank();
+        string getCountAccount();
         void show_User();
         void show_Account();
+        void Show();
+        void addAccount(Account&);
+        void addUser(const User&);
+        bool operator==(const Bank&);
 };
 

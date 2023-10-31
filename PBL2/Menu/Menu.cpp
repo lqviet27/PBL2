@@ -1,10 +1,10 @@
-#define en cout << endl;
-#include"Object/Account/Account.h"
-#include <iostream>
 #include <windows.h>
-#include <string.h>
-
+#include <iostream>
+#include"../Object/Account/Account.cpp"
 using namespace std;
+#define en cout << endl;
+// #include <string.h>
+
 string soTaiKhoan, matKhau;
 // bool checkChoose(int choose,const int )
 
@@ -52,24 +52,24 @@ void startMenu()
      system("pause");
 }
 
-void menu()
-{
-     system("cls");
-     en
-         TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-     cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << ("\t\t\t\t                HAY CHON VAI TRO CUA BAN!");
-     cout << endl;
-     cout << ("\t\t\t\t                    1. QUAN LI");
-     cout << endl;
-     cout << ("\t\t\t\t                    2. NGUOI DUNG");
-     cout << endl;
-     system("pause");
-}
+// void menu()
+// {
+//      system("cls");
+//      en
+//          TextColor(12);
+//      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+//      cout << endl;
+//      TextColor(14);
+//      cout << ("\t\t               ==========================================================");
+//      cout << endl;
+//      cout << ("\t\t\t\t                HAY CHON VAI TRO CUA BAN!");
+//      cout << endl;
+//      cout << ("\t\t\t\t                    1. QUAN LI");
+//      cout << endl;
+//      cout << ("\t\t\t\t                    2. NGUOI DUNG");
+//      cout << endl;
+//      system("pause");
+// }
 void menuUser()
 {
      system("cls");
@@ -92,49 +92,8 @@ void menuUser()
      cout << endl;
      system("pause");
 }
-void menuSignIn(string &numAccount, string &passWord)
-{
-     system("cls");
-     TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-     cout << endl;
-     cout << ("\t\t\t\t\t               -DANG NHAP- ");
-     cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << "\n\t\t"
-          << "\t\t              TAI KHOAN | ";
-     getline(cin, numAccount);
-     cout << "\n\t\t"
-          << "\t\t              MAT KHAU  | ";
-     getline(cin, passWord);
-     system("pause");
-}
-void menuSignUp(string &nameBank, string &name, string &passWord)
-{
-     system("cls");
-     TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-     cout << endl;
-     cout << ("\t\t\t\t\t               -DANG KI- ");
-     cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << "\n\t\t"
-          << "\t\t\t           THONG TIN CA NHAN! ";
-     cout << "\n\t\t"
-          << "\t\t         TEN NGAN HANG | ";
-     getline(cin, nameBank);
-     cout << "\n\t\t"
-          << "\t\t         HO VA TEN | ";
-     getline(cin, name);
-     cout << "\n\t\t"
-          << "\t\t         MAT KHAU  | ";
-     getline(cin, passWord);
-     system("pause");
-}
+
+
 void menuDebitCard()
 {
      system("cls");
@@ -201,21 +160,24 @@ void deposit(Account &X)
      cin>>Money;
      cout << endl;
      X.setAmount(Money);
-     cout << ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<endl;
+     cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<" VND"<<endl;
      system("pause");
 }
 
-int main()
-{
-     // startMenu();
-     // menu();
-     // menuUser();
-     // string a, b, c;
-     // menuSignIn(a, b);
-     // menuSignUp(a, b, c);
-     // menuDebitCard();
-     // menuSavingCard();
-     Account X;
-     deposit(X);
+void menuMain1(int userName){}
+void menuMain2(int userName){}
 
-}
+// int main()
+// {
+//      // startMenu();
+//      // menu();
+//      // menuUser();
+//      // string a, b, c;
+//      // menuSignIn(a, b);
+//      // menuSignUp(a, b, c);
+//      // menuDebitCard();
+//      // menuSavingCard();
+//      Account X;
+//      deposit(X);
+
+// }

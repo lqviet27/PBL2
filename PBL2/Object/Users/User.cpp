@@ -1,3 +1,4 @@
+
 #include "User.h"
 #include <fstream>
 #include <iomanip>
@@ -24,7 +25,7 @@ User::User(const User &nv)
 
 User::~User() {}
 
-void User::ShowUser()
+void User::Show()
 {
     cout << " " << setw(28) << left << _Name << " |";
     cout << " ";
@@ -110,5 +111,15 @@ void User::InsertObjecttoFile(ofstream &FileOut)
     FileOut << _PhoneNumber << '|';
     FileOut << _Address << '|';
     FileOut << _Gender;
+}
+
+void User::addAccount(const Account& ac)
+{
+    userAccount.Add(ac);
+}
+
+void User::showAccount(){
+    cout<<"DANH SACH TAI KHOAN CUA KHACH HANG "<<this->_Name<<" LA:"<<endl;
+    userAccount.Show();
 }
 

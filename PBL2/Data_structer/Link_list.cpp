@@ -1,25 +1,31 @@
+#pragma once
 #include"Link_list.h"
-template<class T>
+template<typename T>
 Link_list<T>::Link_list()
 {
     head = nullptr;
 }
-template<class T>
+template<typename T>
 void Link_list<T>::Add(const T& data){
     Node<T> *new_node = new Node<T>(data);
+    
     if(this->head == nullptr){
         this->head = new_node;
         return;
     }
     else {
-    new_node->next=head;
-    head->prev=new_node;
-    head = new_node;
+        Node<T> *tmp = this->head;
+        while(tmp->next != nullptr){
+            tmp = tmp->next;
+        }
+        tmp->next = new_node;
+        new_node->prev = tmp;
     }
+    
 }
 
 
-template<class T>
+template<typename T>
 void Link_list<T>::Show(){
     Node<T> *tmp = head;
     if(tmp==nullptr){
@@ -31,7 +37,7 @@ void Link_list<T>::Show(){
     }
 }
 
-template<class T>
+template<typename T>
 void Link_list<T>::Delete(const T& data){
     Node<T> *tmp = this->head;
     while(tmp != nullptr){
@@ -61,7 +67,7 @@ void Link_list<T>::Delete(const T& data){
     }
 }
 
-template<class T>
+template<typename T>
 Node<T>* Link_list<T>::Search(const T& data){
     Node<T> *tmp = head;
     while(tmp != nullptr){
