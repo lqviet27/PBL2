@@ -1,5 +1,5 @@
-#include"../Account/Account.h"
-#include"../Users/User.h"
+#include"../Account/Account.cpp"
+#include"../Users/User.cpp"
 #include"../../Data_structer/Link_list.cpp"
 #include"../../Data_structer/Node.cpp"
 class Bank{
