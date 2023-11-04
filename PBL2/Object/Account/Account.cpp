@@ -15,6 +15,14 @@ Account::Account(string idBank,string numAcc,string password, bool typeAccount,d
     this->typeAccount = typeAccount;
 }
 
+Account::Account(string numAcc,string password, bool typeAccount,double amount)
+{
+    this->numAccount = numAcc;
+    this->password = password;
+    this->amount = amount;
+    this->typeAccount = typeAccount;
+}
+
 Account::Account(const Account &d)
 {
     this->numAccount = d.numAccount;
@@ -82,6 +90,7 @@ void Account::InsertObjecttoFile(ofstream &FileOut)
 }
 
 void Account::Show(){
-    cout<<this->numAccount<<"|"<<fixed<<setprecision(2)<<this->amount<<"|"<<this->password<<endl;
+    string type = (this->typeAccount) ? "Tiet kiem" : "Thanh toan";
+    cout << "\t\t\t|  " << setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
 }
 

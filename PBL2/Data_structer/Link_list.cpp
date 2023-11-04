@@ -5,6 +5,18 @@ Link_list<T>::Link_list()
 {
     head = nullptr;
 }
+
+template<typename T>
+Link_list<T>::~Link_list() {
+    Node<T> *current = head;
+    while (current != nullptr) {
+        Node<T> *next = current->next;
+        delete current;
+        current = next;
+    }
+    head = nullptr;
+}
+
 template<typename T>
 void Link_list<T>::Add(const T& data){
     Node<T> *new_node = new Node<T>(data);

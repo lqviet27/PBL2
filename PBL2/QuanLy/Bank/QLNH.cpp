@@ -41,7 +41,7 @@ QLNH::QLNH(const QLNH& q){
 }
 QLNH::~QLNH()
 {
-
+    this->parBank.~Link_list();
 }
 void QLNH::addBank(const Bank& b){
     parBank.Add(b);
