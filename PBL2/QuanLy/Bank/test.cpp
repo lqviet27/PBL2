@@ -1,9 +1,15 @@
+#include <windows.h>
 #include"QLNH.cpp"
 #include <fstream>
 #include <conio.h>
 #include<iostream>
 using namespace std;
 
+void TextColor(int x)
+{
+     HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+     SetConsoleTextAttribute(color, x);
+}
 
 
 int main(){
@@ -22,7 +28,16 @@ int main(){
     //     }
     //     FileIn.close();
     // }
+    TextColor(14);
     QLNH a;
     // a.showBank();
     a.Show2();
+    cout<<endl;
+    Bank b=a.SearchBank("003");
+    b.Show();
+
+
+   
+    
+   
 }

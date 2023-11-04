@@ -5,6 +5,7 @@ class Link_list
     public:
         Node<T> *head;
         Link_list();
+        ~Link_list();
         void Add(const T& data);
         void Show();
         void Delete(const T& data);
