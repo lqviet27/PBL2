@@ -56,7 +56,9 @@ void Bank::show_User(){
     parUser.Show();
 }
 void Bank::Show(){
-    cout<<this->IDBank<<"\t\t"<<this->nameBank<<endl;
+    cout<<"\t\t\t";
+    cout<<"|  "<<this->IDBank<<" |"<<"\t"<<this->nameBank<<setw(12)<<"\t |"<<endl;
+    
 }
 bool Bank::operator==(const Bank& B)
 {
