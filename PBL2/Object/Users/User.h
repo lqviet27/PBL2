@@ -1,33 +1,34 @@
 #pragma once
-#include"../Date_Time/Date.cpp"
-#include"../Account/Account.h"
-#include"../../Data_structer/Link_list.cpp"
-#include"../../Data_structer/Node.cpp"
+#include "../Date_Time/Date.cpp"
+#include "../Account/Account.cpp"
+#include "../../Data_structer/Link_list.cpp"
+#include "../../Data_structer/Node.cpp"
 class User
 {
 private:
+    string CCCD;
     string _Name;
     Date _Birthday;
     string _PhoneNumber;
     string _Address;
     bool _Gender;
     Link_list<Account> userAccount;
-
 public:
     User();
-    User(string, Date, string, string, bool);
+    User(string, string, Date, string, string, bool);
     User(const User &);
     ~User();
     void Show();
-    void Name(string);
-    void Birthday(Date);
-    void PhoneNumber(string);
-    void Address(string);
-    void Gender(bool);
-    void addAccount(const Account&);
+    void setName(string);
+    void setBirthday(Date);
+    void setPhoneNumber(string);
+    void setAddress(string);
+    void setGender(bool);
+    void setCCCD(string);
+    void addAccount(const Account &);
     void showAccount();
-
+    bool operator==(const User &);
+    void operator=(const User &);
     friend istream &operator>>(istream &, User &);
     void InsertObjecttoFile(ofstream &);
-    
 };

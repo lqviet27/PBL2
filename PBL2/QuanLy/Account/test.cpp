@@ -40,9 +40,8 @@ int main(){
     */
     QLTK a;
     a.showAccount();
-    Account b = a.SearchAccount("0012222222");
+    Account b ;
+    a.SearchAccount("0013333333").Show();
     //! bi loi search account ra nhung bi sai o so du va laoi tai khoan
     b.Show();
-
-   
 }

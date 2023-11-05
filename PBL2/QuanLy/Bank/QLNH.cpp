@@ -73,35 +73,5 @@ Bank QLNH::SearchBank(const string& id){
         return Bank("error","-1");
 }
 
-// void QLNH::ImportFromFile(){
-//     ifstream FileIn("Database/KhachHang/import.txt", ios_base::in);
-//     if (FileIn.fail())
-//     {
-//         cout << "Khong tim thay file Import! Import khong thanh cong" << endl;
-//     }
-//     else
-//     {
-//         int count = 0;
-//         while (!FileIn.eof())
-//         {
-//             int id;
-//             string name, phonenumber, address;
-//             bool gender;
-//             char separator;
-//             int dd1, mm1, yyyy1;
-//             FileIn >> id >> separator;
-//             getline(FileIn, name, '|');
-//             FileIn >> dd1 >> separator >> mm1 >> separator >> yyyy1 >> separator;
-//             getline(FileIn, phonenumber, '|');
-//             getline(FileIn, address, '|');
-//             FileIn >> gender;
-//             KhachHang A(id, name, Date(dd1, mm1, yyyy1), phonenumber, address, gender);
-//             AddtotheEnd(A, FileIn);
-//             count++;
-//         }
-//         cout << "Da them thanh cong " << count << " nhan vien vao Database!" << endl;
-//         FileIn.close();
-//     }
-// }
 
 

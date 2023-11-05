@@ -25,6 +25,7 @@ class Account{
         double getAmount();
         friend istream &operator>>(istream &, Account &);
         bool operator==(const Account &);
+        void operator=(const Account &);
         void InsertObjecttoFile(ofstream &);
         void Show();  
 };

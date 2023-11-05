@@ -3,7 +3,9 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-Account::Account() {}
+Account::Account() {
+    this->typeAccount=0;
+}
 
 Account::Account(string idBank,string numAcc,string password, bool typeAccount,double amount)
 {
@@ -26,6 +28,8 @@ Account::Account(string numAcc,string password, bool typeAccount,double amount)
 Account::Account(const Account &d)
 {
     this->numAccount = d.numAccount;
+    this->amount = d.amount;
+    this->typeAccount = d.typeAccount;
     this->password = d.password;
 }
 
@@ -92,5 +96,12 @@ void Account::InsertObjecttoFile(ofstream &FileOut)
 void Account::Show(){
     string type = (this->typeAccount) ? "Tiet kiem" : "Thanh toan";
     cout << "\t\t\t|  " << setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
+}
+void Account::operator=(const Account& x)
+{
+    this->numAccount= x.numAccount;
+    this->typeAccount = x.typeAccount;
+    this->amount = x.amount;
+    this->password = x.password;
 }
 

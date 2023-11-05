@@ -23,6 +23,7 @@ QLKH::QLKH()
             getline(FileIn, PhoneNumber, '|');
             getline(FileIn, Address, '|');
             FileIn >> Gender ;
+            FileIn.ignore(1); // loai bo ky tu xuong dong
             User Us(CCCD, Name, Date(dd, mm, yy), PhoneNumber, Address, Gender);
             addUser(Us);
             cout << "Da them thanh cong nguoi dung" << Name << " vao Database!" << endl;
@@ -49,16 +50,20 @@ void QLKH::addUser(const User &b)
 }
 void QLKH::showUser()
 {
-    cout << "\t\t\t+=====================================================================================================================+" << endl;
-    cout << "\t\t\t|                                               ** DANH SACH NGUOI DUNG **                                            |" << endl;
-    cout << "\t\t\t+=====================================================================================================================+" << endl;
-    cout << "\t\t\t|      CCCD      |       HoVaTen       |    Ngay Sinh    |    So Dien Thoai   |           Dia Chi           |   Gioi Tinh   |" << endl;
-    cout << "\t\t\t+=====================================================================================================================+" << endl;
+
+    cout << "\t\t\t+=============================================================================================================================+" << endl;
+    cout << "\t\t\t|                                                 ** DANH SACH NGUOI DUNG **                                                  |" << endl;
+    cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+    cout << "\t\t\t|      CCCD      |        HoVaTen       |    Ngay Sinh    |    So Dien Thoai   |            Dia Chi           |   Gioi Tinh   |" << endl;
+    cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
     this->parUser.Show();
-    cout << "\t\t\t+=====================================================================================================================+" << endl;
+    cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+
+
 }
 
-//! bi loi search User ra nhung bi sai o so du va laoi tai khoan
+
+
 User QLKH::SearchUser(const string & CCCD)
 {
     User Us(CCCD,"",Date(1,1,2004),"", "",1);
@@ -69,8 +74,9 @@ User QLKH::SearchUser(const string & CCCD)
     }
     else
     {
-        cout << "Khong tim thay Nguoi Dung!" << endl;
-        return Us;
+        // cout << "Khong tim thay Nguoi Dung!" << endl;
+        // return Us;
+        throw string("Khong tim thay Nguoi Dung!");
     }
 }
 void QLKH::ImportFromFile()
