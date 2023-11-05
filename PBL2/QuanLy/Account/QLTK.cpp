@@ -10,7 +10,6 @@ QLTK::QLTK()
         
     }
     else{
-        
         while(!FileIn.eof()){
              string numAccount, password;
             long double amount;
@@ -57,11 +56,14 @@ Account QLTK::SearchAccount(const string& numAcc){
     Account A(numAcc,"",0,0);
     Node<Account> *b = this->parAccount.Search(A);
     if(b != nullptr)
-        return b->data;
+        {
+            b->data.Show();
+            return b->data;
+        }
     else {
         cout<<"Khong tim thay tai khoan!"<<endl;
         return A;
-    }   
+    }
 }
 void QLTK::ImportFromFile(){
     

@@ -5,8 +5,9 @@
 
 User::User() {}
 
-User::User(string name, Date bi, string pn, string address, bool g)
+User::User(string CCCD, string name, Date bi, string pn, string address, bool g)
 {
+    this->CCCD = CCCD;
     this->_Name = name;
     this->_Birthday = bi;
     this->_PhoneNumber = pn;
@@ -16,6 +17,7 @@ User::User(string name, Date bi, string pn, string address, bool g)
 
 User::User(const User &nv)
 {
+    this->CCCD=nv.CCCD;
     this->_Name = nv._Name;
     this->_Birthday = nv._Birthday;
     this->_PhoneNumber = nv._PhoneNumber;
@@ -27,41 +29,31 @@ User::~User() {}
 
 void User::Show()
 {
-    cout << " " << setw(28) << left << _Name << " |";
-    cout << " ";
-    _Birthday.ShowDate();
-    cout << " | " << setw(12) << left << _PhoneNumber;
-    cout << "| " << setw(24) << left << _Address;
-    cout << "|     ";
-    if (_Gender)
-        cout << setw(9) << left << " Nu";
-    else
-        cout << setw(9) << left << " Nam";
-    cout << "|" << endl;
+    cout << "\t\t\t|  "  << this->CCCD << "  | " << setw(15) << this->_Name << " | " << setw(4); this->_Birthday.ShowDate(); 
+    cout<< "   |  " << setw(13) << this->_PhoneNumber << "     |  " << setw(11) << this->_Address << "   |" << this->_Gender <<" |"<<endl;  
 }
 
-
-void User::Name(string value)
+void User::setName(string value)
 {
     this->_Name = value;
 }
 
-void User::Birthday(Date value)
+void User::setBirthday(Date value)
 {
     this->_Birthday = value;
 }
 
-void User::PhoneNumber(string value)
+void User::setPhoneNumber(string value)
 {
     this->_PhoneNumber = value;
 }
 
-void User::Address(string value)
+void User::setAddress(string value)
 {
     this->_Address = value;
 }
 
-void User::Gender(bool value)
+void User::setGender(bool value)
 {
     this->_Gender = value;
 }
@@ -103,6 +95,19 @@ istream &operator>>(istream &in, User &nv)
     } while (check);
     return in;
 }
+bool User::operator==(const User &us)
+{
+    return (this->CCCD == us.CCCD);
+}
+void User::operator=(const User &us)
+{
+    this->CCCD = us.CCCD;
+    this->_Name = us._Name;
+    this->_Address = us._Address;
+    this->_Birthday = us._Birthday;
+    this->_Gender = us._Gender;
+    this->_PhoneNumber = us._PhoneNumber;
+}
 
 void User::InsertObjecttoFile(ofstream &FileOut)
 {
@@ -113,13 +118,13 @@ void User::InsertObjecttoFile(ofstream &FileOut)
     FileOut << _Gender;
 }
 
-void User::addAccount(const Account& ac)
+void User::addAccount(const Account &ac)
 {
     userAccount.Add(ac);
 }
 
-void User::showAccount(){
-    cout<<"DANH SACH TAI KHOAN CUA KHACH HANG "<<this->_Name<<" LA:"<<endl;
+void User::showAccount()
+{
+    cout << "DANH SACH TAI KHOAN CUA KHACH HANG " << this->_Name << " LA:" << endl;
     userAccount.Show();
 }
-
