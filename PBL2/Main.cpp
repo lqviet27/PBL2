@@ -7,7 +7,6 @@ void DangNhap_DangKy()
     startMenu();
 Menu:
     menuUser();
-
     int chon;
     cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
     cin >> chon;
@@ -41,7 +40,7 @@ Menu:
 
 int main()
 {
-    
+    QLNH A;
 
     TextColor(12);
     try
@@ -59,4 +58,6 @@ int main()
         cout << endl
              << "\t\t\t\t\t" << msg;
     }
+
+    
 }

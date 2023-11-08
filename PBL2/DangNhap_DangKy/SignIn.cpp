@@ -13,17 +13,16 @@ string SignIn::DangNhap(QLNH &X)
     cout << "\t\t\t\t      *********************************************" << endl;
     string numAccount;
     string pass;
-    string rightpassword;
-    cout << "\n\t\t\t\t\tEnter NumAccount: ";
+    
     int count = 0;
     while (true)
     {
+        cout << "\n\t\t\t\t\tEnter NumAccount: ";
         cin >> numAccount;
         if (numAccount == "ADMIN" )
         {
             //Quan ly
             cout<<"Admin"<< endl;
-            
         }
         string idB=numAccount.substr(0,3);
         
@@ -48,19 +47,9 @@ string SignIn::DangNhap(QLNH &X)
         string pass;
         cout << "\n\t\t\t\t\tEnter Password: ";
         cin>>pass;
-        if (a == rightpassword)
+        if (1)
         {
-            cout << endl
-                 << "\t\t\t\t\tBan da dang nhap thanh cong!";
-            sleep(1);
-            delete[] x;
-            if (numAccount > 0)
-            {
-                menuMain1(numAccount);
-            }
-            else
-                menuMain2(numAccount);
-            break;
+
         }
         else
         {

@@ -6,18 +6,18 @@ QLNH::QLNH()
     ifstream FileIn("../../Database/Bank/Bank.txt", ios_base::in);
     if(FileIn.fail()){
         cout<<"Khong tim thay file Bank.txt! Import khong thanh cong"<<endl;
-        if (!kbhit())
-        {
-            char key = getch();
-            if (key == 27 || key == 'n' || key == 'N')
-            {
-                throw "Hay xem xet lai Database va khoi dong lai chuong trinh";
-            }
-            else if (key == 'Y' || key == 'y')
-            {
+        // if (!kbhit())
+        // {
+        //     char key = getch();
+        //     if (key == 27 || key == 'n' || key == 'N')
+        //     {
+        //         throw "Hay xem xet lai Database va khoi dong lai chuong trinh";
+        //     }
+        //     else if (key == 'Y' || key == 'y')
+        //     {
                 
-            }
-        }
+        //     }
+        // }
     }
     else{
         
@@ -30,6 +30,9 @@ QLNH::QLNH()
             addBank(A);
             cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
         }
+        QLKH A;
+        
+
     }
     FileIn.close();
 }
