@@ -1,6 +1,7 @@
 #include "QLNH.h"
 #include <fstream>
 #include <conio.h>
+
 QLNH::QLNH()
 {
     ifstream FileIn("Database/Bank/Bank.txt", ios_base::in);

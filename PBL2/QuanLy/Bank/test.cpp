@@ -12,6 +12,7 @@ void TextColor(int x)
 }
 
 
+
 int main(){
     // ifstream FileIn("../../Database/Bank/Bank.txt", ios_base::in);
     // if(FileIn.fail()){

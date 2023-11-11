@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+
 Account::Account() {
     this->typeAccount=0;
 }

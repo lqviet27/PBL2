@@ -4,6 +4,7 @@
 #include<string.h>
 using namespace std;
 
+
 class Account{
     private:
         string numAccount;
