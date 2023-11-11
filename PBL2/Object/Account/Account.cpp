@@ -1,4 +1,4 @@
-
+#pragma once
 #include "Account.h"
 #include <fstream>
 #include <iomanip>
@@ -87,10 +87,12 @@ istream &operator>>(istream &in, Account &acc)
 }
 
 void Account::InsertObjecttoFile(ofstream &FileOut)
-{
+{   
+    
     FileOut << numAccount << "|";
     FileOut << amount << "|";
-    FileOut << password; 
+    FileOut << typeAccount << "|";
+    FileOut << password<<"\n"; 
 }
 
 void Account::Show(){

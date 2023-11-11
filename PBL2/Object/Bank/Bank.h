@@ -19,7 +19,10 @@ class Bank{
         void show_Account();
         void Show();
         void addAccount(Account&);
+        void addAccounttoFile(Account&);
         void addUser(const User&);
         bool operator==(const Bank&);
+        Account searchAcc(const string&);
+        void InsertObjecttoFile(ofstream &);
 };
 

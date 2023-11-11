@@ -4,7 +4,7 @@
 
 QLTK::QLTK()
 {
-    ifstream FileIn("../../Database/Account/Account.txt", ios_base::in);
+    ifstream FileIn("Database/Account/Account.txt", ios_base::in);
     if(FileIn.fail()){
         cout<<"Khong tim thay file Bank.txt! Import khong thanh cong"<<endl;
         
@@ -21,7 +21,7 @@ QLTK::QLTK()
             getline(FileIn, password, '\n');
             Account A(numAccount, password, typeAccount, amount);
             addAccount(A);
-            cout<<"Da them thanh cong ngan hang "<<numAccount<<" vao Database!"<<endl;
+            // cout<<"Da them thanh cong ngan hang "<<numAccount<<" vao Database!"<<endl;
         }
     }
     FileIn.close();
@@ -57,12 +57,10 @@ Account QLTK::SearchAccount(const string& numAcc){
     Node<Account> *b = this->parAccount.Search(A);
     if(b != nullptr)
         {
-            b->data.Show();
             return b->data;
         }
     else {
-        cout<<"Khong tim thay tai khoan!"<<endl;
-        return A;
+        throw string("Khong tim thay tai khoan!");
     }
 }
 void QLTK::ImportFromFile(){
