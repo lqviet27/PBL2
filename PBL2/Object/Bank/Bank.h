@@ -2,6 +2,7 @@
 #include"../Users/User.cpp"
 #include"../../Data_structer/Link_list.cpp"
 #include"../../Data_structer/Node.cpp"
+
 class Bank{
     private:
         int countAccount;
@@ -19,7 +20,10 @@ class Bank{
         void show_Account();
         void Show();
         void addAccount(Account&);
+        //void addAccounttoFile(Account&);
         void addUser(const User&);
         bool operator==(const Bank&);
+        Account searchAcc(const string&);
+        void InsertObjecttoFile(ofstream &);
 };
 

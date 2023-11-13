@@ -2,6 +2,7 @@
 #include "Register.h"
 #include <fstream>
 
+
 void Register::NhapThongTinKhachHang()
 {
     KhachHang tempKH;

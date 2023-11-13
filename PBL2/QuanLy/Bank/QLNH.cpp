@@ -1,9 +1,12 @@
 #include "QLNH.h"
+#include "../Users/QLKH.cpp"
+#include "../Account/QLTK.cpp"
 #include <fstream>
 #include <conio.h>
+
 QLNH::QLNH()
 {
-    ifstream FileIn("../../Database/Bank/Bank.txt", ios_base::in);
+    ifstream FileIn("Database/Bank/Bank.txt", ios_base::in);
     if(FileIn.fail()){
         cout<<"Khong tim thay file Bank.txt! Import khong thanh cong"<<endl;
         // if (!kbhit())
@@ -20,7 +23,6 @@ QLNH::QLNH()
         // }
     }
     else{
-        
         while(!FileIn.eof()){
             string id, name;
             char separator;
@@ -28,10 +30,16 @@ QLNH::QLNH()
             getline(FileIn, name, '\n');
             Bank A(name, id);
             addBank(A);
-            cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
+            // cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
         }
-        QLKH A;
-        
+        QLKH B;
+        QLTK C;
+        Link_list<Account> AC=C.getLinkListAccount();
+        AC.Show();
+        while(AC.head!=nullptr)
+        {
+            
+        }
 
     }
     FileIn.close();

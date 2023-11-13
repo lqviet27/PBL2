@@ -4,6 +4,7 @@
 #include<string.h>
 using namespace std;
 
+
 class Account{
     private:
         string CCCD;
@@ -14,8 +15,7 @@ class Account{
     public:
         Account();
         Account(string,string,string,string ,bool,double);
-        Account(string,string ,bool,double);
-        // Account(bank,string, string ,bool,double =0); //* bị lỗi nếu muốn thêm một tham số là bank để lấy idbank + numaccount
+        Account(string,string,string ,bool,double);
         Account(const Account &);
         ~Account();
         string getNumAccout();

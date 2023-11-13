@@ -1,8 +1,9 @@
-
+#pragma once
 #include "Account.h"
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+
 Account::Account() {
     this->typeAccount=0;
 }
@@ -18,8 +19,9 @@ Account::Account(string CCCD,string idBank,string numAcc,string password, bool t
     this->typeAccount = typeAccount;
 }
 
-Account::Account(string numAcc,string password, bool typeAccount,double amount)
+Account::Account(string CCCD,string numAcc,string password, bool typeAccount,double amount)
 {
+    this->CCCD=CCCD;
     this->numAccount = numAcc;
     this->password = password;
     this->amount = amount;
@@ -88,10 +90,12 @@ istream &operator>>(istream &in, Account &acc)
 }
 
 void Account::InsertObjecttoFile(ofstream &FileOut)
-{
+{   
+    
     FileOut << numAccount << "|";
     FileOut << amount << "|";
-    FileOut << password; 
+    FileOut << typeAccount << "|";
+    FileOut << password<<"\n"; 
 }
 
 void Account::Show(){

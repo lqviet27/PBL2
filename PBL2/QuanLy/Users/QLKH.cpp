@@ -1,10 +1,11 @@
+
 #include "QLKH.h"
 #include <fstream>
 #include <conio.h>
 
 QLKH::QLKH()
 {
-    ifstream FileIn("../../Database/User/User.txt", ios_base::in);
+    ifstream FileIn("Database/User/User.txt", ios_base::in);
     if (FileIn.fail())
     {
         cout << "Khong tim thay file User.txt! Import khong thanh cong" << endl;
@@ -26,7 +27,7 @@ QLKH::QLKH()
             FileIn.ignore(1); // loai bo ky tu xuong dong
             User Us(CCCD, Name, Date(dd, mm, yy), PhoneNumber, Address, Gender);
             addUser(Us);
-            cout << "Da them thanh cong nguoi dung" << Name << " vao Database!" << endl;
+           
         }
     }
     FileIn.close();

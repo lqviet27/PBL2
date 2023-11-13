@@ -49,6 +49,17 @@ void Link_list<T>::Show(){
     }
 }
 
+// template<typename T>
+// void Link_list<T>::operator=(const Link_list<T>& LL)
+// {
+//     while(LL->head != nullptr)
+//     {
+//         this->head=LL->head;
+//         LL->head=LL->head->next;
+//         this->head=this->head->next;
+//     }
+// }
+
 template<typename T>
 void Link_list<T>::Delete(const T& data){
     Node<T> *tmp = this->head;
