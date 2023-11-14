@@ -35,10 +35,19 @@ QLNH::QLNH()
         QLKH B;
         QLTK C;
         Link_list<Account> AC=C.getLinkListAccount();
-        AC.Show();
+        C.showAccount();
+        cout<<AC.head->data.getCCCD();
         while(AC.head!=nullptr)
         {
             
+            string numAC=AC.head->data.getNumAccout();
+
+            string cccdChuTaiKhoan=AC.head->data.getCCCD();
+            cout<<"211"+cccdChuTaiKhoan<<endl;
+            //User US=B.SearchUser("");
+            
+            //US.Show();
+            AC.head=AC.head->next;
         }
 
     }

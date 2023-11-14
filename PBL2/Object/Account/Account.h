@@ -20,6 +20,7 @@ class Account{
         ~Account();
         string getNumAccout();
         string getPassword();
+        string getCCCD();
         void setNumAccount(string);
         void setPassword(string);
         void setAmount(double);

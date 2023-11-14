@@ -18,6 +18,9 @@ Account::Account(string CCCD,string idBank,string numAcc,string password, bool t
     this->amount = amount;
     this->typeAccount = typeAccount;
 }
+string Account::getCCCD() {
+    return this->CCCD;
+}
 
 Account::Account(string CCCD,string numAcc,string password, bool typeAccount,double amount)
 {

@@ -43,18 +43,19 @@ Menu:
 
 int main()
 {
-    TextColor(12);
-    try
-    {
-        fflush(stdin);
-        DangNhap_DangKy();
-    }
     
-    catch (string msg)
-    {
-        cout << endl
-             << "\t\t\t\t\t" << msg;
-    }
+    // TextColor(12);
+    // try
+    // {
+    //     fflush(stdin);
+    //     DangNhap_DangKy();
+    // }
+    
+    // catch (string msg)
+    // {
+    //     cout << endl
+    //          << "\t\t\t\t\t" << msg;
+    // }
 
     
 }
