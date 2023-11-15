@@ -15,6 +15,7 @@ public:
     ~QLTK();
     void addAccount(const Account&);
     void showAccount();
+    Link_list<Account> getLinkListAccount();
     Account SearchAccount(const string&);
     void ImportFromFile();
 };

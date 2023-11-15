@@ -7,19 +7,20 @@ using namespace std;
 
 class Account{
     private:
+        string CCCD;
         string numAccount;
         string password;
         double amount;
         bool typeAccount;
     public:
         Account();
+        Account(string,string,string,string ,bool,double);
         Account(string,string,string ,bool,double);
-        Account(string,string ,bool,double);
-        
         Account(const Account &);
         ~Account();
         string getNumAccout();
         string getPassword();
+        string getCCCD();
         void setNumAccount(string);
         void setPassword(string);
         void setAmount(double);

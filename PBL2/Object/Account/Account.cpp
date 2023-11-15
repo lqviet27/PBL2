@@ -8,18 +8,23 @@ Account::Account() {
     this->typeAccount=0;
 }
 
-Account::Account(string idBank,string numAcc,string password, bool typeAccount,double amount)
+Account::Account(string CCCD,string idBank,string numAcc,string password, bool typeAccount,double amount)
 {
     // this->numAccount = b.getIdBank() + to_string(b.getCountAccount());
     // this->numAccount = idBank + numAcc_bank + Numaccount;
+    this->CCCD = CCCD;
     this->numAccount = idBank + numAcc;
     this->password = password;
     this->amount = amount;
     this->typeAccount = typeAccount;
 }
+string Account::getCCCD() {
+    return this->CCCD;
+}
 
-Account::Account(string numAcc,string password, bool typeAccount,double amount)
+Account::Account(string CCCD,string numAcc,string password, bool typeAccount,double amount)
 {
+    this->CCCD=CCCD;
     this->numAccount = numAcc;
     this->password = password;
     this->amount = amount;

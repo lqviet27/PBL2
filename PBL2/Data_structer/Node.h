@@ -6,8 +6,8 @@ class Node
 {
     public:
         T data;
-        Node *next;
-        Node *prev;
+        Node<T> *next;
+        Node<T> *prev;
         Node(const T& );
         void Show();
         bool operator==(const Node&);

@@ -1,14 +1,15 @@
+
 // #include "Menu/Menu.cpp"
 #include "./DangNhap_DangKy/SignIn.cpp"
 // #include "./DangNhap_DangKy/Register.cclpp"
 #include<iostream>
-
+QLNH A;
 void DangNhap_DangKy()
 {
     startMenu();
 Menu:
     menuUser();
-    QLNH x;
+   
     int chon;
     cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
     cin >> chon;
@@ -21,7 +22,7 @@ Menu:
     {
     case 1:     
         system("cls");
-        SignIn::DangNhap(x);
+        SignIn::DangNhap(A);
         cout << endl;
         system("pause");
         cout.flush();
@@ -43,17 +44,18 @@ Menu:
 int main()
 {
     
+    // TextColor(12);
+    // try
+    // {
+    //     fflush(stdin);
+    //     DangNhap_DangKy();
+    // }
     
-    TextColor(12);
-    try
-    {
-        fflush(stdin);
-        DangNhap_DangKy();
-    }
+    // catch (string msg)
+    // {
+    //     cout << endl
+    //          << "\t\t\t\t\t" << msg;
+    // }
+
     
-    catch (string msg)
-    {
-        cout << endl
-             << "\t\t\t\t\t" << msg;
-    }
 }

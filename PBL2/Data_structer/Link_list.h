@@ -9,6 +9,8 @@ class Link_list
         void Add(const T& data);
         void Show();
         void Delete(const T& data);
+        // void operator=(const Link_list<T>&);
+
         Node<T>* Search(const T& data);
     
 };

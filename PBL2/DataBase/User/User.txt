@@ -1,4 +1,4 @@
-092111111111|le quoc Viet nguyen|02/01/2004|1234567890|5458888nguyen luong bang|1
-092111111112|Vsddddddddddddddddt|02/01/2004|123sssssss|2342ssssssssssssssss34|1
-092111111115|Viegddddddddddddgdt|02/01/2004|12sssssss3|2342sssssssssssss34|1
-092111111114|Viesddddddddddgdsdt|02/01/2004|12sssssss3|23ssssssssssssssssss4234|1
+048204221081|Le Quoc Viet|21/04/2004|0920143348|100 nguyen luong bang|1
+048204231022|Tran Trung Duc|02/01/2004|0351142611|68 au co|1
+033204241053|Le Quoc Duc|12/09/2004|0905046618|12 bau nang|1
+059204221018|Tran Trung Viet|28/11/2004|0900152325|28 hai phong|1

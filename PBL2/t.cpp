@@ -11,8 +11,9 @@ using namespace std;
 int main(){
    
 
-    QLNH x;
-    x.Show2();
+    QLNH A;
+    A.Show2();
+
 
    
     

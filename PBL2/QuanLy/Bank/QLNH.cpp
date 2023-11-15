@@ -1,6 +1,6 @@
 #include "QLNH.h"
-#include"../Users/QLKH.cpp"
-#include"../Account/QLTK.cpp"
+#include "../Users/QLKH.cpp"
+#include "../Account/QLTK.cpp"
 #include <fstream>
 #include <conio.h>
 
@@ -23,7 +23,6 @@ QLNH::QLNH()
         // }
     }
     else{
-        
         while(!FileIn.eof()){
             string id, name;
             char separator;
@@ -33,8 +32,24 @@ QLNH::QLNH()
             addBank(A);
             // cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
         }
-        QLTK qltk;
-        QLKH qlkh;
+        QLKH B;
+        QLTK C;
+        Link_list<Account> AC=C.getLinkListAccount();
+        C.showAccount();
+        cout<<AC.head->data.getCCCD();
+        while(AC.head!=nullptr)
+        {
+            
+            string numAC=AC.head->data.getNumAccout();
+
+            string cccdChuTaiKhoan=AC.head->data.getCCCD();
+            cout<<"211"+cccdChuTaiKhoan<<endl;
+            //User US=B.SearchUser("");
+            
+            //US.Show();
+            AC.head=AC.head->next;
+        }
+
     }
     FileIn.close();
 }

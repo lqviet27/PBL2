@@ -1,3 +1,4 @@
+#pragma once
 #include"QLTK.h"
 #include<fstream>
 #include <conio.h>
@@ -11,15 +12,16 @@ QLTK::QLTK()
     }
     else{
         while(!FileIn.eof()){
-             string numAccount, password;
+            string CCCD,numAccount, password;
             long double amount;
             bool typeAccount;
             char separator;
+            getline(FileIn, CCCD,'|');
             getline(FileIn, numAccount, '|');
             FileIn >> amount >> separator;
             FileIn >> typeAccount >> separator;
             getline(FileIn, password, '\n');
-            Account A(numAccount, password, typeAccount, amount);
+            Account A(CCCD,numAccount, password, typeAccount, amount);
             addAccount(A);
             // cout<<"Da them thanh cong ngan hang "<<numAccount<<" vao Database!"<<endl;
         }
@@ -51,9 +53,14 @@ void QLTK::showAccount()
     cout << "\t\t\t+================+==================+============+==============+" << endl;
 }
 
+Link_list<Account> QLTK::getLinkListAccount()
+{
+    return this->parAccount;
+}
+
 //! bi loi search account ra nhung bi sai o so du va laoi tai khoan
 Account QLTK::SearchAccount(const string& numAcc){
-    Account A(numAcc,"",0,0);
+    Account A("",numAcc,"",0,0);
     Node<Account> *b = this->parAccount.Search(A);
     if(b != nullptr)
         {
