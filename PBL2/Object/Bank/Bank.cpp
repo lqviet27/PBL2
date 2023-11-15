@@ -32,10 +32,9 @@ void Bank::addAccount(Account& ac)
     this->countAccount++;
     parAccount.Add(ac);
     // parAccount.Search(ac)->data.setNumAccount(this->IDBank + to_string(this->countAccount));
-    //* xu ly nhap file
     addAccounttoFile(ac);
 }
-
+//* xu ly nhap file
 void Bank::addAccounttoFile(Account& acc){
     ifstream file;
     string directory = "DataBase/Account";

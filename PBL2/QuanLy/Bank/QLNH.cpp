@@ -1,4 +1,6 @@
 #include "QLNH.h"
+#include"../Users/QLKH.cpp"
+#include"../Account/QLTK.cpp"
 #include <fstream>
 #include <conio.h>
 
@@ -31,6 +33,8 @@ QLNH::QLNH()
             addBank(A);
             // cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
         }
+        QLTK qltk;
+        QLKH qlkh;
     }
     FileIn.close();
 }
