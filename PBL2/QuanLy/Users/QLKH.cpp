@@ -67,19 +67,18 @@ void QLKH::showUser()
 
 User QLKH::SearchUser(const string & CCCD)
 {
-    User Us(CCCD,"",Date(1,1,2004),"", "",1);
+    User Us(CCCD,"Khong Co Nguoi Dung",Date(0,0,0),"", "",1);
     Node<User> *b = this->parUser.Search(Us);
     
     if (b != nullptr)
     {
-        cout<<11111;
         return b->data;
     }
     else
     {
-        cout<<22222;
+        
         // cout << "Khong tim thay Nguoi Dung!" << endl;
-        // return Us;
+        return Us;
         //throw string("Khong tim thay Nguoi Dung!");
     }
 }

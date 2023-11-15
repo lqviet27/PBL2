@@ -35,18 +35,32 @@ QLNH::QLNH()
         QLKH B;
         QLTK C;
         Link_list<Account> AC=C.getLinkListAccount();
-        C.showAccount();
-        cout<<AC.head->data.getCCCD();
+        // C.showAccount();
+        // AC.Show();
         while(AC.head!=nullptr)
         {
-            
-            string numAC=AC.head->data.getNumAccout();
-
+            string numAC=AC.head->data.getNumAccount();
             string cccdChuTaiKhoan=AC.head->data.getCCCD();
-            cout<<"211"+cccdChuTaiKhoan<<endl;
-            //User US=B.SearchUser("");
-            
-            //US.Show();
+            User US=B.SearchUser("22");
+            if(US.getName()=="Khong Co Nguoi Dung")
+            {
+                cout<<"Khong Tim Thay Chu So Huu Cua Tai Khoan: ";
+                cout<<AC.head->data.getNumAccount();
+                exit(0);
+            }
+        
+            string idBankcuaAC=numAC.substr(0,3);
+            Bank Ba=A.SearchBank(idBankcuaAC);
+            if(Ba.getNameBank()=="error")
+            {
+                cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
+                cout<<AC.head->data.getNumAccount();
+                exit(0);
+            }
+            US.addAccount(AC.head->data);
+            Ba.addAccount(AC.head->data);
+            Ba.addUser(US);
+
             AC.head=AC.head->next;
         }
 

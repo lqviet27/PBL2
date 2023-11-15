@@ -18,7 +18,7 @@ class Account{
         Account(string,string,string ,bool,double);
         Account(const Account &);
         ~Account();
-        string getNumAccout();
+        string getNumAccount();
         string getPassword();
         string getCCCD();
         void setNumAccount(string);

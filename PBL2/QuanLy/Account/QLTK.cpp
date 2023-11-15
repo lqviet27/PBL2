@@ -21,7 +21,9 @@ QLTK::QLTK()
             FileIn >> amount >> separator;
             FileIn >> typeAccount >> separator;
             getline(FileIn, password, '\n');
+            
             Account A(CCCD,numAccount, password, typeAccount, amount);
+            
             addAccount(A);
             // cout<<"Da them thanh cong ngan hang "<<numAccount<<" vao Database!"<<endl;
         }

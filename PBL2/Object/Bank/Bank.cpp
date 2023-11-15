@@ -16,7 +16,6 @@ Bank::Bank(string nameBank, string IDBank)
     this->IDBank = IDBank;
 }
 
-
 Bank::~Bank()
 {
 
@@ -75,6 +74,11 @@ string Bank::getCountAccount()
 //     cout<<"DANH SACH NGUOI DUNG CUA NGAN HANG "<<this->nameBank<<" LA:"<<endl;
 //     parUser.Show();
 // }
+
+string Bank::getNameBank()
+{
+    return this->nameBank;
+}
 
 void Bank::show_Account()
 {

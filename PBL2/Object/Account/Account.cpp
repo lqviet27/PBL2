@@ -33,6 +33,7 @@ Account::Account(string CCCD,string numAcc,string password, bool typeAccount,dou
 
 Account::Account(const Account &d)
 {
+    this->CCCD = d.CCCD;
     this->numAccount = d.numAccount;
     this->amount = d.amount;
     this->typeAccount = d.typeAccount;
@@ -41,7 +42,7 @@ Account::Account(const Account &d)
 
 Account::~Account() {}
 
-string Account::getNumAccout()
+string Account::getNumAccount()
 {
     return this->numAccount;
 }
@@ -94,7 +95,7 @@ istream &operator>>(istream &in, Account &acc)
 
 void Account::InsertObjecttoFile(ofstream &FileOut)
 {   
-    
+    FileOut << CCCD << "|";
     FileOut << numAccount << "|";
     FileOut << amount << "|";
     FileOut << typeAccount << "|";
@@ -107,6 +108,7 @@ void Account::Show(){
 }
 void Account::operator=(const Account& x)
 {
+    this->CCCD=x.CCCD;
     this->numAccount= x.numAccount;
     this->typeAccount = x.typeAccount;
     this->amount = x.amount;

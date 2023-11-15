@@ -102,6 +102,24 @@ istream &operator>>(istream &in, User &nv)
     } while (check);
     return in;
 }
+string User::getName() 
+{
+    return this->_Name;
+}
+string User::getCCCD() 
+{
+    return this->CCCD;
+}
+bool User::SearchAccount(const Account&  AC)
+{
+    Node<Account> *tail=userAccount.head;
+    while(tail!=nullptr)
+    {
+        if(tail->data==AC) return true;
+        tail = tail->next;
+    }
+    return false;
+}
 bool User::operator==(const User &us)
 {
     return (this->CCCD == us.CCCD);
@@ -125,9 +143,17 @@ void User::InsertObjecttoFile(ofstream &FileOut)
     FileOut << _Gender;
 }
 
-void User::addAccount(const Account &ac)
+void User::addAccount( Account &ac)
 {
-    userAccount.Add(ac);
+    if(this->SearchAccount(ac))
+    {
+        userAccount.Add(ac);
+        return ;
+    }
+    else {
+        cout<<"Nguoi Dung "<<this->getCCCD()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
+    }
+    
 }
 
 void User::showAccount()
