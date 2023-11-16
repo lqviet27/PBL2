@@ -63,7 +63,10 @@ void QLKH::showUser()
 
 }
 
-
+Link_list<User> QLKH::getLinkListUser()
+{
+    return this->parUser;
+}
 
 User QLKH::SearchUser(const string & CCCD)
 {

@@ -14,5 +14,10 @@ int main(){
     QLKH B;
     QLTK C;
     A.linkData(C,B);
-    
+    Link_list<User> US=B.getLinkListUser();
+    // while(US.head!=nullptr){
+    //     US.head->data.showAccount();
+    //     US.head=US.head->next;
+    // }
+    US.Show();
 }
