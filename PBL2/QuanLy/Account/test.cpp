@@ -41,7 +41,9 @@ int main(){
     QLTK a;
     a.showAccount();
     Account b ;
-    a.SearchAccount("0013333333").Show();
+    cout<<endl;
+    cout<< a.SearchAccount("0013333333").getCCCD()<<endl;;
     //! bi loi search account ra nhung bi sai o so du va laoi tai khoan
-    b.Show();
+    //b.Show();
+    cout<<1;
 }

@@ -1,6 +1,4 @@
 #include "QLNH.h"
-#include "../Users/QLKH.cpp"
-#include "../Account/QLTK.cpp"
 #include <fstream>
 #include <conio.h>
 
@@ -32,24 +30,7 @@ QLNH::QLNH()
             addBank(A);
             // cout<<"Da them thanh cong ngan hang "<<name<<" vao Database!"<<endl;
         }
-        QLKH B;
-        QLTK C;
-        Link_list<Account> AC=C.getLinkListAccount();
-        C.showAccount();
-        cout<<AC.head->data.getCCCD();
-        while(AC.head!=nullptr)
-        {
-            
-            string numAC=AC.head->data.getNumAccout();
-
-            string cccdChuTaiKhoan=AC.head->data.getCCCD();
-            cout<<"211"+cccdChuTaiKhoan<<endl;
-            //User US=B.SearchUser("");
-            
-            //US.Show();
-            AC.head=AC.head->next;
-        }
-
+        
     }
     FileIn.close();
 }
@@ -93,5 +74,36 @@ Bank QLNH::SearchBank(const string& id){
         return Bank("error","-1");
 }
 
+void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
+        Link_list<Account> AC=qltk.getLinkListAccount();
+        // C.showAccount();
+        // AC.Show();
+        while(AC.head!=nullptr)
+        {
+            string numAC=AC.head->data.getNumAccount();
+            string cccdChuTaiKhoan=AC.head->data.getCCCD();
+            User US=qlkh.SearchUser(cccdChuTaiKhoan);
+            if(US.getName()=="Khong Co Nguoi Dung")
+            {
+                cout<<"Khong Tim Thay Chu So Huu Cua Tai Khoan: ";
+                cout<<AC.head->data.getNumAccount();
+                exit(0);
+            }
+        
+            string idBankcuaAC=numAC.substr(0,3);
+            Bank Ba=this->SearchBank(idBankcuaAC);
+            Ba.Show();
+            if(Ba.getNameBank()=="error")
+            {
+                cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
+                cout<<AC.head->data.getNumAccount();
+                exit(0);
+            }
+            US.addAccount(AC.head->data);
+            Ba.addAccount(AC.head->data);
+            Ba.addUser(US);
+            AC.head=AC.head->next;
+        }
 
+}
 

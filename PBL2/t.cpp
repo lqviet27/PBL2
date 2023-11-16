@@ -9,13 +9,10 @@ using namespace std;
 
 
 int main(){
-   
-
+ 
     QLNH A;
-    A.Show2();
-
-
-   
+    QLKH B;
+    QLTK C;
+    A.linkData(C,B);
     
-   
 }

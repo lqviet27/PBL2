@@ -25,7 +25,10 @@ public:
     void setAddress(string);
     void setGender(bool);
     void setCCCD(string);
-    void addAccount(const Account &);
+    bool SearchAccount(const Account &);
+    string getName();
+    string getCCCD();
+    void addAccount(Account &);
     void showAccount();
     bool operator==(const User &);
     void operator=(const User &);

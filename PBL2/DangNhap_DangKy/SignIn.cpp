@@ -34,7 +34,7 @@ string SignIn::DangNhap(QLNH &X)
         B=X.SearchBank(idB);
         Account A = TK.SearchAccount(numAccount);
         B.addAccount(A);
-        if(A.getNumAccout() == numAccount)
+        if(A.getNumAccount() == numAccount)
             {
                 cout<<"Co tai khoan nha thang l";
                 break;
