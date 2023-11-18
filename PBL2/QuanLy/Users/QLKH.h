@@ -14,9 +14,11 @@ public:
     QLKH(Link_list<User>);
     QLKH(const QLKH&);
     ~QLKH();
-    void addUser(const User&);
+    void addUser(User&);
     void showUser();
     User SearchUser(const string&);
+    bool SearchUser(const User&);
     void ImportFromFile();
+    Link_list<User> getLinkListUser();
 };
 

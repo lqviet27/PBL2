@@ -27,10 +27,13 @@ QLKH::QLKH()
             FileIn.ignore(1); // loai bo ky tu xuong dong
             User Us(CCCD, Name, Date(dd, mm, yy), PhoneNumber, Address, Gender);
             addUser(Us);
-           
         }
     }
     FileIn.close();
+}
+Link_list<User> QLKH::getLinkListUser()
+{
+    return this->parUser;
 }
 
 QLKH::QLKH(Link_list<User> parUser)
@@ -45,9 +48,23 @@ QLKH::~QLKH()
 {
     this->parUser.~Link_list();
 }
-void QLKH::addUser(const User &b)
+bool QLKH::SearchUser(const User &user)
 {
-    parUser.Add(b);
+    Node<User> *tail=this->parUser.head;
+    while (tail!=nullptr)
+    {
+        if(tail->data==user)
+            return true;
+        tail = tail->next;
+    }
+    return false;
+}
+void QLKH::addUser(User &b)
+{
+        if(this->SearchUser(b)==false) 
+            this->parUser.Add(b);
+        else 
+            cout<<"User";
 }
 void QLKH::showUser()
 {
@@ -69,14 +86,12 @@ User QLKH::SearchUser(const string & CCCD)
 {
     User Us(CCCD,"Khong Co Nguoi Dung",Date(0,0,0),"", "",1);
     Node<User> *b = this->parUser.Search(Us);
-    
     if (b != nullptr)
     {
         return b->data;
     }
     else
     {
-        
         // cout << "Khong tim thay Nguoi Dung!" << endl;
         return Us;
         //throw string("Khong tim thay Nguoi Dung!");
