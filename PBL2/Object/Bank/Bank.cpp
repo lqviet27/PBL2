@@ -159,4 +159,16 @@ void Bank::InsertObjecttoFile(ofstream &FileOut){
     FileOut<<this->IDBank<<"|"<<this->nameBank<<endl;
 }
 
+Link_list<User>* Bank::getLinkListUser(){
+    return &(this->parUser);
+}
+
+Link_list<Account>* Bank::getLinkListAccount(){
+    return &(this->parAccount);
+}
+
+// void Bank::operator=(const Bank& B)
+// {
+    
+// }
 

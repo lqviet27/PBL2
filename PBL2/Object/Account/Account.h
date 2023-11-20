@@ -21,6 +21,7 @@ class Account{
         string getNumAccount();
         string getPassword();
         string getCCCD();
+        bool getTypeAccount();
         void setNumAccount(string);
         void setPassword(string);
         void setAmount(double);

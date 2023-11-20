@@ -81,7 +81,6 @@ void QLKH::showUser()
 }
 
 
-
 User QLKH::SearchUser(const string & CCCD)
 {
     User Us(CCCD,"Khong Co Nguoi Dung",Date(0,0,0),"", "",1);

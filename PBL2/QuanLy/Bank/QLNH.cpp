@@ -71,9 +71,9 @@ Node<Bank>* QLNH::SearchBank(const string& id){
     return b;
 }
 
-Link_list<Bank> QLNH::getLinkListParBank()
+Link_list<Bank>* QLNH::getLinkListParBank()
 {
-    return this->parBank;
+    return &this->parBank;
 }
 
 void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
@@ -102,10 +102,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             US.addAccount(AC.head->data);
             Ba->data.addAccount(AC.head->data);
             Ba->data.addUser(US);
-
             AC.head=AC.head->next;
         }
-
-
 }
 

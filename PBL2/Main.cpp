@@ -3,7 +3,12 @@
 #include "./DangNhap_DangKy/SignIn.cpp"
 // #include "./DangNhap_DangKy/Register.cclpp"
 #include<iostream>
-QLNH A;
+
+QLNH banks;
+QLKH users;
+QLTK accounts;
+
+
 void DangNhap_DangKy()
 {
     startMenu();
@@ -21,33 +26,37 @@ Menu:
     switch (chon)
     {
     case 1:     
-        system("cls");
-        SignIn::DangNhap(A);
+        Node<Account>* nodeAc=SignIn::DangNhap(banks);
+        if(nodeAc==nullptr)
+            goto Menu;
+        else {
+            //goi ham da danh nhap cua nguoi dung 
+        }
         cout << endl;
         system("pause");
         cout.flush();
         break;
-    case 2:
-        // system("cls");
-        // Register::NhapThongTinKhachHang();
-        // cout << endl;
-        // system("pause");
-        // cout.flush();
-        // goto Menu;
-        break;
-    case 3:
-        exit(0);
-        break;
+    // case 2:
+    // system("cls");
+    // Register::NhapThongTinKhachHang();
+    // cout << endl;
+    // system("pause");
+    // cout.flush();
+    // goto Menu;
+    //     break;
+    // case 3:
+    //     exit(0);
+    //     break;
     }
 }
 
 int main()
 {
+    banks.linkData(accounts,users);
     
     TextColor(12);
     try
     {
-        
         fflush(stdin);
         DangNhap_DangKy();
     }

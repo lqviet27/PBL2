@@ -50,17 +50,17 @@ ostream &operator<<(ostream &o, const Date &d)
 {
     if (d._Day < 10)
     {
-        o << 0 << d._Day << "/";
+        o <<setw(3)<< 0 << d._Day << "/";
     }
     else
-        o << d._Day << "/";
+        o <<setw(4)<< d._Day << "/";
     if (d._Month < 10)
     {
         o << 0 << d._Month << "/";
     }
     else
         o << d._Month << "/";
-    o << d._Year;
+    o << d._Year<< "   |";
     return o;
 }
 

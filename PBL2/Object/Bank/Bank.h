@@ -30,5 +30,8 @@ class Bank{
         Account searchAccount(const string&);
         User searchUser(const string&);
         void InsertObjecttoFile(ofstream &);
+        Link_list<Account>* getLinkListAccount();
+        Link_list<User>* getLinkListUser();
+        //void operator=(const Bank&); 
 };
 

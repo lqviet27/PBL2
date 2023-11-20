@@ -16,9 +16,9 @@ public:
     ~QLKH();
     void addUser(User&);
     void showUser();
+    Link_list<User> getLinkListUser();
     User SearchUser(const string&);
     bool SearchUser(const User&);
     void ImportFromFile();
-    Link_list<User> getLinkListUser();
 };
 

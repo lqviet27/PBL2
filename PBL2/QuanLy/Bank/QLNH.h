@@ -19,7 +19,7 @@ public:
     void Show2();
     void linkData(QLTK&,QLKH&);
     Node<Bank>* SearchBank(const string&);
-    Link_list<Bank> getLinkListParBank();
+    Link_list<Bank>* getLinkListParBank();
     void ImportFromFile();
 };
 
