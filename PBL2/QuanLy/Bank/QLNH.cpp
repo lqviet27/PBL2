@@ -82,7 +82,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
         {
             string numAC=AC.head->data.getNumAccount();
             string cccdChuTaiKhoan=AC.head->data.getCCCD();
-            User US=qlkh.SearchUser(cccdChuTaiKhoan);
+            User US = qlkh.SearchUser(cccdChuTaiKhoan);
             if(US.getName()=="Khong Co Nguoi Dung")
             {
                 cout<<"Khong Tim Thay Chu So Huu Cua Tai Khoan: ";
@@ -91,7 +91,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             }
         
             string idBankcuaAC=numAC.substr(0,3);
-            Bank Ba=this->SearchBank(idBankcuaAC);
+            Bank Ba = this->SearchBank(idBankcuaAC);
             Ba.Show();
             if(Ba.getNameBank()=="error")
             {
@@ -102,6 +102,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             US.addAccount(AC.head->data);
             Ba.addAccount(AC.head->data);
             Ba.addUser(US);
+            this->parBank.Add(Ba);
             AC.head=AC.head->next;
         }
 
