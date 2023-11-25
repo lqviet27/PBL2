@@ -31,8 +31,7 @@ int main(){
     // }
     TextColor(14);
     QLNH a;
-    // a.showBank();
-    a.Show2();
+    a.showBank();
     cout<<endl;
     Bank b=a.SearchBank("003");
     b.Show();

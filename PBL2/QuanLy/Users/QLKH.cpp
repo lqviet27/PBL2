@@ -31,9 +31,9 @@ QLKH::QLKH()
     }
     FileIn.close();
 }
-Link_list<User> QLKH::getLinkListUser()
+Link_list<User> *QLKH::getLinkListUser()
 {
-    return this->parUser;
+    return &this->parUser;
 }
 
 QLKH::QLKH(Link_list<User> parUser)
@@ -81,20 +81,11 @@ void QLKH::showUser()
 }
 
 
-User QLKH::SearchUser(const string & CCCD)
+Node<User> *QLKH::SearchUser(const string & CCCD)
 {
     User Us(CCCD,"Khong Co Nguoi Dung",Date(0,0,0),"", "",1);
     Node<User> *b = this->parUser.Search(Us);
-    if (b != nullptr)
-    {
-        return b->data;
-    }
-    else
-    {
-        // cout << "Khong tim thay Nguoi Dung!" << endl;
-        return Us;
-        //throw string("Khong tim thay Nguoi Dung!");
-    }
+    return b;
 }
 void QLKH::ImportFromFile()
 {

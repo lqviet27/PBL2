@@ -17,6 +17,7 @@ User::User(string CCCD, string name, Date bi, string pn, string address, bool g)
 
 User::User(const User &nv)
 {
+    this->userAccount = nv.userAccount;
     this->CCCD = nv.CCCD;
     this->_Name = nv._Name;
     this->_Birthday = nv._Birthday;
@@ -110,6 +111,10 @@ string User::getCCCD()
 {
     return this->CCCD;
 }
+Link_list<Account>* User::getUserAccount()
+{
+    return &this->userAccount;
+}
 bool User::SearchAccount(const Account&  AC)
 {
     Node<Account> *tail=userAccount.head;
@@ -125,7 +130,8 @@ bool User::operator==(const User &us)
     return (this->CCCD == us.CCCD);
 }
 void User::operator=(const User &us)
-{
+{   
+    this->userAccount = us.userAccount;
     this->CCCD = us.CCCD;
     this->_Name = us._Name;
     this->_Address = us._Address;

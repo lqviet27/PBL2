@@ -64,7 +64,7 @@ void Bank::addAccount(Account & ac)
 void Bank::addUser(User& us)
 {
      if(this->searchUser(us))
-    {
+    {   
         parUser.Add(us);
         return ;
     }
