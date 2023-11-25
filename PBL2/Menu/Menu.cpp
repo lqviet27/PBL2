@@ -91,10 +91,9 @@ void menuUser()
      cout << endl;
      cout << ("\t\t\t\t                    3. THOAT");
      cout << endl;
-     system("pause");
 }
 
-/*
+
 void menuDebitCard()
 {
      system("cls");
@@ -164,7 +163,7 @@ void deposit(Account &X)
      cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<" VND"<<endl;
      system("pause");
 }
-*/
+
 void menuMain1(int userName){}
 void menuMain2(int userName){}
 

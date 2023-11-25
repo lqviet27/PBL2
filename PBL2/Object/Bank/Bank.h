@@ -19,12 +19,19 @@ class Bank{
         void show_User();
         void show_Account();
         void Show();
-        void addAccount(Account&);
         string getNameBank();
+        bool searchAccount(const Account&);
+        bool searchUser(const User&);
+        // Link_list<User> get 
         //void addAccounttoFile(Account&);
-        void addUser(const User&);
+        void addAccount(Account&);
+        void addUser(User&);
         bool operator==(const Bank&);
-        Account searchAcc(const string&);
+        Account searchAccount(const string&);
+        User searchUser(const string&);
         void InsertObjecttoFile(ofstream &);
+        Link_list<Account>* getLinkListAccount();
+        Link_list<User>* getLinkListUser();
+        //void operator=(const Bank&); 
 };
 

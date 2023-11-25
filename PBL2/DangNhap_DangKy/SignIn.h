@@ -13,5 +13,5 @@ class SignIn
 {
 public:
     static void DangNhapQuaSoLanQuyDinh();
-    static string DangNhap(QLNH &);
+    static Node<Account>* DangNhap(QLNH &);
 };

@@ -65,19 +65,19 @@ void QLNH::Show2()
     cout << "\t\t\t+======+=================================+" << endl;
 }
 
-Bank QLNH::SearchBank(const string& id){
+Node<Bank>* QLNH::SearchBank(const string& id){
     Bank bank("", id);
     Node<Bank> *b=this->parBank.Search(bank);
-    if(b!=nullptr)
-        return b->data;
-    else 
-        return Bank("error","-1");
+    return b;
+}
+
+Link_list<Bank>* QLNH::getLinkListParBank()
+{
+    return &this->parBank;
 }
 
 void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
         Link_list<Account> AC=qltk.getLinkListAccount();
-        // C.showAccount();
-        // AC.Show();
         while(AC.head!=nullptr)
         {
             string numAC=AC.head->data.getNumAccount();
@@ -91,20 +91,18 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             }
         
             string idBankcuaAC=numAC.substr(0,3);
-            Bank Ba = this->SearchBank(idBankcuaAC);
-            Ba.Show();
-            if(Ba.getNameBank()=="error")
+            Node<Bank> *Ba=this->SearchBank(idBankcuaAC);
+
+            if(Ba==nullptr)
             {
                 cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
                 cout<<AC.head->data.getNumAccount();
                 exit(0);
             }
             US.addAccount(AC.head->data);
-            Ba.addAccount(AC.head->data);
-            Ba.addUser(US);
-            this->parBank.Add(Ba);
+            Ba->data.addAccount(AC.head->data);
+            Ba->data.addUser(US);
             AC.head=AC.head->next;
         }
-
 }
 

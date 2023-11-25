@@ -52,6 +52,11 @@ string Account::getPassword()
     return this->password;
 }
 
+bool Account::getTypeAccount()
+{
+    return this->typeAccount;
+}
+
 void Account::setNumAccount(string numAccount)
 {
     this->numAccount = numAccount;
@@ -103,7 +108,7 @@ void Account::InsertObjecttoFile(ofstream &FileOut)
 }
 
 void Account::Show(){
-    string type = (this->typeAccount) ? "Tiet kiem" : "Thanh toan";
+    string type = (this->typeAccount) ? "Thanh Toan" : "Tiet Kiem";
     cout << "\t\t\t|  " << setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
 }
 void Account::operator=(const Account& x)

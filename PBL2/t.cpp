@@ -14,6 +14,7 @@ int main(){
     QLKH B;
     QLTK C;
     A.linkData(C,B);
+<<<<<<< HEAD
     Link_list<User> US=B.getLinkListUser();
     while(US.head!=nullptr){
         US.head->data.showAccount();
@@ -87,3 +88,43 @@ int main(){
             AC.head=AC.head->next;
         }
         */
+=======
+    Link_list<Bank> *U=A.getLinkListParBank();
+    Node<Bank> *Une=U->head;
+            while(Une!=nullptr){
+              Link_list<User> *x =Une->data.getLinkListUser();
+              Node<User> *tail=x->head;
+              cout<<Une->data.getNameBank()<<endl;
+              while(tail!=nullptr)
+                {
+                   
+                  tail->Show();
+                  tail->data.setAddress("back khoa vs dut");
+                  tail=tail->next;
+                }
+              
+              Une=Une->next;
+            }
+
+             cout<<endl<<1<<endl;
+             
+
+             Link_list<Bank> *g=A.getLinkListParBank();
+             g->Show();
+             while(g->head!=nullptr){
+              
+              Link_list<User> *xx =g->head->data.getLinkListUser();
+              cout<<g->head->data.getNameBank()<<endl;
+              while(xx->head!=nullptr)
+                {
+                  xx->head->Show();
+                 // x->head->data.setAddress("back khoa vs dut");
+                  xx->head=xx->head->next;
+                }
+              g->head=g->head->next;
+            }
+    // User u=User("1", "1", Date(0,0,0), "1", "1", true);
+    // B.addUser(u);
+    // B.showUser();
+}
+>>>>>>> 35cbc2f069fb67a57d881169cb619d824c5e6115

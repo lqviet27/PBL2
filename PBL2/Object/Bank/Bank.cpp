@@ -26,13 +26,16 @@ string Bank::getIdBank()
     return this->IDBank;
 }
 
-void Bank::addAccount(Account& ac)
+void Bank::addAccount(Account & ac)
 {
-    this->countAccount++;
-    parAccount.Add(ac);
-    // parAccount.Search(ac)->data.setNumAccount(this->IDBank + to_string(this->countAccount));
-    //* xu ly nhap file
-    //addAccounttoFile(ac);
+    if(this->searchAccount(ac))
+    {
+        parAccount.Add(ac);
+        return ;
+    }
+    else {
+        cout<<"Nguoi Dung "<<this->getIdBank()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
+    }
 }
 
 // void Bank::addAccounttoFile(Account& acc){
@@ -58,15 +61,43 @@ void Bank::addAccount(Account& ac)
 //     outFile.close();
 // }
 
-void Bank::addUser(const User& us)
+void Bank::addUser(User& us)
 {
-    parUser.Add(us);
+     if(this->searchUser(us))
+    {
+        parUser.Add(us);
+        return ;
+    }
+    else {
+        cout<<"Ngan Hang "<<this->getNameBank()<<" Da Ton Tai Nguoi Dung "<<us.getCCCD()<<endl;
+    }
 }
 
 string Bank::getCountAccount()
 {
     string tmp = to_string(this->countAccount);
     return tmp;
+}
+bool Bank::searchAccount(const Account& AC)
+{
+    Node<Account> *tail=parAccount.head;
+    while(tail!=nullptr)
+    {
+        if(tail->data==AC) return false;
+        tail = tail->next;
+    }
+    return true;
+}
+
+bool Bank::searchUser(const User& US)
+{
+    Node<User> *tail=parUser.head;
+    while(tail!=nullptr)
+    {
+        if(tail->data==US) return false;
+        tail = tail->next;
+    }
+    return true;
 }
 
 // void Bank::show_User()
@@ -98,7 +129,7 @@ bool Bank::operator==(const Bank& B)
 {
     return (this->IDBank == B.IDBank);
 }
-Account Bank::searchAcc(const string& numAcc){
+Account Bank::searchAccount(const string& numAcc){
     Account A("",numAcc,"",0,0);
     Node<Account> *b = this->parAccount.Search(A);
     if(b != nullptr)
@@ -107,10 +138,37 @@ Account Bank::searchAcc(const string& numAcc){
         }
     else {
         throw string("Khong tim thay tai khoan!");
+    }
 }
+
+User Bank::searchUser(const string& CCCD)
+{
+    User A(CCCD,"",Date(0,0,0),"","",false);
+    Node<User> *b = this->parUser.Search(A);
+    if(b != nullptr)
+        {
+            return b->data;
+        }
+    else 
+        {
+            throw string("Khong tim thay nguoi dung!");
+        }
 }
+
 void Bank::InsertObjecttoFile(ofstream &FileOut){
     FileOut<<this->IDBank<<"|"<<this->nameBank<<endl;
 }
 
+Link_list<User>* Bank::getLinkListUser(){
+    return &(this->parUser);
+}
+
+Link_list<Account>* Bank::getLinkListAccount(){
+    return &(this->parAccount);
+}
+
+// void Bank::operator=(const Bank& B)
+// {
+    
+// }
 
