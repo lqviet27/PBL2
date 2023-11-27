@@ -9,6 +9,7 @@ QLKH users;
 QLTK accounts;
 
 
+
 void DangNhap_DangKy()
 {
     startMenu();
@@ -30,7 +31,7 @@ Menu:
         if(nodeAc==nullptr)
             goto Menu;
         else {
-            //goi ham da danh nhap cua nguoi dung 
+            MenuDangNhap();
         }
         cout << endl;
         system("pause");
