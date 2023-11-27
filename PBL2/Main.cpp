@@ -10,28 +10,34 @@ QLTK accounts;
 
 
 
+void DangNhapAC(Node<Account> *nodeAC)
+{
+    if(nodeAC->data.getTypeAccount() == 0)
+    {
+        SavingCard(nodeAC,banks,users);
+    }
+    else 
+    {
+        menuDebitCard();
+    }
+
+}
+
+
 void DangNhap_DangKy()
 {
     startMenu();
 Menu:
     menuUser();
-   
-    int chon;
-    cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
-    cin >> chon;
-    while (chon < 0 || chon > 3)
-    {
-        cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
-        cin >> chon;
-    }
-    switch (chon)
+    switch (choose(1,3))
     {
     case 1:     
+        system("cls");
         Node<Account>* nodeAc=SignIn::DangNhap(banks);
         if(nodeAc==nullptr)
             goto Menu;
         else {
-            MenuDangNhap();
+            DangNhapAC(nodeAc);
         }
         cout << endl;
         system("pause");
@@ -54,7 +60,7 @@ Menu:
 int main()
 {
     banks.linkData(accounts,users);
-    
+   
     TextColor(12);
     try
     {

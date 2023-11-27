@@ -28,6 +28,7 @@ public:
     bool SearchAccount(const Account &);
     string getName();
     string getCCCD();
+    Link_list<Account>* getUserAccount();
     void addAccount(Account &);
     void showAccount();
     bool operator==(const User &);

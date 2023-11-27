@@ -30,5 +30,5 @@ class Account{
         bool operator==(const Account &);
         void operator=(const Account &);
         void InsertObjecttoFile(ofstream &);
-        void Show();  
+        void Show();
 };

@@ -55,9 +55,9 @@ void QLTK::showAccount()
     cout << "\t\t\t+================+==================+============+==============+" << endl;
 }
 
-Link_list<Account> QLTK::getLinkListAccount()
+Link_list<Account> *QLTK::getLinkListAccount()
 {
-    return this->parAccount;
+    return &this->parAccount;
 }
 
 //! bi loi search account ra nhung bi sai o so du va laoi tai khoan

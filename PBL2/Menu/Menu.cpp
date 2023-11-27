@@ -2,6 +2,8 @@
 #include <windows.h>
 #include <iostream>
 #include"../Object/Account/Account.cpp"
+#include "../Data_structer/Node.cpp"
+// #include "../GiaoDich/GiaoDich.cpp"
 using namespace std;
 #define en cout << endl;
 // #include <string.h>
@@ -19,6 +21,19 @@ void InLine(int n)
 {
      for (int i = 0; i < n; i++)
           cout << "=";
+}
+
+int choose(int l,int r)
+{
+    int chon;
+    cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
+    cin >> chon;
+    while (chon < l || chon > r)
+    {
+        cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
+        cin >> chon;
+    }
+    return chon;
 }
 
 void startMenu()
@@ -50,7 +65,7 @@ void startMenu()
      cout << "\t\t\t       **********************************************************" << endl;
      cout << "\t\t                     CHUONG TRINH QUAN LY TAI KHOAN LIEN NGAN HANG         " << endl;
      cout << "\t\t\t       **********************************************************" << endl;
-     system("pause");
+     
 }
 
 // void menu()
@@ -118,7 +133,6 @@ void menuDebitCard()
      cout << endl;
      cout << ("\t\t\t                 6. THOAT");
      cout << endl;
-     system("pause");
 }
 void menuSavingCard()
 {
@@ -142,7 +156,6 @@ void menuSavingCard()
      cout << endl;
      cout << ("\t\t\t                 5. THOAT");
      cout << endl;
-     system("pause");
 }
 
 void deposit(Account &X)
@@ -161,11 +174,22 @@ void deposit(Account &X)
      cout << endl;
      X.setAmount(Money);
      cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<" VND"<<endl;
-     system("pause");
 }
 
-void menuMain1(int userName){}
-void menuMain2(int userName){}
+void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
+     menuSavingCard();
+     switch(choose(1,5))
+     {
+          case 1:
+               system("cls");
+               // GiaoDich::NapTien(nodeAC,banks,users);
+               
+     }
+
+
+
+}
+void DebitCard(){}
 
 
 

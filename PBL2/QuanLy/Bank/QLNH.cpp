@@ -49,12 +49,13 @@ void QLNH::addBank(const Bank& b){
 }
 
 
-void QLNH::showBank(){
-    cout<<"ID"<<"\t\t" <<"Ten Ngan Hang"<<endl;
-    parBank.Show();
-}
+// void QLNH::showBank(){
+//     cout<<"\t\t\t";
+//     cout<<"|  ID  |"<<"\t" <<"Ten Ngan Hang"<<"\t\t |"<<endl;
+//     parBank.Show();
+// }
 
-void QLNH::Show2()
+void QLNH::showBank()
 {
     cout << "\t\t\t+========================================+" << endl;
     cout << "\t\t\t|       ** DANH SACH NGAN HANG **        |" << endl;
@@ -77,16 +78,16 @@ Link_list<Bank>* QLNH::getLinkListParBank()
 }
 
 void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
-        Link_list<Account> AC=qltk.getLinkListAccount();
-        while(AC.head!=nullptr)
+        Link_list<Account> *AC=qltk.getLinkListAccount();
+        while(AC->head!=nullptr)
         {
-            string numAC=AC.head->data.getNumAccount();
-            string cccdChuTaiKhoan=AC.head->data.getCCCD();
-            User US=qlkh.SearchUser(cccdChuTaiKhoan);
-            if(US.getName()=="Khong Co Nguoi Dung")
+            string numAC=AC->head->data.getNumAccount();
+            string cccdChuTaiKhoan=AC->head->data.getCCCD();
+            Node<User>* US = qlkh.SearchUser(cccdChuTaiKhoan);
+            if(US==nullptr)
             {
                 cout<<"Khong Tim Thay Chu So Huu Cua Tai Khoan: ";
-                cout<<AC.head->data.getNumAccount();
+                cout<<AC->head->data.getNumAccount();
                 exit(0);
             }
         
@@ -96,13 +97,13 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             if(Ba==nullptr)
             {
                 cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
-                cout<<AC.head->data.getNumAccount();
+                cout<<AC->head->data.getNumAccount();
                 exit(0);
             }
-            US.addAccount(AC.head->data);
-            Ba->data.addAccount(AC.head->data);
-            Ba->data.addUser(US);
-            AC.head=AC.head->next;
+            US->data.addAccount(AC->head->data);
+            Ba->data.addAccount(AC->head->data);
+            Ba->data.addUser(US->data);
+            AC->head=AC->head->next;
         }
-}
+} 
 

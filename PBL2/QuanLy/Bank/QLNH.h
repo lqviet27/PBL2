@@ -16,7 +16,6 @@ public:
     ~QLNH();
     void addBank(const Bank&);
     void showBank();
-    void Show2();
     void linkData(QLTK&,QLKH&);
     Node<Bank>* SearchBank(const string&);
     Link_list<Bank>* getLinkListParBank();

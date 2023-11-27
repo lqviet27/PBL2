@@ -79,7 +79,6 @@ bool Account::operator==(const Account& ac)
 } 
 istream &operator>>(istream &in, Account &acc)
 {
-
     string a, b;
     while (1)
     {
