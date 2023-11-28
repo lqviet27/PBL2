@@ -28,13 +28,13 @@ string Bank::getIdBank()
 
 void Bank::addAccount(Account & ac)
 {
-    if(this->searchAccount(ac))
+    if(this->searchAccount(ac)==false)
     {
         parAccount.Add(ac);
         return ;
     }
     else {
-        cout<<"Nguoi Dung "<<this->getIdBank()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
+        cout<<"Ngan Hang "<<this->getIdBank()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
     }
 }
 /*
@@ -63,7 +63,7 @@ void Bank::addAccounttoFile(Account& acc){
 */
 void Bank::addUser(User& us)
 {
-     if(this->searchUser(us))
+     if(this->searchUser(us)==false)
     {   
         parUser.Add(us);
         return ;
@@ -83,10 +83,10 @@ bool Bank::searchAccount(const Account& AC)
     Node<Account> *tail=parAccount.head;
     while(tail!=nullptr)
     {
-        if(tail->data==AC) return false;
+        if(tail->data==AC) return true;
         tail = tail->next;
     }
-    return true;
+    return false;
 }
 
 bool Bank::searchUser(const User& US)
@@ -94,10 +94,11 @@ bool Bank::searchUser(const User& US)
     Node<User> *tail=parUser.head;
     while(tail!=nullptr)
     {
-        if(tail->data==US) return false;
+        if(tail->data==US)
+             return true;
         tail = tail->next;
     }
-    return true;
+    return false;
 }
 
 // void Bank::show_User()
@@ -129,30 +130,17 @@ bool Bank::operator==(const Bank& B)
 {
     return (this->IDBank == B.IDBank);
 }
-Account Bank::searchAccount(const string& numAcc){
+Node<Account>* Bank::searchAccount(const string& numAcc){
     Account A("",numAcc,"",0,0);
     Node<Account> *b = this->parAccount.Search(A);
-    if(b != nullptr)
-        {
-            return b->data;
-        }
-    else {
-        throw string("Khong tim thay tai khoan!");
-    }
+    return b;  
 }
 
-User Bank::searchUser(const string& CCCD)
+Node<User>* Bank::searchUser(const string& CCCD)
 {
     User A(CCCD,"",Date(0,0,0),"","",false);
     Node<User> *b = this->parUser.Search(A);
-    if(b != nullptr)
-        {
-            return b->data;
-        }
-    else 
-        {
-            throw string("Khong tim thay nguoi dung!");
-        }
+    return b;
 }
 
 void Bank::InsertObjecttoFile(ofstream &FileOut){

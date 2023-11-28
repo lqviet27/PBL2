@@ -184,6 +184,21 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
                system("cls");
                GiaoDich::NapTien(nodeAC,banks,users);
                GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+
+               cout<<endl;
+               
+               Link_list<User> *X=users.getLinkListUser();
+               Node<User> *NX=X->head;
+               while(NX!=nullptr)
+               {
+                    Node<Account> *Y=NX->data.getUserAccount()->Search(nodeAC->data);
+                    if(Y!=nullptr)
+                    {
+                         Y->data.Show();
+                         break;
+                    }
+                    NX=NX->next;
+               }
                
      }
 

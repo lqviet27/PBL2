@@ -2,7 +2,10 @@
 #include"../QuanLy/Bank/QLNH.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../Record_Giaodich/Record_Nap.cpp"
+#include<iostream>
+#include<limits> 
 #include<fstream>
+using namespace std;
 class GiaoDich{
     public:
         static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users)
@@ -10,13 +13,24 @@ class GiaoDich{
             
             double money;
             cout<<"Nhap So Tien Can Nap Vao Tai Khoan: ";
-               while(cin>>money)
-               {
-                    cout<<endl;
-                    if(money>0)
-                         break;
-                    cout<<"So tien Khong Hop Le!!!"<<endl;
-                    cout<<"Vui Long Nhap Lai: ";
+               // while(cin>>money)
+               // {
+               //      cout<<endl;
+               //      if(money>0.0 && )
+               //           break;
+               //      else {
+
+               //           cout<<"So tien Khong Hop Le!!!"<<endl;
+               //           cout<<"Vui Long Nhap Lai: ";
+               //           cin.clear();
+               //           cin.ignore(1000, '\n');
+               //      }
+               // }
+                while (!(cin >> money) || (cin.peek() != '\n')) {
+                         cout << endl;
+                         cout << "So tien khong hop le! Vui long nhap lai: ";
+                         cin.clear();
+                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
                }
             AC->data.setAmount(money);
 
@@ -28,7 +42,7 @@ class GiaoDich{
                Link_list<User> *U=NB->data.getLinkListUser();
                Node<User> *NU=U->head;
                while(NU!=nullptr)
-               {
+               {    
                     Node<Account> *A=NU->data.getUserAccount()->Search(AC->data);
                     if(A!=nullptr)
                     {
@@ -43,7 +57,7 @@ class GiaoDich{
                NB=NB->next;
             }
 
-          Link_list<User> *X=users.getLinkListUser();
+               Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
                {
