@@ -120,10 +120,10 @@ bool User::SearchAccount(const Account&  AC)
     Node<Account> *tail=userAccount.head;
     while(tail!=nullptr)
     {
-        if(tail->data==AC) return false;
+        if(tail->data==AC) return true;
         tail = tail->next;
     }
-    return true;
+    return false;
 }
 bool User::operator==(const User &us)
 {
@@ -151,7 +151,7 @@ void User::InsertObjecttoFile(ofstream &FileOut)
 
 void User::addAccount(Account &ac)
 {
-    if(this->SearchAccount(ac))
+    if(this->SearchAccount(ac)==false)
     {
         userAccount.Add(ac);
         return ;
@@ -166,4 +166,9 @@ void User::showAccount()
 {
     cout << "DANH SACH TAI KHOAN CUA KHACH HANG " << this->_Name << " LA:" << endl;
     userAccount.Show();
+}
+
+void User::setEmptyLinkList()
+{
+    this->userAccount.head=nullptr;
 }

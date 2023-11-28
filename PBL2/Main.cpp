@@ -12,14 +12,31 @@ QLTK accounts;
 
 void DangNhapAC(Node<Account> *nodeAC)
 {
-    if(nodeAC->data.getTypeAccount() == 0)
-    {
-        SavingCard(nodeAC,banks,users);
-    }
-    else 
-    {
-        menuDebitCard();
-    }
+            Link_list<Bank> *B=banks.getLinkListParBank();
+            Node<Bank>* NB=B->head;
+            while(NB!=nullptr)
+            {
+                NB->Show();
+               Link_list<User> *U=NB->data.getLinkListUser();
+               Node<User> *NU=U->head;
+               while(NU!=nullptr)
+               {    
+                    NU->data.Show();
+                    NU->data.getUserAccount()->Show();
+                    cout<<endl;
+                    NU=NU->next;
+               }
+               NB=NB->next;
+            }
+
+    // if(nodeAC->data.getTypeAccount() == 0)
+    // {
+    //     SavingCard(nodeAC,banks,users);
+    // }
+    // else 
+    // {
+    //     menuDebitCard();
+    // }
 
 }
 
@@ -61,6 +78,7 @@ int main()
 {
     banks.linkData(accounts,users);
    
+    system("pause");
     TextColor(12);
     try
     {

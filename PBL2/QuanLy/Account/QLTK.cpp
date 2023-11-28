@@ -60,17 +60,11 @@ Link_list<Account> *QLTK::getLinkListAccount()
     return &this->parAccount;
 }
 
-//! bi loi search account ra nhung bi sai o so du va laoi tai khoan
-Account QLTK::SearchAccount(const string& numAcc){
+
+Node<Account> * QLTK::SearchAccount(const string& numAcc){
     Account A("",numAcc,"",0,0);
     Node<Account> *b = this->parAccount.Search(A);
-    if(b != nullptr)
-        {
-            return b->data;
-        }
-    else {
-        throw string("Khong tim thay tai khoan!");
-    }
+    return b;
 }
 void QLTK::ImportFromFile(){
     

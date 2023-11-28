@@ -27,7 +27,7 @@ class GiaoDich{
                Link_list<User> *U=NB->data.getLinkListUser();
                Node<User> *NU=U->head;
                while(NU!=nullptr)
-               {
+               {    
                     Node<Account> *A=NU->data.getUserAccount()->Search(AC->data);
                     if(A!=nullptr)
                     {
@@ -42,7 +42,7 @@ class GiaoDich{
                NB=NB->next;
             }
 
-          Link_list<User> *X=users.getLinkListUser();
+               Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
                {
@@ -54,7 +54,6 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
-
                Record_Nap *R=new Record_Nap(AC->data.getNumAccount(),NB->data.getNameBank(),money);
                R->RecordtoFile();
         }

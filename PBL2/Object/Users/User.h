@@ -35,4 +35,5 @@ public:
     void operator=(const User &);
     friend istream &operator>>(istream &, User &);
     void InsertObjecttoFile(ofstream &);
+    void setEmptyLinkList();
 };
