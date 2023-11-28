@@ -2,6 +2,7 @@
 #include<string>
 #include<iomanip>
 #include<fstream>
+#include<algorithm>
 #include<ctime>
 using namespace std;
 class Record

@@ -37,30 +37,30 @@ void Bank::addAccount(Account & ac)
         cout<<"Nguoi Dung "<<this->getIdBank()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
     }
 }
-
-// void Bank::addAccounttoFile(Account& acc){
-//     ifstream file;
-//     string directory = "DataBase/Account";
-//     string fileName = directory+ "/Bank_" + this->IDBank + ".txt";
-//     // string fileName = directory+ "/Account" + ".txt";
-//     file.open(fileName);
-//     if(!fs::is_directory(directory)){
-//         fs::create_directory(directory);
-//     };
-//     if(!file){
-//        ofstream outFile(fileName); 
-//        outFile.close();
-//     }
-//     ofstream outFile(fileName, ios_base::app);
-//     if (!outFile.is_open()) {
-//             // Nếu không thể mở file, xuất thông báo lỗi và thoát khỏi phương thức
-//             cerr << "Error: Unable to open file " << fileName << endl;
-//             return;
-//         }
-//     acc.InsertObjecttoFile(outFile);
-//     outFile.close();
-// }
-
+/*
+void Bank::addAccounttoFile(Account& acc){
+    ifstream file;
+    string directory = "DataBase/Account";
+    string fileName = directory+ "/Bank_" + this->IDBank + ".txt";
+    // string fileName = directory+ "/Account" + ".txt";
+    file.open(fileName);
+    if(!fs::is_directory(directory)){
+        fs::create_directory(directory);
+    };
+    if(!file){
+       ofstream outFile(fileName); 
+       outFile.close();
+    }
+    ofstream outFile(fileName, ios_base::app);
+    if (!outFile.is_open()) {
+            // Nếu không thể mở file, xuất thông báo lỗi và thoát khỏi phương thức
+            cerr << "Error: Unable to open file " << fileName << endl;
+            return;
+        }
+    acc.InsertObjecttoFile(outFile);
+    outFile.close();
+}
+*/
 void Bank::addUser(User& us)
 {
      if(this->searchUser(us))

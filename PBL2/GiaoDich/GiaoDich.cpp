@@ -2,6 +2,7 @@
 #include"../QuanLy/Bank/QLNH.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../Record_Giaodich/Record_Nap.cpp"
+#include<fstream>
 class GiaoDich{
     public:
         static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users)
@@ -55,8 +56,8 @@ class GiaoDich{
                     NX=NX->next;
                }
 
-               Record_Nap *R=new Record_Nap(AC->data.getNumAccount(),NB->data.getNameBank(),money);
-               R->RecordtoFile();
+               Record_Nap R(AC->data.getNumAccount(),NB->data.getNameBank(),money);
+               R.RecordtoFile();
         }
         static void RutTien(Node<Account>*)
         {
@@ -72,7 +73,29 @@ class GiaoDich{
           //      }
           //   AC->data.setAmount(money);
         }
-        static void TraCuuLichSuGiaoDich(Node<Account>*);
+        static void TraCuuLichSuGiaoDich(Node<Account>* AC)
+        {
+               
+               string Path="DataBase/GiaoDich/" + AC->data.getNumAccount() + ".txt";
+               ifstream file(Path,ios::in);
+               cout << "\t\t\t+===========================================================================+" << endl;
+               cout << "\t\t\t|                          ** LICH SU GIAO DICH **                          |" << endl;
+               cout << "\t\t\t+==================+============+=================+=========================+" << endl;
+               cout << "\t\t\t|    IDAccount     |  NameBank  |     Amount      |           Time          |" << endl;
+               cout << "\t\t\t+==================+============+=================+=========================+" << endl;
+               string line;
+               while(getline(file,line))
+               {
+                    string IDAccount,NameBank,Amount,Time;
+                    stringstream ss(line);
+                    getline(ss,IDAccount,'|');
+                    getline(ss,NameBank,'|');
+                    getline(ss,Amount,'|');
+                    getline(ss,Time,'|');
+                    cout << "\t\t\t| " << setw(17) << left << IDAccount << "| " << setw(11) << left << NameBank << "| " <<"+ "<< setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+               }
+
+        }
         static void ChuyenTien(Node<Account>*);
 };
 
