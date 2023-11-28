@@ -1,4 +1,4 @@
-
+#pragma once
 #include"Bank.h"
 #include<iostream>
 #include<fstream>

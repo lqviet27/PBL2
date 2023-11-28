@@ -1,3 +1,4 @@
+#pragma once
 #include "QLNH.h"
 #include <fstream>
 #include <conio.h>

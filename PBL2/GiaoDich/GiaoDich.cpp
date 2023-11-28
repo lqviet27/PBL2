@@ -1,10 +1,12 @@
 #include"../QuanLy/Account/QLTK.cpp"
 #include"../QuanLy/Bank/QLNH.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
+#include"../Record_Giaodich/Record_Nap.cpp"
 class GiaoDich{
     public:
         static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users)
-        {
+        {      
+            
             double money;
             cout<<"Nhap So Tien Can Nap Vao Tai Khoan: ";
                while(cin>>money)
@@ -52,6 +54,9 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
+
+               Record_Nap *R=new Record_Nap(AC->data.getNumAccount(),NB->data.getNameBank(),money);
+               R->RecordtoFile();
         }
         static void RutTien(Node<Account>*)
         {

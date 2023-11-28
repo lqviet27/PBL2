@@ -3,7 +3,7 @@
 #include <iostream>
 #include"../Object/Account/Account.cpp"
 #include "../Data_structer/Node.cpp"
-// #include "../GiaoDich/GiaoDich.cpp"
+#include "../GiaoDich/GiaoDich.cpp"
 using namespace std;
 #define en cout << endl;
 // #include <string.h>
@@ -182,7 +182,7 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
      {
           case 1:
                system("cls");
-               // GiaoDich::NapTien(nodeAC,banks,users);
+               GiaoDich::NapTien(nodeAC,banks,users);
                
      }
 
