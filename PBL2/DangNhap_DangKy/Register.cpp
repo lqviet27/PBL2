@@ -2,22 +2,34 @@
 #include "Register.h"
 #include <fstream>
 
+Node<Account>* Register::DangKi(QLNH& banks,QLKH& users,QLTK& accounts)
+{
+    Node<Bank> *B=ChonNganHang(banks);
+    // Node<User> *U=NhapThongTinKhachHang();
+    // Node<Account> *A=NhapThongTinTaiKhoan();
+    return nullptr;
+}
+
+Node<Bank>* Register::ChonNganHang(QLNH& banks)
+{
+    cout << "\t\t\t\t      *********************************************" << endl;
+    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *********************************************" << endl;
+    while(1) 
+    {   
+        banks.showBank();
+        cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tao Tai Khoan: " << endl;
+        int idb=choose(1,banks.getCountBank());
+        string IDB=to_string(idb);
+        cout<<IDB;
+    }
+}
 
 void Register::NhapThongTinKhachHang()
 {
-    KhachHang tempKH;
-    cin >> tempKH;
-    QLKH tempQLKH;
-    int newID = tempQLKH.Quantity() + 1;
-    tempKH.ID(newID);
-    DSAccount tempDSAcc;
-    Account tempAcc(newID, "");
-    tempDSAcc.AddtotheEnd(tempAcc);
-    tempDSAcc.Update(newID);
-    tempQLKH.AddtotheEnd(tempKH);
-    string Path = "./Database/MuaVe/KH" + to_string(newID) + ".txt";
-    ofstream FileOut(Path);
-    FileOut.close();
-    cout << endl
-         << "Tu bay gio ban co the dang nhap voi username(ID): " << newID << " va password ban vua tao!";
+    cout << "\t\t\t\t      *********************************************" << endl;
+    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *********************************************" << endl;
+
+    
 }

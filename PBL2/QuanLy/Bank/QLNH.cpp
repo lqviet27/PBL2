@@ -35,6 +35,18 @@ QLNH::QLNH()
     }
     FileIn.close();
 }
+int QLNH::getCountBank()
+{
+    int cnt=0;
+    Link_list<Bank> B=this->getLinkListParBank();
+    Node<Bank>* NB=B.head;
+    while(NB!=nullptr)
+    {
+        cnt++;
+        NB=NB->next;
+    }
+    return cnt;
+}
 QLNH::QLNH(Link_list<Bank> parBank){
     this->parBank=parBank;
 }
@@ -48,13 +60,6 @@ QLNH::~QLNH()
 void QLNH::addBank(const Bank& b){
     parBank.Add(b);
 }
-
-
-// void QLNH::showBank(){
-//     cout<<"\t\t\t";
-//     cout<<"|  ID  |"<<"\t" <<"Ten Ngan Hang"<<"\t\t |"<<endl;
-//     parBank.Show();
-// }
 
 void QLNH::showBank()
 {

@@ -1,7 +1,7 @@
 
 // #include "Menu/Menu.cpp"
 #include "./DangNhap_DangKy/SignIn.cpp"
-// #include "./DangNhap_DangKy/Register.cclpp"
+#include "./DangNhap_DangKy/Register.cpp"
 #include<iostream>
 
 QLNH banks;
@@ -18,7 +18,7 @@ void DangNhapAC(Node<Account> *nodeAC)
     }
     else 
     {
-        menuDebitCard();
+        DebitCard(nodeAC,banks,users);
     }
 
 }
@@ -27,6 +27,7 @@ void DangNhapAC(Node<Account> *nodeAC)
 void DangNhap_DangKy()
 {
     startMenu();
+    system("pause");
 Menu:
     menuUser();
     switch (choose(1,3))
@@ -41,19 +42,15 @@ Menu:
         }
         cout << endl;
         system("pause");
-        cout.flush();
         break;
-    // case 2:
-    // system("cls");
-    // Register::NhapThongTinKhachHang();
-    // cout << endl;
-    // system("pause");
-    // cout.flush();
-    // goto Menu;
-    //     break;
-    // case 3:
-    //     exit(0);
-    //     break;
+    case 2:
+        system("cls");
+        Node<Account>* nodeAc=Register::DangKi(banks,users,accounts);
+        cout << endl;
+        system("pause");
+        break;
+    case 3:
+        exit(0);
     }
 }
 
@@ -63,17 +60,10 @@ int main()
    
     system("pause");
     TextColor(12);
-    try
-    {
-        fflush(stdin);
-        DangNhap_DangKy();
-    }
+    DangNhap_DangKy();
     
-    catch (string msg)
-    {
-        cout << endl
-             << "\t\t\t\t\t" << msg;
-    }
+    
+    
 
     
 }

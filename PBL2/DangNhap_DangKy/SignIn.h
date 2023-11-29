@@ -1,6 +1,5 @@
 #pragma once
 #include "../Menu/Menu.cpp"
-// #include "../QuanLy/Account/ListAccount.cpp"
 // #include "../QuanLy/Account/QLTK.cpp"
 #include "../QuanLy/Bank/QLNH.cpp"
 #include <iostream>

@@ -9,7 +9,7 @@ Record_Chuyen::Record_Chuyen():Record()
 
 Record_Chuyen::Record_Chuyen(string IDAccount,string IDDesAccount,string NameBank,long long Amount):Record(IDAccount,NameBank,Amount)
 {
-    this->IDSourceAccount = IDDesAccount;
+    this->IDDesAccount = IDDesAccount;
 }
 
 Record_Chuyen::~Record_Chuyen()
