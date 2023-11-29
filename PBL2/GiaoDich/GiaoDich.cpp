@@ -2,6 +2,8 @@
 #include"../QuanLy/Bank/QLNH.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../Record_Giaodich/Record_Nap.cpp"
+#include"../Record_Giaodich/Record_Rut.cpp"
+
 #include<iostream>
 #include<limits> 
 #include<fstream>
@@ -13,49 +15,13 @@ class GiaoDich{
             
             double money;
             cout<<"Nhap So Tien Can Nap Vao Tai Khoan: ";
-               // while(cin>>money)
-               // {
-               //      cout<<endl;
-               //      if(money>0.0 && )
-               //           break;
-               //      else {
-
-               //           cout<<"So tien Khong Hop Le!!!"<<endl;
-               //           cout<<"Vui Long Nhap Lai: ";
-               //           cin.clear();
-               //           cin.ignore(1000, '\n');
-               //      }
-               // }
                 while (!(cin >> money) || (cin.peek() != '\n')) {
                          cout << endl;
                          cout << "So tien khong hop le! Vui long nhap lai: ";
                          cin.clear();
                          cin.ignore(numeric_limits<streamsize>::max(), '\n');
                }
-            AC->data.setAmount(money);
-
-            bool success=0;
-            Link_list<Bank> *B=banks.getLinkListParBank();
-            Node<Bank>* NB=B->head;
-            while(NB!=nullptr)
-            {
-               Link_list<User> *U=NB->data.getLinkListUser();
-               Node<User> *NU=U->head;
-               while(NU!=nullptr)
-               {    
-                    Node<Account> *A=NU->data.getUserAccount()->Search(AC->data);
-                    if(A!=nullptr)
-                    {
-                         A->data.setAmount(money);
-                         success=1;
-                         break;
-                    }
-                    NU=NU->next;
-               }
-               if(success==1)
-                    break;
-               NB=NB->next;
-            }
+               AC->data.setAmount(money);
 
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
@@ -69,23 +35,45 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
-
-               Record_Nap R(AC->data.getNumAccount(),NB->data.getNameBank(),money);
+               string idBank=AC->data.getNumAccount().substr(0,3);
+               Record_Nap R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),money);
                R.RecordtoFile();
         }
-        static void RutTien(Node<Account>*)
+        static void RutTien(Node<Account>* AC,QLNH &banks,QLKH &users)
         {
-          //   double money;
-          //   cout<<"Nhap So Tien Can Nap Vao Tai Khoan: ";
-          //      while(cin>>money)
-          //      {
-          //           cout<<endl;
-          //           if(money>0)
-          //                break;
-          //           cout<<"So tien Khong Hop Le!!!"<<endl;
-          //           cout<<"Vui Long Nhap Lai: ";
-          //      }
-          //   AC->data.setAmount(money);
+               double money;
+               cout<<"Nhap So Tien Can Rut Vao Tai Khoan: ";
+               while (!(cin >> money) || (cin.peek() != '\n')) {
+                         cout << endl;
+                         cout << "So tien khong hop le! Vui long nhap lai: ";
+                         cin.clear();
+                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+               }
+               if(AC->data.getAmount()-money > 0)
+               AC->data.setAmount(-money);
+               else {
+                    cout<<"Khong Du Tien Trong Tai Khoan!!!"<<endl;
+               }
+
+               Link_list<User> *X=users.getLinkListUser();
+               Node<User> *NX=X->head;
+               while(NX!=nullptr)
+               {
+                    Node<Account> *Y=NX->data.getUserAccount()->Search(AC->data);
+                    if(Y!=nullptr)
+                    {
+                         if(Y->data.getAmount()-money > 0)
+                         Y->data.setAmount(-money);
+                         else {
+                              cout<<"Khong Du Tien Trong Tai Khoan!!!"<<endl;
+                         }
+                         break;
+                    }
+                    NX=NX->next;
+               }
+               string idBank=AC->data.getNumAccount().substr(0,3);
+               Record_Rut R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),-money);
+               R.RecordtoFile();
         }
         static void TraCuuLichSuGiaoDich(Node<Account>* AC)
         {
@@ -110,6 +98,6 @@ class GiaoDich{
                }
 
         }
-        static void ChuyenTien(Node<Account>*);
+        
 };
 

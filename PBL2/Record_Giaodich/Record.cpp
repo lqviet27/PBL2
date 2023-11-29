@@ -1,5 +1,5 @@
+#pragma once
 #include"Record.h"
-
 
 
 Record::Record()

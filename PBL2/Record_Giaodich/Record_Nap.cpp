@@ -26,8 +26,7 @@ void Record_Nap::RecordtoFile()
 {
     string Path = "DataBase/GiaoDich/" + this->IDAccount + ".txt";
     ofstream file(Path, ios::app);
-    // file <<'\n'
-        file << this->IDAccount << "|";
+    file << this->IDAccount << "|";
     file << this->NameBank << "|";
     file << fixed<<setprecision(2);
     file << this->Amount << "|";
