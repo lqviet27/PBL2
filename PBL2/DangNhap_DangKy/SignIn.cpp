@@ -5,7 +5,7 @@
 
 void SignIn::DangNhapQuaSoLanQuyDinh()
 {
-    throw "Ban da dang nhap sai qua so lan quy dinh!!";
+    cout<<"Ban da dang nhap sai qua so lan quy dinh!!";
 }
 
 Node<Account>* SignIn::DangNhap(QLNH &X)

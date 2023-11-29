@@ -13,7 +13,7 @@ QLTK::QLTK()
     else{
         while(!FileIn.eof()){
             string CCCD,numAccount, password;
-            long double amount;
+            long long amount;
             bool typeAccount;
             char separator;
             getline(FileIn, CCCD,'|');

@@ -160,7 +160,7 @@ void menuSavingCard()
 
 void deposit(Account &X)
 {
-     double Money;
+     long long Money;
      system("cls");
      en
          TextColor(12);
@@ -184,26 +184,29 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
                system("cls");
                GiaoDich::NapTien(nodeAC,banks,users);
                GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
-
+               break;
+          case 2:
+               system("cls");
+               GiaoDich::RutTien(nodeAC,banks,users);
+               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
                // cout<<endl;
                
+               // Link_list<Bank> *B=banks.getLinkListParBank();
+               // Node<Bank> *NB=B->head;
+               // while(NB!=nullptr)
+               // {
+               //      NB->data.getLinkListAccount()->Show();
+               //      NB=NB->next;
+               // }
+
                // Link_list<User> *X=users.getLinkListUser();
                // Node<User> *NX=X->head;
                // while(NX!=nullptr)
                // {
-               //      Node<Account> *Y=NX->data.getUserAccount()->Search(nodeAC->data);
-               //      if(Y!=nullptr)
-               //      {
-               //           Y->data.Show();
-               //           break;
-               //      }
+               //      NX->data.getUserAccount()->Show();
                //      NX=NX->next;
                // }
-               break;
-          case 4:
-               system("cls");
-               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
-               break;
+               // break;
                
                
      }

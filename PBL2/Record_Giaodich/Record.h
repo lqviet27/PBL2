@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<string>
 #include<iomanip>
@@ -8,13 +9,14 @@ using namespace std;
 class Record
 {
 protected:    
-    string IDAccount;
+    string IDSourceAccount;
+    string IDDesAccount;
     string NameBank;
-    double Amount;
+    long long Amount;
     string Time;
 public:
     Record();
-    Record(string,string,double);
+    Record(string,string,long long);
     virtual void Show() = 0;
     virtual void RecordtoFile()=0;
     ~Record(); 

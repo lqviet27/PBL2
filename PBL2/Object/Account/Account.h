@@ -10,12 +10,12 @@ class Account{
         string CCCD;
         string numAccount;
         string password;
-        double amount;
+        long long amount;
         bool typeAccount;
     public:
         Account();
-        Account(string,string,string,string ,bool,double);
-        Account(string,string,string ,bool,double);
+        Account(string,string,string,string ,bool,long long);
+        Account(string,string,string ,bool,long long);
         Account(const Account &);
         ~Account();
         string getNumAccount();
@@ -24,8 +24,8 @@ class Account{
         bool getTypeAccount();
         void setNumAccount(string);
         void setPassword(string);
-        void setAmount(double);
-        double getAmount();
+        void setAmount(long long);
+        long long getAmount();
         friend istream &operator>>(istream &, Account &);
         bool operator==(const Account &);
         void operator=(const Account &);

@@ -23,7 +23,7 @@ int main(){
         
         while(!FileIn.eof()){
             string numAccount, password;
-            long double amount;
+            long long amount;
             bool typeAccount;
             char separator;
             getline(FileIn, numAccount, '|');
