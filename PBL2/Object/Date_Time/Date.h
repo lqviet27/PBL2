@@ -12,9 +12,9 @@ public:
     Date(int, int, int);
     Date(const Date &);
     ~Date();
-    int Day();
-    int Month();
-    int Year();
+    int getDay();
+    int getMonth();
+    int getYear();
     void ShowDate();
     friend ostream &operator<<(ostream &, const Date &);
     friend istream &operator>>(istream &, Date &);

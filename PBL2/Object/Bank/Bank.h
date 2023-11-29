@@ -5,7 +5,7 @@
 
 class Bank{
     private:
-        int countAccount;
+        // int countAccount;
         string nameBank;
         string IDBank;
         Link_list<User> parUser;

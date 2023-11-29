@@ -14,17 +14,17 @@ Date::Date(const Date &d)
 
 Date::~Date() {}
 
-int Date::Day()
+int Date::getDay()
 {
     return _Day;
 }
 
-int Date::Month()
+int Date::getMonth()
 {
     return _Month;
 }
 
-int Date::Year()
+int Date::getYear()
 {
     return _Year;
 }

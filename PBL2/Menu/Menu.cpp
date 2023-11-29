@@ -183,22 +183,28 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
           case 1:
                system("cls");
                GiaoDich::NapTien(nodeAC,banks,users);
-               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+               // GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
 
-               cout<<endl;
+               // cout<<endl;
                
-               Link_list<User> *X=users.getLinkListUser();
-               Node<User> *NX=X->head;
-               while(NX!=nullptr)
-               {
-                    Node<Account> *Y=NX->data.getUserAccount()->Search(nodeAC->data);
-                    if(Y!=nullptr)
-                    {
-                         Y->data.Show();
-                         break;
-                    }
-                    NX=NX->next;
-               }
+               // Link_list<User> *X=users.getLinkListUser();
+               // Node<User> *NX=X->head;
+               // while(NX!=nullptr)
+               // {
+               //      Node<Account> *Y=NX->data.getUserAccount()->Search(nodeAC->data);
+               //      if(Y!=nullptr)
+               //      {
+               //           Y->data.Show();
+               //           break;
+               //      }
+               //      NX=NX->next;
+               // }
+               break;
+          case 4:
+               system("cls");
+               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+               break;
+               
                
      }
 

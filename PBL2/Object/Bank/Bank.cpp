@@ -7,11 +7,11 @@ using namespace std;
 // namespace fs = std::filesystem;
 
 Bank::Bank(){
-    this->countAccount=0;
+    // this->countAccount=0;
 }
 Bank::Bank(string nameBank, string IDBank)
 {   
-    this->countAccount = 0;
+    // this->countAccount = 0;
     this->nameBank = nameBank;
     this->IDBank = IDBank;
 }
@@ -73,11 +73,11 @@ void Bank::addUser(User& us)
     }
 }
 
-string Bank::getCountAccount()
-{
-    string tmp = to_string(this->countAccount);
-    return tmp;
-}
+// string Bank::getCountAccount()
+// {
+//     string tmp = to_string(this->countAccount);
+//     return tmp;
+// }
 bool Bank::searchAccount(const Account& AC)
 {
     Node<Account> *tail=parAccount.head;

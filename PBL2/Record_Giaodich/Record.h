@@ -15,7 +15,6 @@ protected:
 public:
     Record();
     Record(string,string,double);
-    int getIDRecord();
     virtual void Show() = 0;
     virtual void RecordtoFile()=0;
     ~Record(); 
