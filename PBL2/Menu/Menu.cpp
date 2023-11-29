@@ -183,7 +183,7 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
           case 1:
                system("cls");
                GiaoDich::NapTien(nodeAC,banks,users);
-               // GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
 
                // cout<<endl;
                
