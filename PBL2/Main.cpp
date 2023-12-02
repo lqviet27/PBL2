@@ -33,34 +33,61 @@ Menu:
     switch (choose(1,3))
     {
     case 1:     
-        system("cls");
-        Node<Account>* nodeAc=SignIn::DangNhap(banks);
-        if(nodeAc==nullptr)
-            goto Menu;
-        else {
-            DangNhapAC(nodeAc);
+        {
+            system("cls");
+            Node<Account>* nodeAc=SignIn::DangNhap(banks);
+            if(nodeAc==nullptr)
+                goto Menu;
+            else {
+                DangNhapAC(nodeAc);
+            }
+            cout << endl;
+            system("pause");
+            break;
         }
-        cout << endl;
-        system("pause");
-        break;
     case 2:
-        system("cls");
-        Node<Account>* nodeAc=Register::DangKi(banks,users,accounts);
-        cout << endl;
-        system("pause");
-        break;
+        {
+            system("cls");
+            Node<Account>* nodeAc=Register::DangKi(banks,users,accounts);
+            cout << endl;
+            system("pause");   
+            break;
+        }
     case 3:
-        exit(0);
+        {
+            cout<<"Tam Biet!"<<endl;
+            system("pause");
+            exit(0);
+        }
     }
 }
 
 int main()
 {
     banks.linkData(accounts,users);
-   
-    system("pause");
-    TextColor(12);
-    DangNhap_DangKy();
+
+    cout<<endl<<endl<<endl<<endl;
+    Link_list<Bank> *B=banks.getLinkListParBank();
+    Node<Bank> *NB=B->head;
+    while(NB!=nullptr)
+    {
+        Link_list<User> *U=NB->data.getLinkListUser();
+        Node<User> *NU=U->head;
+        while(NU!=nullptr)
+        {
+            cout<<NU->data.getCCCD();
+            NU->data.showAccount();
+            NU=NU->next;
+        }
+
+        NB=NB->next;
+        cout<<endl;
+    }
+
+
+    // system("pause");
+    // TextColor(12);
+    // DangNhap_DangKy();
     
     
     

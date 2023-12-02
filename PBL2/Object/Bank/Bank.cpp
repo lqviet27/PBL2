@@ -89,7 +89,7 @@ bool Bank::searchAccount(const Account& AC)
     return false;
 }
 
-bool Bank::searchUser(const User& US)
+bool Bank::searchUser( User& US)
 {
     Node<User> *tail=parUser.head;
     while(tail!=nullptr)

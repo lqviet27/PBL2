@@ -38,8 +38,8 @@ QLNH::QLNH()
 int QLNH::getCountBank()
 {
     int cnt=0;
-    Link_list<Bank> B=this->getLinkListParBank();
-    Node<Bank>* NB=B.head;
+    Link_list<Bank> *B=this->getLinkListParBank();
+    Node<Bank>* NB=B->head;
     while(NB!=nullptr)
     {
         cnt++;
@@ -108,14 +108,16 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
                 cout<<NAC->data.getNumAccount();
                 exit(0);
             }
-            US->data.addAccount(NAC->data);
+            
+            
             if(Ba->data.searchUser(US->data)==false)
             {
                 User U=User(US->data);
                 U.setEmptyLinkList();
+                U.addAccount(NAC->data);
                 Ba->data.addUser(U);
-            }
-            
+            } 
+            US->data.addAccount(NAC->data);
             Ba->data.addAccount(NAC->data);
             NAC=NAC->next;
         }

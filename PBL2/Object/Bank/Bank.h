@@ -21,7 +21,7 @@ class Bank{
         void Show();
         string getNameBank();
         bool searchAccount(const Account&);
-        bool searchUser(const User&);
+        bool searchUser( User&);
         // Link_list<User> get 
         //void addAccounttoFile(Account&);
         void addAccount(Account&);

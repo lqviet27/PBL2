@@ -28,13 +28,14 @@ int choose(int l,int r)
     int chon;
     cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
     cin >> chon;
-    while (chon < l || chon > r)
+    while (chon < l || chon > r || chon==0)
     {
         cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
         cin >> chon;
     }
     return chon;
 }
+
 
 void startMenu()
 {
