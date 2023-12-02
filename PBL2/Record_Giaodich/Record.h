@@ -17,8 +17,8 @@ protected:
 public:
     Record();
     Record(string,string,long long);
+    ~Record(); 
     virtual void Show() = 0;
     virtual void RecordtoFile()=0;
-    ~Record(); 
 };
 

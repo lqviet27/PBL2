@@ -9,7 +9,7 @@ Record_Chuyen::Record_Chuyen():Record()
 
 Record_Chuyen::Record_Chuyen(string IDAccount,string IDDesAccount,string NameBank,long long Amount):Record(IDAccount,NameBank,Amount)
 {
-    this->IDSourceAccount = IDDesAccount;
+    this->IDDesAccount = IDDesAccount;
 }
 
 Record_Chuyen::~Record_Chuyen()
@@ -17,7 +17,7 @@ Record_Chuyen::~Record_Chuyen()
 }
 
 void Record_Chuyen::Show()
-{
+{//* làm lại chỗ IDdesaAccount nếu với tài khoản đc chuyển thì đó phải là Id của accoutn chuyển tói
     cout << "\t\t\t+===========================================================================================================+" << endl;
     cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
     cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;

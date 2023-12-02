@@ -22,10 +22,10 @@ class Account{
         string getPassword();
         string getCCCD();
         bool getTypeAccount();
+        long long getAmount();
         void setNumAccount(string);
         void setPassword(string);
         void setAmount(long long);
-        long long getAmount();
         friend istream &operator>>(istream &, Account &);
         bool operator==(const Account &);
         void operator=(const Account &);

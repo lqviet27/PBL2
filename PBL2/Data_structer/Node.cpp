@@ -11,13 +11,13 @@ void Node<T>::Show(){
     this->data.Show();
 }
 template<class T>
-bool Node<T>::operator==(const Node& node)
+bool Node<T>::operator==(const Node<T>& node)
 {
     cout<<"Node";
     return (this->data == node.data);
 } 
 template<class T>
-void Node<T>::operator=(const Node& node)
+void Node<T>::operator=(const Node<T>& node)
 {
     this->data = node.data;
     this->next = node.next;
