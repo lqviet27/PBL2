@@ -10,8 +10,8 @@ class Node
         Node<T> *prev;
         Node(const T& );
         void Show();
-        bool operator==(const Node<T>&);
-        void operator=(const Node<T>&);
+        bool operator==(const Node&);
+        void operator=(const Node&);
 };
 
 

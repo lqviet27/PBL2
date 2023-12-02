@@ -123,9 +123,9 @@ void menuDebitCard()
      cout << endl;
      cout << ("\t\t\t                 1. NAP TIEN");
      cout << endl;
-     cout << ("\t\t\t                 2. CHUYEN TIEN");
+     cout << ("\t\t\t                 2. RUT TIEN");
      cout << endl;
-     cout << ("\t\t\t                 3. RUT");
+     cout << ("\t\t\t                 3. CHUYEN TIEN");
      cout << endl;
      cout << ("\t\t\t                 4. TRA CUU SO DU");
      cout << endl;
@@ -148,7 +148,7 @@ void menuSavingCard()
      cout << endl;
      cout << ("\t\t\t                 1. NAP TIEN");
      cout << endl;
-     cout << ("\t\t\t                 2. RUT");
+     cout << ("\t\t\t                 2. RUT TIEN");
      cout << endl;
      cout << ("\t\t\t                 3. TRA CUU SO DU");
      cout << endl;
@@ -177,44 +177,62 @@ void deposit(Account &X)
 }
 
 void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
+     Start:
      menuSavingCard();
      switch(choose(1,5))
      {
           case 1:
                system("cls");
                GiaoDich::NapTien(nodeAC,banks,users);
-               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
                break;
           case 2:
                system("cls");
                GiaoDich::RutTien(nodeAC,banks,users);
+               break;
+          case 3:
+               system("cls");
+               GiaoDich::TraCuuSoDu(nodeAC,banks);
+               break;
+          case 4:
+               system("cls");
                GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
-               // cout<<endl;
-               
-               // Link_list<Bank> *B=banks.getLinkListParBank();
-               // Node<Bank> *NB=B->head;
-               // while(NB!=nullptr)
-               // {
-               //      NB->data.getLinkListAccount()->Show();
-               //      NB=NB->next;
-               // }
-
-               // Link_list<User> *X=users.getLinkListUser();
-               // Node<User> *NX=X->head;
-               // while(NX!=nullptr)
-               // {
-               //      NX->data.getUserAccount()->Show();
-               //      NX=NX->next;
-               // }
-               // break;
-               
-               
+               break;
+          case 5:
+               return;
      }
-
-
-
+     goto Start;
 }
-void DebitCard(){}
+void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
+     Start:
+     menuDebitCard();
+     switch(choose(1,6))
+     {
+          
+          case 1:
+               system("cls");
+               GiaoDich::NapTien(nodeAC,banks,users);
+               break;
+          case 2:
+               system("cls");
+               GiaoDich::RutTien(nodeAC,banks,users);
+               break;
+          case 3:
+               system("cls");
+               GiaoDich::ChuyenTien(nodeAC,banks,users);
+               break;
+          case 4:
+               system("cls");
+               GiaoDich::TraCuuSoDu(nodeAC,banks);
+               break;
+          case 5:
+               system("cls");
+               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+               break;
+          case 6:
+               return ;
+     }
+     goto Start;
+}
 
 
 

@@ -64,7 +64,7 @@ void QLKH::addUser(User &b)
         if(this->SearchUser(b)==false) 
             this->parUser.Add(b);
         else 
-            cout<<"User";
+            cout<<"User da ton tai";
 }
 void QLKH::showUser()
 {
