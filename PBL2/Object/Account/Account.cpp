@@ -77,6 +77,20 @@ bool Account::operator==(const Account& ac)
 {
     return (this->numAccount == ac.numAccount);
 } 
+bool Account::operator<(const Account& x)
+{
+    long long a = stoi(this->numAccount);
+    long long b = stoi(x.numAccount);
+    return (a < b);
+}
+bool Account::operator>(const Account& x)
+{
+    // return (this->amount > x.amount);
+    long long a = stoi(this->numAccount);
+    long long b = stoi(x.numAccount);
+    return (a > b);
+
+}
 istream &operator>>(istream &in, Account &acc)
 {
     string a, b;

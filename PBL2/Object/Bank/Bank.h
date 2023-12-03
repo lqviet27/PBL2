@@ -21,12 +21,13 @@ class Bank{
         void Show();
         string getNameBank();
         bool searchAccount(const Account&);
-        bool searchUser(const User&);
+        bool searchUser( User&);
         // Link_list<User> get 
         //void addAccounttoFile(Account&);
         void addAccount(Account&);
         void addUser(User&);
         bool operator==(const Bank&);
+        bool operator>(const Bank&);
         Node<Account>* searchAccount(const string&);
         Node<User>* searchUser(const string&);
         void InsertObjecttoFile(ofstream &);

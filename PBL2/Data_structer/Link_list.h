@@ -11,6 +11,6 @@ class Link_list
         void Delete(const T& data);
         //void operator=(const Link_list<T>&);
         Node<T>* Search(const T& data);
-    
+        void Sort();
 };
 

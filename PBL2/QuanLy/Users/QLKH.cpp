@@ -66,6 +66,10 @@ void QLKH::addUser(User &b)
         else 
             cout<<"User da ton tai";
 }
+void QLKH::Sort()
+{
+    this->parUser.Sort();
+}
 void QLKH::showUser()
 {
 

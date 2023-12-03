@@ -44,6 +44,9 @@ QLTK::~QLTK()
 void QLTK::addAccount(const Account& b){
     parAccount.Add(b);
 }
+void QLTK::Sort(){
+    this->parAccount.Sort();
+}
 void QLTK::showAccount()
 {
     cout << "\t\t\t+===============================================================+" << endl;

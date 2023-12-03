@@ -13,9 +13,23 @@ int main(){
     QLNH A;
     QLKH B;
     QLTK C;
-    A.linkData(C,B);
+    // A.linkData(C,B);
+    // A.showBank();
     A.showBank();
-    
+    A.Sort();
+    cout<<"Sau khi sap xep:"<<endl;
+    A.showBank();
+    cout<<endl;
+    B.showUser();
+    B.Sort();
+    cout<<"Sau khi sap xep:"<<endl;
+    B.showUser();
+    cout<<endl;
+    C.showAccount();
+    C.Sort();
+    cout<<"Sau khi sap xep:"<<endl;
+    C.showAccount();
+
     // B.showUser();
     // C.showAccount();
     /*
@@ -76,6 +90,7 @@ int main(){
       Une2=Une2->next;
     }
     */
+   /*
     Link_list<Bank> *U=A.getLinkListParBank();
     Node<Bank> *Une=U->head;
     while(Une!=nullptr){
@@ -97,6 +112,7 @@ int main(){
       Une2->data.Show();
       Une2=Une2->next;
     }
+    */
     /*
     cout<<"Sau khi cap nhat:"<<endl;
     Link_list<User> *x =B.getLinkListUser();

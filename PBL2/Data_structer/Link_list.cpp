@@ -101,3 +101,35 @@ Node<T>* Link_list<T>::Search(const T& data){
     }
     return nullptr;
 }
+
+template<typename T>
+void Link_list<T>::Sort() {
+        if (head == nullptr || head->next == nullptr) {
+            // Danh sách rỗng hoặc chỉ có một phần tử, không cần sắp xếp
+            return;
+        }
+
+        bool swapped;
+        Node<T>* current;
+        Node<T>* lastSorted = nullptr;
+
+        do {
+            swapped = false;
+            current = head;
+
+            while (current->next != lastSorted) {
+                if (current->data > current->next->data) {
+                    // Swap data
+                    T temp = current->data;
+                    current->data = current->next->data;
+                    current->next->data = temp;
+                    swapped = true;
+                }
+
+                current = current->next;
+            }
+
+            lastSorted = current;
+
+        } while (swapped);
+}

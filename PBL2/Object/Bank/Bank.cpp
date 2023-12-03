@@ -89,7 +89,7 @@ bool Bank::searchAccount(const Account& AC)
     return false;
 }
 
-bool Bank::searchUser(const User& US)
+bool Bank::searchUser( User& US)
 {
     Node<User> *tail=parUser.head;
     while(tail!=nullptr)
@@ -129,6 +129,12 @@ void Bank::Show(){
 bool Bank::operator==(const Bank& B)
 {
     return (this->IDBank == B.IDBank);
+}
+bool Bank::operator>(const Bank& B)
+{
+    int a = stoi(this->IDBank);
+    int b = stoi(B.IDBank);
+    return (a > b);
 }
 Node<Account>* Bank::searchAccount(const string& numAcc){
     Account A("",numAcc,"",0,0);

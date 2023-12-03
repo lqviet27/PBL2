@@ -15,6 +15,7 @@ public:
     QLKH(const QLKH&);
     ~QLKH();
     void addUser(User&);
+    void Sort();
     void showUser();
     Link_list<User> *getLinkListUser();
     Node<User>* SearchUser(const string&);

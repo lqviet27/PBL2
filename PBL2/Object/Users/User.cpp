@@ -129,6 +129,19 @@ bool User::operator==(const User &us)
 {
     return (this->CCCD == us.CCCD);
 }
+bool User::operator>(const User &us)
+{
+    string lastName1, lastName2;
+    string l1,l2;
+    size_t lastSpace = this->getName().rfind(' ');
+    size_t lastSpace2 = us._Name.rfind(' ');
+    lastName1 = this->_Name.substr(lastSpace + 1);
+    lastName2 = us._Name.substr(lastSpace2 + 1);
+    l1=lastName1.substr(0,1);
+    l2=lastName2.substr(0,1);
+    return (l1 > l2);
+
+}
 void User::operator=(const User &us)
 {   
     this->userAccount = us.userAccount;

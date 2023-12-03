@@ -15,6 +15,7 @@ public:
     QLNH(const QLNH&);
     ~QLNH();
     void addBank(const Bank&);
+    void Sort();
     void showBank();
     void linkData(QLTK&,QLKH&);
     Node<Bank>* SearchBank(const string&);

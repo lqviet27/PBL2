@@ -4,7 +4,6 @@
 
 Record::Record()
 {
-
     this->IDSourceAccount="";
     this->IDDesAccount="";
     this->NameBank="";

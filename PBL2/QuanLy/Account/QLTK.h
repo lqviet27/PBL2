@@ -14,6 +14,7 @@ public:
     QLTK(const QLTK&);
     ~QLTK();
     void addAccount(const Account&);
+    void Sort();
     void showAccount();
     Link_list<Account> *getLinkListAccount();
     Node<Account> * SearchAccount(const string&);

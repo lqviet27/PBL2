@@ -32,6 +32,7 @@ public:
     void addAccount(Account &);
     void showAccount();
     bool operator==(const User &);
+    bool operator>(const User &);
     void operator=(const User &);
     friend istream &operator>>(istream &, User &);
     void InsertObjecttoFile(ofstream &);

@@ -28,6 +28,8 @@ class Account{
         void setAmount(long long);
         friend istream &operator>>(istream &, Account &);
         bool operator==(const Account &);
+        bool operator<(const Account&);
+        bool operator>(const Account&);
         void operator=(const Account &);
         void InsertObjecttoFile(ofstream &);
         void Show();

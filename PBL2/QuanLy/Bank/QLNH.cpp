@@ -60,7 +60,9 @@ QLNH::~QLNH()
 void QLNH::addBank(const Bank& b){
     parBank.Add(b);
 }
-
+void QLNH::Sort(){
+    this->parBank.Sort();
+}
 void QLNH::showBank()
 {
     cout << "\t\t\t+========================================+" << endl;
@@ -107,18 +109,16 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
                 cout<<NAC->data.getNumAccount();
                 // exit(0);
             }
-            US->data.addAccount(NAC->data);
+            
+            
             if(Ba->data.searchUser(US->data)==false)
             {
                 User U=User(US->data);
                 U.setEmptyLinkList();
+                U.addAccount(NAC->data);
                 Ba->data.addUser(U);
-            }
-            else {
-                Node<User> *NU=Ba->data.searchUser(US->data.getCCCD());
-                NU->data.addAccount(NAC->data);
-            }
-            
+            } 
+            US->data.addAccount(NAC->data);
             Ba->data.addAccount(NAC->data);
             NAC=NAC->next;
         }
