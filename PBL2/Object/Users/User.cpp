@@ -175,6 +175,17 @@ void User::addAccount(Account &ac)
     
 }
 
+void User::copyUser(User us)
+{
+    this->CCCD = us.CCCD;
+    this->_Name = us._Name;
+    this->_Address = us._Address;
+    this->_Birthday = us._Birthday;
+    this->_Gender = us._Gender;
+    this->_PhoneNumber = us._PhoneNumber;
+}
+
+
 void User::showAccount()
 {
     cout << "DANH SACH TAI KHOAN CUA KHACH HANG " << this->_Name << " LA:" << endl;

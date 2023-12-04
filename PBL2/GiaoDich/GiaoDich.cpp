@@ -26,6 +26,29 @@ class GiaoDich{
                }
                AC->data.setAmount(money);
 
+               Link_list<Bank> *B=banks.getLinkListParBank();
+               Node<Bank> *NB=B->head;
+               bool success=0;
+               while(NB!=nullptr)
+               {
+                    Link_list<User> *U=NB->data.getLinkListUser();
+                    Node<User> *NU=U->head;
+                     while (NU!=nullptr)
+                     {
+
+                         if(NU->data.getCCCD()==AC->data.getCCCD())
+                         {
+                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
+                              success=1;
+                              break;
+                         }
+                         NU=NU->next;
+                     }
+                     if(success==1)
+                         break;
+                    NB=NB->next;
+               }
+
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
@@ -63,6 +86,29 @@ class GiaoDich{
                     goto Start;
                }
 
+               Link_list<Bank> *B=banks.getLinkListParBank();
+               Node<Bank> *NB=B->head;
+               bool success=0;
+               while(NB!=nullptr)
+               {
+                    Link_list<User> *U=NB->data.getLinkListUser();
+                    Node<User> *NU=U->head;
+                     while (NU!=nullptr)
+                     {
+
+                         if(NU->data.getCCCD()==AC->data.getCCCD())
+                         {
+                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(-money);
+                              success=1;
+                              break;
+                         }
+                         NU=NU->next;
+                     }
+                     if(success==1)
+                         break;
+                    NB=NB->next;
+               }
+
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
@@ -81,29 +127,9 @@ class GiaoDich{
                R.RecordtoFile();
         }
 
-        static void ChuyenTien(Node<Account>* AC,QLNH &banks,QLKH &users)
+        static void ChuyenTien(Node<Account>* AC,Node<Account>* NA,QLNH &banks,QLKH &users)
         {
-               string ACDich;
-               Node<Account> *NA;
-               while(1)
-               {
-                    cout<<"Nhap So Tai Khoan Can Chuyen Tien(Nhap 'Exit' De Quay Lai): ";
-                    cin>>ACDich;
-                    if(ACDich=="Exit")
-                         return ;
-                    cout<<endl;
-                    string idBank=ACDich.substr(0,3);
-                    Node<Bank> *NB=banks.SearchBank(idBank);
-                    NA=NB->data.searchAccount(ACDich);
-                    if(NA==nullptr)
-                         {
-                              cout<<"So Tai Khoan Khong Chinh Xac!!!"<<endl;
-                         }
-                    else 
-                    {
-                         break;
-                    }
-               }
+               
 
                long long money;
                Start:
@@ -154,6 +180,43 @@ class GiaoDich{
                     NNN=NNN->next;
                   
                } 
+               int cnt=0;
+               Link_list<Bank> *BANK=banks.getLinkListParBank();
+               Node<Bank> *NBANK=BANK->head;
+               while(NBANK!=nullptr)
+               {
+                    Link_list<User> *USER=NBANK->data.getLinkListUser();
+                    Node<User> *NUSER=USER->head;
+                    while(NUSER!=nullptr)
+                    {
+                         Link_list<Account> *ACCOUNT=NUSER->data.getUserAccount();
+                         Node<Account> *NACCOUNT=ACCOUNT->head;
+                         while(NACCOUNT!=nullptr)
+                         {
+                              if(NACCOUNT->data==AC->data)
+                                   {
+                                        NACCOUNT->data.setAmount(-money);
+                                        cnt++;
+                                   }
+                              if(NACCOUNT->data==NA->data)
+                                   {
+                                        NACCOUNT->data.setAmount(money);
+                                        cnt++;
+                                   }
+                              if(cnt==2)
+                                   break;
+                              NACCOUNT=NACCOUNT->next;
+                         }
+                         if(cnt==2)
+                              break;    
+                         NUSER=NUSER->next;                     
+                    }
+                    if(cnt==2)
+                         break;
+                    NBANK=NBANK->next;
+               }
+
+
                Bank NH=banks.SearchBank(AC->data.getNumAccount().substr(0,3))->data;
                Bank NHDich=banks.SearchBank(NA->data.getNumAccount().substr(0,3))->data;
                Record_Chuyen Chuyen(AC->data.getNumAccount(),NA->data.getNumAccount(),NH.getNameBank(),-money);
@@ -161,6 +224,7 @@ class GiaoDich{
                Chuyen.RecordtoFile();
                ChuyenDich.RecordtoFile();
         }
+
 
         static void TraCuuSoDu(Node<Account>* AC,QLNH &bank)
           {

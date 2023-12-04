@@ -33,8 +33,8 @@ void Link_list<T>::Add(const T& data){
         tmp->next = new_node;
         new_node->prev = tmp;
     }
-    
 }
+
 
 
 template<typename T>
@@ -49,14 +49,25 @@ void Link_list<T>::Show(){
     }
 }
 
+template<typename T>
+void Link_list<T>::operator=(const Link_list<T> LL)
+{
+    Node<T> *tmp = LL.head;
+    while(tmp != nullptr)
+    {
+        this->Add(tmp->data);
+        tmp=tmp->next;
+    }
+}
+
 // template<typename T>
-// void Link_list<T>::operator=(const Link_list<T>& LL)
+// Link_list<T>::Link_list( Link_list<T> LL)
 // {
-//     while(LL->head != nullptr)
+//     Node<T> *tmp = LL.head;
+//     while(tmp != nullptr)
 //     {
-//         this->head=LL->head;
-//         LL->head=LL->head->next;
-//         this->head=this->head->next;
+//         this->Add(tmp->data);
+//         tmp=tmp->next;
 //     }
 // }
 
