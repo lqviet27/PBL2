@@ -5,7 +5,7 @@
 Node<Account>* Register::DangKi(QLNH& banks,QLKH& users,QLTK& accounts)
 {
     Node<Bank> *B=ChonNganHang(banks);
-    //Node<User> *U=NhapThongTinKhachHang();
+    // Node<User> *U=NhapThongTinKhachHang();
     // Node<Account> *A=NhapThongTinTaiKhoan();
     return nullptr;
 }
@@ -47,5 +47,4 @@ void Register::NhapThongTinKhachHang()
     cout << "\t\t\t\t                         DANG KI                     " << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
 
-    
 }

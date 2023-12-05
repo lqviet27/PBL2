@@ -203,6 +203,33 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
      }
      goto Start;
 }
+
+Node<Account> *nodeNA(QLNH &banks)
+{
+                string ACDich;
+               Node<Account> *NA;
+               while(1)
+               {
+                    cout<<"Nhap So Tai Khoan Can Chuyen Tien(Nhap 'Exit' De Quay Lai): ";
+                    cin>>ACDich;
+                    if(ACDich=="Exit")
+                         return nullptr;
+                    cout<<endl;
+                    string idBank=ACDich.substr(0,3);
+                    Node<Bank> *NB=banks.SearchBank(idBank);
+                    NA=NB->data.searchAccount(ACDich);
+                    if(NA==nullptr)
+                         {
+                              cout<<"So Tai Khoan Khong Chinh Xac!!!"<<endl;
+                         }
+                    else 
+                    {
+                         break;
+                    }
+               }
+          return NA;
+}
+
 void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
      Start:
      menuDebitCard();
@@ -210,27 +237,39 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
      {
           
           case 1:
-               system("cls");
-               GiaoDich::NapTien(nodeAC,banks,users);
-               break;
+               {
+                    system("cls");
+                    GiaoDich::NapTien(nodeAC,banks,users);
+                    break;
+               }
           case 2:
-               system("cls");
-               GiaoDich::RutTien(nodeAC,banks,users);
-               break;
+               {
+                    system("cls");
+                    GiaoDich::RutTien(nodeAC,banks,users);
+                    break;
+               }
           case 3:
-               system("cls");
-               GiaoDich::ChuyenTien(nodeAC,banks,users);
-               break;
+               {
+                    system("cls");
+                    Node<Account> *X=nodeNA(banks);
+                    if(X!=nullptr)
+                    GiaoDich::ChuyenTien(nodeAC,X,banks,users);
+                    break;
+               }
           case 4:
-               system("cls");
-               GiaoDich::TraCuuSoDu(nodeAC,banks);
-               break;
+               {
+                    system("cls");
+                    GiaoDich::TraCuuSoDu(nodeAC,banks);
+                    break;
+               }
           case 5:
-               system("cls");
-               GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
-               break;
+               {
+                    system("cls");
+                    GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
+                    break;
+               }
           case 6:
-               return ;
+                    {return ;}
      }
      goto Start;
 }

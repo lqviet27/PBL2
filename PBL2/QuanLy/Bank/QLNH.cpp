@@ -86,6 +86,8 @@ Link_list<Bank>* QLNH::getLinkListParBank()
 }
 
 void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
+        
+
         Link_list<Account> *AC=qltk.getLinkListAccount();
         Node<Account> *NAC=AC->head;
         while(NAC!=nullptr)
@@ -99,10 +101,10 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
                 cout<<NAC->data.getNumAccount();
                 exit(0);
             }
-        
+            
             string idBankcuaAC=numAC.substr(0,3);
             Node<Bank> *Ba=this->SearchBank(idBankcuaAC);
-
+        
             if(Ba==nullptr)
             {
                 cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
@@ -111,18 +113,15 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             }
             
             
-            if(Ba->data.searchUser(US->data)==false)
-            {   
-                
-                User U=User(US->data);
+            if(Ba->data.searchUser(cccdChuTaiKhoan)==nullptr)
+            {
+                User U(US->data);
                 U.setEmptyLinkList();
                 U.addAccount(NAC->data);
                 Ba->data.addUser(U);
-            } 
-            else {
-                
             }
-
+            else 
+                Ba->data.searchUser(US->data.getCCCD())->data.addAccount(NAC->data);
             US->data.addAccount(NAC->data);
             Ba->data.addAccount(NAC->data);
             NAC=NAC->next;

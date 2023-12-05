@@ -10,8 +10,10 @@ class Link_list
         void Add(const T& data);
         void Show();
         void Delete(const T& data);
-        Link_list<T>& operator=(const Link_list<T>&);
+        void operator=(const Link_list<T>);
+        //Link_list( Link_list<T>);
         Node<T>* Search(const T& data);
+        
         void Sort();
 };
 

@@ -37,4 +37,5 @@ public:
     friend istream &operator>>(istream &, User &);
     void InsertObjecttoFile(ofstream &);
     void setEmptyLinkList();
+    void copyUser(User);
 };

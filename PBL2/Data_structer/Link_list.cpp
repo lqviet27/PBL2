@@ -45,8 +45,8 @@ void Link_list<T>::Add(const T& data){
         tmp->next = new_node;
         new_node->prev = tmp;
     }
-    
 }
+
 
 
 template<typename T>
@@ -62,30 +62,26 @@ void Link_list<T>::Show(){
 }
 
 template<typename T>
-Link_list<T>& Link_list<T>::operator=(const Link_list<T>& LL)
+void Link_list<T>::operator=(const Link_list<T> LL)
 {
-     // Kiểm tra trường hợp tự gán (self-assignment)
-    if (this == &LL) {
-        return *this;
+    Node<T> *tmp = LL.head;
+    while(tmp != nullptr)
+    {
+        this->Add(tmp->data);
+        tmp=tmp->next;
     }
-
-    // Xóa các phần tử hiện tại của danh sách
-    while (head != nullptr) {
-        Node<T>* temp = head;
-        head = head->next;
-        delete temp;
-    }
-
-    // Khởi tạo danh sách mới và thêm các phần tử từ danh sách other vào
-    head = nullptr;
-    Node<T>* otherCurrent = LL.head;
-    while (otherCurrent != nullptr) {
-        Add(otherCurrent->data);
-        otherCurrent = otherCurrent->next;
-    }
-
-    return *this;
 }
+
+// template<typename T>
+// void Link_list<T>::operator=(const Link_list<T>& LL)
+// {
+//     while(LL->head != nullptr)
+//     {
+//         this->head=LL->head;
+//         LL->head=LL->head->next;
+//         this->head=this->head->next;
+//     }
+// }
 
 template<typename T>
 void Link_list<T>::Delete(const T& data){
