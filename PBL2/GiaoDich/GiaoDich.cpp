@@ -165,56 +165,42 @@ class GiaoDich{
                     NX=NX->next;
                }
 
-
-               NA->data.setAmount(money);
-               Link_list<User> *XX=users.getLinkListUser();
-               Node<User> *NNN=XX->head;
-               while(NNN!=nullptr)
-               {
-                    Node<Account> *Y=NNN->data.getUserAccount()->Search(NA->data);
-                    if(Y!=nullptr)
-                    {
-                         Y->data.setAmount(money);
-                         break;
-                    }
-                    NNN=NNN->next;
-                  
-               } 
-               int cnt=0;
-               Link_list<Bank> *BANK=banks.getLinkListParBank();
-               Node<Bank> *NBANK=BANK->head;
-               while(NBANK!=nullptr)
-               {
-                    Link_list<User> *USER=NBANK->data.getLinkListUser();
-                    Node<User> *NUSER=USER->head;
-                    while(NUSER!=nullptr)
-                    {
-                         Link_list<Account> *ACCOUNT=NUSER->data.getUserAccount();
-                         Node<Account> *NACCOUNT=ACCOUNT->head;
-                         while(NACCOUNT!=nullptr)
-                         {
-                              if(NACCOUNT->data==AC->data)
-                                   {
-                                        NACCOUNT->data.setAmount(-money);
-                                        cnt++;
-                                   }
-                              if(NACCOUNT->data==NA->data)
-                                   {
-                                        NACCOUNT->data.setAmount(money);
-                                        cnt++;
-                                   }
-                              if(cnt==2)
-                                   break;
-                              NACCOUNT=NACCOUNT->next;
-                         }
-                         if(cnt==2)
-                              break;    
-                         NUSER=NUSER->next;                     
-                    }
-                    if(cnt==2)
-                         break;
-                    NBANK=NBANK->next;
-               }
+               
+               //int cnt=0;
+               // Link_list<Bank> *BANK=banks.getLinkListParBank();
+               // Node<Bank> *NBANK=BANK->head;
+               // while(NBANK!=nullptr)
+               // {
+               //      Link_list<User> *USER=NBANK->data.getLinkListUser();
+               //      Node<User> *NUSER=USER->head;
+               //      while(NUSER!=nullptr)
+               //      {
+               //           Link_list<Account> *ACCOUNT=NUSER->data.getUserAccount();
+               //           Node<Account> *NACCOUNT=ACCOUNT->head;
+               //           while(NACCOUNT!=nullptr)
+               //           {
+               //                if(NACCOUNT->data==AC->data)
+               //                     {
+               //                          NACCOUNT->data.setAmount(-money);
+               //                          cnt++;
+               //                     }
+               //                if(NACCOUNT->data==NA->data)
+               //                     {
+               //                          NACCOUNT->data.setAmount(money);
+               //                          cnt++;
+               //                     }
+               //                if(cnt==2)
+               //                     break;
+               //                NACCOUNT=NACCOUNT->next;
+               //           }
+               //           if(cnt==2)
+               //                break;    
+               //           NUSER=NUSER->next;                     
+               //      }
+               //      if(cnt==2)
+               //           break;
+               //      NBANK=NBANK->next;
+               // }
 
 
                Bank NH=banks.SearchBank(AC->data.getNumAccount().substr(0,3))->data;

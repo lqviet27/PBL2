@@ -108,3 +108,14 @@ istream &operator>>(istream &in, Date &d)
     d._Year = yyyy;
     return in;
 }
+
+bool Date::CheckDate(Date date)
+{
+    if(this->_Day!=date._Day)
+        return false;
+    if(this->_Month!=date._Month)
+        return false;
+    if(this->_Year!=date._Year)
+        return false;
+    return true;
+}
