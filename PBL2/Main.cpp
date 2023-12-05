@@ -85,28 +85,28 @@ int main()
     // }
 
 
-    // Link_list<Bank> *listBank=banks.getLinkListParBank();
-    // Node<Bank> *nodeBank=listBank->head;
-    // while(nodeBank!=nullptr)
-    // {
-    //     Link_list<User> *listUser=nodeBank->data.getLinkListUser();
-    //     Node<User> *nodeUser=listUser->head;
-    //     while(nodeUser!=nullptr)
-    //     {   
-    //         nodeUser->data.Show();
-    //         Link_list<Account> *listAccount=nodeUser->data.getUserAccount();
-    //         // Link_list<Account> *listAccount=nodeBank->data.getLinkListAccount();
-    //         Node<Account> *nodeAccount=listAccount->head; //* đang bị nullptr
-    //         while(nodeAccount!=nullptr)
-    //         {
-    //             nodeAccount->data.Show();
-    //             nodeAccount=nodeAccount->next;
-    //         }
-    //         nodeUser=nodeUser->next;
-    //     }
-    //     cout<<endl;
-    //     nodeBank=nodeBank->next;
-    // }
+    Link_list<Bank> *listBank=banks.getLinkListParBank();
+    Node<Bank> *nodeBank=listBank->head;
+    while(nodeBank!=nullptr)
+    {
+        Link_list<User> *listUser=nodeBank->data.getLinkListUser();
+        Node<User> *nodeUser=listUser->head;
+        while(nodeUser!=nullptr)
+        {   
+            nodeUser->data.Show();
+            Link_list<Account> *listAccount=nodeUser->data.getUserAccount();
+            // Link_list<Account> *listAccount=nodeBank->data.getLinkListAccount();
+            Node<Account> *nodeAccount=listAccount->head; //* đang bị nullptr
+            while(nodeAccount!=nullptr)
+            {
+                nodeAccount->data.Show();
+                nodeAccount=nodeAccount->next;
+            }
+            nodeUser=nodeUser->next;
+        }
+        cout<<endl;
+        nodeBank=nodeBank->next;
+    }
 
     system("pause");
     TextColor(12);

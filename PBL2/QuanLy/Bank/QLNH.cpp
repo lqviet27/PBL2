@@ -97,7 +97,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             {
                 cout<<"Khong Tim Thay Chu So Huu Cua Tai Khoan: ";
                 cout<<NAC->data.getNumAccount();
-                // exit(0);
+                exit(0);
             }
         
             string idBankcuaAC=numAC.substr(0,3);
@@ -107,20 +107,24 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             {
                 cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
                 cout<<NAC->data.getNumAccount();
-                // exit(0);
+                exit(0);
             }
             
             
             if(Ba->data.searchUser(US->data)==false)
-            {
+            {   
+                
                 User U=User(US->data);
                 U.setEmptyLinkList();
                 U.addAccount(NAC->data);
                 Ba->data.addUser(U);
             } 
+            else {
+                
+            }
+
             US->data.addAccount(NAC->data);
             Ba->data.addAccount(NAC->data);
             NAC=NAC->next;
         }
 } 
-

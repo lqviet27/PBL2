@@ -16,6 +16,18 @@ Link_list<T>::~Link_list() {
     }
     head = nullptr;
 }
+template<typename T>
+Link_list<T>::Link_list(const Link_list<T>& LL)
+{   
+    
+   head = nullptr;
+    // Lặp qua từng node của danh sách other và thêm chúng vào danh sách hiện tại
+    Node<T>* otherCurrent = LL.head;
+    while (otherCurrent != nullptr) {
+        Add(otherCurrent->data);
+        otherCurrent = otherCurrent->next;
+    }
+}
 
 template<typename T>
 void Link_list<T>::Add(const T& data){
@@ -49,16 +61,31 @@ void Link_list<T>::Show(){
     }
 }
 
-// template<typename T>
-// void Link_list<T>::operator=(const Link_list<T>& LL)
-// {
-//     while(LL->head != nullptr)
-//     {
-//         this->head=LL->head;
-//         LL->head=LL->head->next;
-//         this->head=this->head->next;
-//     }
-// }
+template<typename T>
+Link_list<T>& Link_list<T>::operator=(const Link_list<T>& LL)
+{
+     // Kiểm tra trường hợp tự gán (self-assignment)
+    if (this == &LL) {
+        return *this;
+    }
+
+    // Xóa các phần tử hiện tại của danh sách
+    while (head != nullptr) {
+        Node<T>* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    // Khởi tạo danh sách mới và thêm các phần tử từ danh sách other vào
+    head = nullptr;
+    Node<T>* otherCurrent = LL.head;
+    while (otherCurrent != nullptr) {
+        Add(otherCurrent->data);
+        otherCurrent = otherCurrent->next;
+    }
+
+    return *this;
+}
 
 template<typename T>
 void Link_list<T>::Delete(const T& data){
@@ -105,7 +132,6 @@ Node<T>* Link_list<T>::Search(const T& data){
 template<typename T>
 void Link_list<T>::Sort() {
         if (head == nullptr || head->next == nullptr) {
-            // Danh sách rỗng hoặc chỉ có một phần tử, không cần sắp xếp
             return;
         }
 

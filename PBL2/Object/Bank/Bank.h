@@ -5,7 +5,6 @@
 
 class Bank{
     private:
-        // int countAccount;
         string nameBank;
         string IDBank;
         Link_list<User> parUser;
@@ -15,7 +14,6 @@ class Bank{
         Bank(string,string);
         ~Bank();
         string getIdBank();
-        string getCountAccount();
         void show_User();
         void show_Account();
         void Show();
