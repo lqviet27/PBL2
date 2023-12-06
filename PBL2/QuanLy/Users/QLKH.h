@@ -20,6 +20,7 @@ public:
     Link_list<User> *getLinkListUser();
     Node<User>* SearchUser(const string&);
     bool SearchUser(const User&);
+    bool SearchUserAll(User&);
     void ImportFromFile();
 };
 

@@ -69,24 +69,229 @@ void startMenu()
      
 }
 
-// void menu()
-// {
-//      system("cls");
-//      en
-//          TextColor(12);
-//      cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
-//      cout << endl;
-//      TextColor(14);
-//      cout << ("\t\t               ==========================================================");
-//      cout << endl;
-//      cout << ("\t\t\t\t                HAY CHON VAI TRO CUA BAN!");
-//      cout << endl;
-//      cout << ("\t\t\t\t                    1. QUAN LI");
-//      cout << endl;
-//      cout << ("\t\t\t\t                    2. NGUOI DUNG");
-//      cout << endl;
-//      system("pause");
-// }
+void MenuAdmin()
+{
+     system("cls");
+     TextColor(12);
+     cout << "\n\n\t\t\t\t\t\t     -QUAN LY-";
+     TextColor(14);
+     cout << "\n\t\t\t _______________________________________________________________________";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                1.Quan ly tai khoan                    \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                2.Quan ly khach hang                   \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                3.Quan ly doanh thu                    \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                4.Thoat                                \t\t|";
+     cout << "\n\t\t\t|_______________________________________________________________________|";
+}
+void MenuQuanLyTaiKhoan()
+{
+     system("cls");
+     TextColor(12);
+     cout << "\n\n\t\t\t\t\t\t     -QUAN LY TAI KHOAN-";
+     TextColor(14);
+     cout << "\n\t\t\t _______________________________________________________________________";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                1.Danh sach tai khoan                  \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                2.Them tai khoan                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                3.Xoa tai khoan                        \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                4.Sua thong tin tai khoan              \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                5.Tim kiem tai khoan theo ID           \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                6.Quay lai                             \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                7.Thoat                                \t\t|";
+     cout << "\n\t\t\t|_______________________________________________________________________|";
+}
+void MenuQuanLyKhachHang()
+{
+     system("cls");
+     TextColor(12);
+     cout << "\n\n\t\t\t\t\t\t     -QUAN LY KHACH HANG-";
+     TextColor(14);
+     cout << "\n\t\t\t _______________________________________________________________________";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                1.Danh sach khach hang                 \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                2.Tim kiem khach hang theo ID          \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                3.Quay lai                             \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                4.Thoat                                \t\t|";
+     cout << "\n\t\t\t|_______________________________________________________________________|";
+}
+void MenuQuanLyDoanhThu()
+{
+     system("cls");
+     TextColor(12);
+     cout << "\n\n\t\t\t\t\t\t     -QUAN LY DOANH THU-";
+     TextColor(14);
+     cout << "\n\t\t\t _______________________________________________________________________";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                1.Tong doanh thu                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                2.Thong ke so luong nap tien           \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                3.Thong ke so luong rut tien           \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                4.Thong ke so luong chuyen tien        \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                5.Quay lai                             \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                6.Thoat                                \t\t|";
+     cout << "\n\t\t\t|_______________________________________________________________________|";
+}
+
+void admin(){
+     MenuAdmin();
+     switch(choose(1,4))
+     {
+          case 1:
+               system("cls");
+               MenuQuanLyTaiKhoan();
+               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
+               switch(choose(1,7))
+               {
+                    case 1:
+                         system("cls");
+                         // QLTK::DanhSachTaiKhoan(banks);
+                         break;
+                    case 2:
+                         system("cls");
+                         // QLTK::ThemTaiKhoan(banks);
+                         break;
+                    case 3:
+                         system("cls");
+                         // QLTK::XoaTaiKhoan(banks);
+                         break;
+                    case 4:
+                         system("cls");
+                         // QLTK::SuaThongTinTaiKhoan(banks);
+                         break;
+                    case 5:
+                         system("cls");
+                         // QLTK::TimKiemTaiKhoanTheoID(banks);
+                         break;
+                    case 6:
+                         system("cls");
+                         admin();
+                         break;
+                    case 7:
+                         return;
+               }
+               // QLTK::MenuQuanLyTaiKhoan(banks,users);
+               break;
+          case 2:
+               system("cls");
+               MenuQuanLyKhachHang();
+               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
+               switch(choose(1,4))
+               {
+                    case 1:
+                         system("cls");
+                         // QLKH::DanhSachKhachHang(users);
+                         break;
+                    case 2:
+                         system("cls");
+                         // QLKH::TimKiemKhachHangTheoID(users);
+                         break;
+                    case 3:
+                         system("cls");
+                         admin();
+                         break;
+                    case 4:
+                         return;
+               }
+               // QLKH::MenuQuanLyKhachHang(banks,users);
+               break;
+          case 3:
+               system("cls");
+               MenuQuanLyDoanhThu();
+               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
+               switch(choose(1,6))
+               {
+                    case 1:
+                         system("cls");
+                         // QLNH::TongDoanhThu(banks);
+                         break;
+                    case 2:
+                         system("cls");
+                         // QLNH::ThongKeSoLuongNapTien(banks);
+                         break;
+                    case 3:
+                         system("cls");
+                         // QLNH::ThongKeSoLuongRutTien(banks);
+                         break;
+                    case 4:
+                         system("cls");
+                         // QLNH::ThongKeSoLuongChuyenTien(banks);
+                         break;
+                    case 5:
+                         system("cls");
+                         admin();
+                         break;
+                    case 6:
+                         return;
+               }
+               // QLNH::MenuQuanLyDoanhThu(banks);
+               break;
+          case 4:
+               return;
+     }
+     admin();
+
+}
+
+
+
 void menuUser()
 {
      system("cls");

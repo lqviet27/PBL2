@@ -63,8 +63,6 @@ void QLKH::addUser(User &b)
 {
         if(this->SearchUser(b)==false) 
             this->parUser.Add(b);
-        else 
-            cout<<"User da ton tai";
 }
 void QLKH::Sort()
 {
@@ -94,4 +92,20 @@ Node<User> *QLKH::SearchUser(const string & CCCD)
 void QLKH::ImportFromFile()
 {
 
+}
+
+bool QLKH::SearchUserAll(User & Us)
+{
+    Link_list<User>* U=this->getLinkListUser();
+    Node<User> *NU=U->head;
+    while(NU!=nullptr)
+    {
+        if(NU->data.getCCCD()==Us.getCCCD())
+            {
+                if(NU->data.CheckUser(Us)==false)
+                    return false;
+            }
+        NU=NU->next;
+    }
+    return true;
 }

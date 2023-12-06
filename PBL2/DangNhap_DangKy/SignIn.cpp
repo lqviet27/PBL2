@@ -26,9 +26,28 @@ Node<Account>* SignIn::DangNhap(QLNH &X)
         cin>>numAccount;
         if (numAccount == "ADMIN" )
         {
-            //Quan ly
-            cout<<"Admin"<< endl;
-            break;
+            cout << "\t\t\t\t\tNhap Mat Khau: ";
+            cin >> pass;
+            if (pass == "ADMIN")
+            {
+                cout << "\t\t\t\t\tDang Nhap Thanh Cong!!!" << endl;
+                sleep(1);
+                system("cls");
+                MenuAdmin();
+                
+                break;
+            }
+            else
+            {
+                cout << "\t\t\t\t\tMat Khau Khong Dung!!!" << endl;
+                count++;
+                if (count == 5)
+                {
+                    DangNhapQuaSoLanQuyDinh();
+                    break;
+                }
+                cout << "\t\t\t\t\tXin Hay Nhap Lai Mat Khau: ";
+            }
         }
         string idB=numAccount.substr(0,3);
         B=X.SearchBank(idB);

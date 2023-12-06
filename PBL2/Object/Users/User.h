@@ -25,6 +25,10 @@ public:
     void setAddress(string);
     void setGender(bool);
     void setCCCD(string);
+    string getAddress();
+    string getPhoneNumber();
+    Date getBirthday();
+    bool getGender();
     bool SearchAccount(const Account &);
     string getName();
     string getCCCD();
@@ -38,4 +42,5 @@ public:
     void InsertObjecttoFile(ofstream &);
     void setEmptyLinkList();
     void copyUser(User);
+    bool CheckUser( User &);
 };

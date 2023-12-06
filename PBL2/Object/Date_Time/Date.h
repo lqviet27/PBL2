@@ -18,4 +18,5 @@ public:
     void ShowDate();
     friend ostream &operator<<(ostream &, const Date &);
     friend istream &operator>>(istream &, Date &);
+    bool CheckDate(Date );
 };
