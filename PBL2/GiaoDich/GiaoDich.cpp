@@ -11,8 +11,8 @@
 using namespace std;
 class GiaoDich{
     public:
-        static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users)
-        {      
+        static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts) 
+        {
             
             long long money;
             cout<<"Nhap So Tien Can Nap Vao Tai Khoan((Nhap '-1' De Quay Lai)): ";
@@ -61,11 +61,14 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
+
+               accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(money);
+
                string idBank=AC->data.getNumAccount().substr(0,3);
                Record_Nap R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),money);
                R.RecordtoFile();
         }
-        static void RutTien(Node<Account>* AC,QLNH &banks,QLKH &users)
+        static void RutTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts)
         {
                long long money;
                Start:
@@ -122,23 +125,25 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
+
+               accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(-money);
+
+
                string idBank=AC->data.getNumAccount().substr(0,3);
                Record_Rut R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),-money);
                R.RecordtoFile();
         }
 
-        static void ChuyenTien(Node<Account>* AC,Node<Account>* NA,QLNH &banks,QLKH &users)
+       static long long ChuyenTien(Node<Account>* AC,string STKDich,QLNH &banks,QLKH &users,QLTK &accounts)
         {
-               
-
                long long money;
                Start:
                cout<<"Nhap So Tien Can Chuyen(Nhap '-1' De Quay Lai): ";
                if(money==-1)
-                    return;
+                    return -1;
                while (!(cin >> money) || (cin.peek() != '\n')) {
                          if(money==-1)
-                               return;
+                              return -1;
                          cout<<endl;
                          cout << "So tien khong hop le! Vui long nhap lai(Nhap '-1' De Quay Lai): ";
                          cin.clear();
@@ -151,6 +156,30 @@ class GiaoDich{
                     cout<<"Vui Long Nhap Lai So Tien Can Chuyen!!!"<<endl;
                     goto Start;
                }
+
+               Link_list<Bank> *B=banks.getLinkListParBank();
+               Node<Bank> *NB=B->head;
+               bool success=0;
+               while(NB!=nullptr)
+               {
+                    Link_list<User> *U=NB->data.getLinkListUser();
+                    Node<User> *NU=U->head;
+                     while (NU!=nullptr)
+                     {
+
+                         if(NU->data.getCCCD()==AC->data.getCCCD())
+                         {
+                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(-money);
+                              success=1;
+                              break;
+                         }
+                         NU=NU->next;
+                     }
+                     if(success==1)
+                         break;
+                    NB=NB->next;
+               }
+
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
@@ -165,50 +194,59 @@ class GiaoDich{
                     NX=NX->next;
                }
 
-               
-               //int cnt=0;
-               // Link_list<Bank> *BANK=banks.getLinkListParBank();
-               // Node<Bank> *NBANK=BANK->head;
-               // while(NBANK!=nullptr)
-               // {
-               //      Link_list<User> *USER=NBANK->data.getLinkListUser();
-               //      Node<User> *NUSER=USER->head;
-               //      while(NUSER!=nullptr)
-               //      {
-               //           Link_list<Account> *ACCOUNT=NUSER->data.getUserAccount();
-               //           Node<Account> *NACCOUNT=ACCOUNT->head;
-               //           while(NACCOUNT!=nullptr)
-               //           {
-               //                if(NACCOUNT->data==AC->data)
-               //                     {
-               //                          NACCOUNT->data.setAmount(-money);
-               //                          cnt++;
-               //                     }
-               //                if(NACCOUNT->data==NA->data)
-               //                     {
-               //                          NACCOUNT->data.setAmount(money);
-               //                          cnt++;
-               //                     }
-               //                if(cnt==2)
-               //                     break;
-               //                NACCOUNT=NACCOUNT->next;
-               //           }
-               //           if(cnt==2)
-               //                break;    
-               //           NUSER=NUSER->next;                     
-               //      }
-               //      if(cnt==2)
-               //           break;
-               //      NBANK=NBANK->next;
-               // }
-
+               accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(-money);
 
                Bank NH=banks.SearchBank(AC->data.getNumAccount().substr(0,3))->data;
-               Bank NHDich=banks.SearchBank(NA->data.getNumAccount().substr(0,3))->data;
-               Record_Chuyen Chuyen(AC->data.getNumAccount(),NA->data.getNumAccount(),NH.getNameBank(),-money);
-               Record_Chuyen ChuyenDich(NA->data.getNumAccount(),AC->data.getNumAccount(),NHDich.getNameBank(),money);
+               Record_Chuyen Chuyen(AC->data.getNumAccount(),STKDich,NH.getNameBank(),-money);
                Chuyen.RecordtoFile();
-               ChuyenDich.RecordtoFile();
+               return money;
+        }
+
+        static void NhanTien(Node<Account>* AC,string STKNguon,long long money,QLNH &banks,QLKH &users,QLTK &accounts) 
+        {
+               AC->data.setAmount(money);
+
+               Link_list<Bank> *B=banks.getLinkListParBank();
+               Node<Bank> *NB=B->head;
+               bool success=0;
+               while(NB!=nullptr)
+               {
+                    Link_list<User> *U=NB->data.getLinkListUser();
+                    Node<User> *NU=U->head;
+                     while (NU!=nullptr)
+                     {
+
+                         if(NU->data.getCCCD()==AC->data.getCCCD())
+                         {
+                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
+                              success=1;
+                              break;
+                         }
+                         NU=NU->next;
+                     }
+                     if(success==1)
+                         break;
+                    NB=NB->next;
+               }
+
+               Link_list<User> *X=users.getLinkListUser();
+               Node<User> *NX=X->head;
+               while(NX!=nullptr)
+               {
+                    Node<Account> *Y=NX->data.getUserAccount()->Search(AC->data);
+                    if(Y!=nullptr)
+                    {
+                         Y->data.setAmount(money);
+                         break;
+                    }
+                    NX=NX->next;
+               }
+
+               accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(money);
+
+               string idBank=AC->data.getNumAccount().substr(0,3);
+               Record_Chuyen C(AC->data.getNumAccount(),STKNguon,banks.SearchBank(idBank)->data.getNameBank(),money);
+               C.RecordtoFile();
         }
 
 

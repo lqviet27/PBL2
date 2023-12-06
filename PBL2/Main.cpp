@@ -14,11 +14,11 @@ void DangNhapAC(Node<Account> *nodeAC)
 {
     if(nodeAC->data.getTypeAccount() == 0)
     {
-        SavingCard(nodeAC,banks,users);
+        SavingCard(nodeAC,banks,users,accounts);
     }
     else 
     {
-        DebitCard(nodeAC,banks,users);
+        DebitCard(nodeAC,banks,users,accounts);
     }
 
 }
@@ -28,6 +28,7 @@ void DangNhap_DangKy()
 {
     startMenu();
     system("pause");
+    system("cls");
 Menu:
     menuUser();
     switch (choose(1,3))
@@ -66,5 +67,11 @@ int main()
     TextColor(12);
     DangNhap_DangKy();
     
+    Node<Account> *NA=accounts.getLinkListAccount()->head;
+    while(NA!=nullptr)
+    {
+        NA->data.Show();
+        NA=NA->next;
+    }
     
 }

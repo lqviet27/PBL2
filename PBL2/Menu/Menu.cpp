@@ -382,18 +382,18 @@ void deposit(Account &X)
      cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<" VND"<<endl;
 }
 
-void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
+void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
      Start:
      menuSavingCard();
      switch(choose(1,5))
      {
           case 1:
                system("cls");
-               GiaoDich::NapTien(nodeAC,banks,users);
+               GiaoDich::NapTien(nodeAC,banks,users,accounts);
                break;
           case 2:
                system("cls");
-               GiaoDich::RutTien(nodeAC,banks,users);
+               GiaoDich::RutTien(nodeAC,banks,users,accounts);
                break;
           case 3:
                system("cls");
@@ -422,6 +422,11 @@ Node<Account> *nodeNA(QLNH &banks)
                     cout<<endl;
                     string idBank=ACDich.substr(0,3);
                     Node<Bank> *NB=banks.SearchBank(idBank);
+                    if(NB==nullptr)
+                         {
+                              cout<<"So Tai Khoan Khong Chinh Xac!!!"<<endl;
+                         }
+                    else{
                     NA=NB->data.searchAccount(ACDich);
                     if(NA==nullptr)
                          {
@@ -431,11 +436,12 @@ Node<Account> *nodeNA(QLNH &banks)
                     {
                          break;
                     }
+                    }
                }
           return NA;
 }
 
-void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
+void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
      Start:
      menuDebitCard();
      switch(choose(1,6))
@@ -444,13 +450,13 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
           case 1:
                {
                     system("cls");
-                    GiaoDich::NapTien(nodeAC,banks,users);
+                    GiaoDich::NapTien(nodeAC,banks,users,accounts);
                     break;
                }
           case 2:
                {
                     system("cls");
-                    GiaoDich::RutTien(nodeAC,banks,users);
+                    GiaoDich::RutTien(nodeAC,banks,users,accounts);
                     break;
                }
           case 3:
@@ -458,7 +464,11 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users){
                     system("cls");
                     Node<Account> *X=nodeNA(banks);
                     if(X!=nullptr)
-                    GiaoDich::ChuyenTien(nodeAC,X,banks,users);
+                    {
+                    long long money=GiaoDich::ChuyenTien(nodeAC,X->data.getCCCD(),banks,users,accounts);
+                    if(money!=-1)
+                    GiaoDich::NhanTien(X,nodeAC->data.getNumAccount(),money,banks,users,accounts);
+                    }
                     break;
                }
           case 4:
