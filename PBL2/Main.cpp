@@ -40,7 +40,6 @@ Menu:
             Node<Account>* nodeAc=SignIn::DangNhap(banks);
             if(nodeAc!=nullptr)
                 DangNhapAC(nodeAc);
-            system("pause");
             goto Menu;
             break;
         }

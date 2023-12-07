@@ -255,12 +255,12 @@ class GiaoDich{
                
                string type= (AC->data.getTypeAccount()==0) ? "Tiet Kiem" : "Ghi no" ;
                string nameB=bank.SearchBank(AC->data.getNumAccount().substr(0,3))->data.getNameBank();
-               cout << "\t\t\t+=================================================================+" << endl;
-               cout << "\t\t\t|                     ** TRA CUU SO DU **                         |" << endl;
-               cout << "\t\t\t+============+==================+============+====================+" << endl;
-               cout << "\t\t\t|    Type    | IDSourceAccount  |  NameBank  |       Amount       |" << endl;
-               cout << "\t\t\t+============+==================+============+====================+" << endl;
-               cout << "\t\t\t|   "<<type<<"   |  "<<AC->data.getNumAccount()<<"   |  "<<nameB<<"  |     "<<AC->data.getAmount()<<"      |" << endl;
+               cout << "\t\t\t+===================================================================+" << endl;
+               cout << "\t\t\t|                      ** TRA CUU SO DU **                          |" << endl;
+               cout << "\t\t\t+============+==================+============+======================+" << endl;
+               cout << "\t\t\t|    Type    | IDSourceAccount  |   NameBank   |       Amount       |" << endl;
+               cout << "\t\t\t+============+==================+============+======================+" << endl;
+               cout << "\t\t\t| " << setw(11) << left << type << "|   " << setw(15) << AC->data.getNumAccount() << "|   " << setw(11) << nameB << "|  " << setw(18) << AC->data.getAmount() << "|"<< endl;
                system("pause");
           }
 

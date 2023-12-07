@@ -128,7 +128,7 @@ istream &operator>>(istream &in, User &nv)
         }
         else {
             cout << "Ban Phai Nhap Dung 12 Chu So!!!" <<endl;
-            system("Pause");
+            // system("Pause");
         }
 
     }
