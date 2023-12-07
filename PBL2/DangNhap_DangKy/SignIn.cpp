@@ -5,7 +5,7 @@
 
 void SignIn::DangNhapQuaSoLanQuyDinh()
 {
-    cout<<"Ban da dang nhap sai qua so lan quy dinh!!";
+    cout<<"Ban da dang nhap sai qua so lan quy dinh!!"<<endl;
 }
 
 Node<Account>* SignIn::DangNhap(QLNH &X)
@@ -68,6 +68,7 @@ Node<Account>* SignIn::DangNhap(QLNH &X)
         if(count==4)
             {
               DangNhapQuaSoLanQuyDinh();
+              system("pause");
               return nullptr;
             }
         cout << "\t\t\t\t\tXin Hay Nhap Lai So Tai Khoan: ";

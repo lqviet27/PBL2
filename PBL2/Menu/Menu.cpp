@@ -490,18 +490,3 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
 }
 
 
-
-// int main()
-// {
-//      // startMenu();
-//      // menu();
-//      // menuUser();
-//      // string a, b, c;
-//      // menuSignIn(a, b);
-//      // menuSignUp(a, b, c);
-//      // menuDebitCard();
-//      // menuSavingCard();
-//      Account X;
-//      deposit(X);
-
-// }

@@ -39,7 +39,6 @@ Menu:
             Node<Account>* nodeAc=SignIn::DangNhap(banks);
             if(nodeAc!=nullptr)
                 DangNhapAC(nodeAc);
-            system("pause");
             goto Menu;
             break;
         }
@@ -67,11 +66,46 @@ int main()
     TextColor(12);
     DangNhap_DangKy();
     
-    Node<Account> *NA=accounts.getLinkListAccount()->head;
-    while(NA!=nullptr)
-    {
-        NA->data.Show();
-        NA=NA->next;
-    }
-    
+    // Node<Account> *NA=accounts.getLinkListAccount()->head;
+    // while(NA!=nullptr)
+    // {
+    //     NA->data.Show();
+    //     NA=NA->next;
+    // }
+
+    //* OKEEE 
+    // Link_list<Bank> *NB=banks.getLinkListParBank();
+    // Node<Bank> *temp=NB->head;
+    // while(temp!=nullptr)
+    // {
+    //     Link_list<User>* NU=temp->data.getLinkListUser();
+    //     Node<User> *temp1=NU->head;
+    //     while(temp1!=nullptr)
+    //     {
+    //         Link_list<Account>* NA=temp1->data.getUserAccount();
+    //         Node<Account> *temp2=NA->head;
+    //         while(temp2!=nullptr)
+    //         {
+    //             temp2->data.Show();
+    //             temp2=temp2->next;
+    //         }
+    //         temp1=temp1->next;
+    //     }
+    //     temp=temp->next;
+    // }
+
+    //* okeee
+    //  Link_list<Bank> *NB=banks.getLinkListParBank();
+    // Node<Bank> *temp=NB->head;
+    // while(temp!=nullptr)
+    // {
+    //         Link_list<Account>* NA=temp->data.getLinkListAccount();
+    //         Node<Account> *temp2=NA->head;
+    //         while(temp2!=nullptr)
+    //         {
+    //             temp2->data.Show();
+    //             temp2=temp2->next;
+    //         }
+    //     temp=temp->next;
+    // }
 }
