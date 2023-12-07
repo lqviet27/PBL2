@@ -122,7 +122,7 @@ void Bank::show_User(){
     parUser.Show();
 }
 void Bank::Show(){
-    cout<<"\t\t\t";
+    cout<<"\t\t\t\t\t";
     cout<<"|  "<<this->IDBank<<" |"<<"\t"<<this->nameBank<<setw(12)<<"\t |"<<endl;
     
 }
@@ -149,8 +149,10 @@ Node<User>* Bank::searchUser(const string& CCCD)
     return b;
 }
 
-void Bank::InsertObjecttoFile(ofstream &FileOut){
-    FileOut<<this->IDBank<<"|"<<this->nameBank<<endl;
+void Bank::InsertObjecttoFile(ofstream &FileOut,int ok){
+    if(ok==0)
+        FileOut<<this->IDBank<<"|"<<this->nameBank<<endl;
+    else    FileOut<<this->IDBank<<"|"<<this->nameBank;
 }
 
 Link_list<User>* Bank::getLinkListUser(){

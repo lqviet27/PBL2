@@ -64,6 +64,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
         return ;
     cout<<"Moi Ban Nhap Lai Thong Tin!!!(Nhap Sai Qua 5 lan se Thoat!)"<<endl;
     system("Pause");
+    system("cls");
     }
     system("cls");
     string numAC;
@@ -84,8 +85,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
 
             if (isAllDigits) {
                 numAC=NB->data.getIdBank()+numAC;
-                Account A(user.getCCCD(),numAC,"",1,0);
-                if(NB->data.searchAccount(A))
+                if(accounts.SearchAccount(numAC)!=nullptr) 
                     {
                         cout<<"So Tai Khoan Da Duoc Su Dung!!!"<<endl;
                         system("Pause");   
@@ -102,6 +102,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
                     cout<<"Nhap Mat Khau: ";
                     cin>>password;
                     Account ACC(user.getCCCD(),numAC,password,typeAC,0);
+                    
                     if(NB->data.searchUser(user.getCCCD())==nullptr)
                     {
                         user.addAccount(ACC);
@@ -129,4 +130,5 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
             cout << "Ban Phai Nhap Dung 7 Chu So!!!" <<endl;
         }
     }
+ 
 }

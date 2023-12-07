@@ -39,7 +39,7 @@ public:
     bool operator>(const User &);
     void operator=(const User &);
     friend istream &operator>>(istream &, User &);
-    void InsertObjecttoFile(ofstream &);
+    void InsertObjecttoFile(ofstream &,int);
     void setEmptyLinkList();
     void copyUser(User);
     bool CheckUser( User &);

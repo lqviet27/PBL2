@@ -2,6 +2,7 @@
 // #include "Menu/Menu.cpp"
 #include "./DangNhap_DangKy/SignIn.cpp"
 #include "./DangNhap_DangKy/Register.cpp"
+#include "./DataBase/XuatduLieu.cpp"
 #include<iostream>
 
 QLNH banks;
@@ -67,11 +68,13 @@ int main()
     TextColor(12);
     DangNhap_DangKy();
     
-    Node<Account> *NA=accounts.getLinkListAccount()->head;
-    while(NA!=nullptr)
-    {
-        NA->data.Show();
-        NA=NA->next;
-    }
-    
+    // Node<Account> *NA=accounts.getLinkListAccount()->head;
+    // while(NA!=nullptr)
+    // {
+    //     NA->data.Show();
+    //     NA=NA->next;
+    // }
+    xuatDuLieuAccounts(accounts);
+    xuatDuLieuUsers(users);
+    xuatDuLieuBanks(banks);
 }

@@ -65,13 +65,13 @@ void QLNH::Sort(){
 }
 void QLNH::showBank()
 {
-    cout << "\t\t\t+========================================+" << endl;
-    cout << "\t\t\t|       ** DANH SACH NGAN HANG **        |" << endl;
-    cout << "\t\t\t+======+=================================+" << endl;
-    cout << "\t\t\t|  ID  |        Ten ngan hang            | " << endl;
-    cout << "\t\t\t+======+=================================+" << endl;
+    cout << "\t\t\t\t\t+========================================+" << endl;
+    cout << "\t\t\t\t\t|       ** DANH SACH NGAN HANG **        |" << endl;
+    cout << "\t\t\t\t\t+======+=================================+" << endl;
+    cout << "\t\t\t\t\t|  ID  |        Ten ngan hang            | " << endl;
+    cout << "\t\t\t\t\t+======+=================================+" << endl;
     this->parBank.Show();
-    cout << "\t\t\t+======+=================================+" << endl;
+    cout << "\t\t\t\t\t+======+=================================+" << endl;
 }
 
 Node<Bank>* QLNH::SearchBank(const string& id){
