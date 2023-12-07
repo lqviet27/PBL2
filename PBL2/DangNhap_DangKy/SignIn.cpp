@@ -30,7 +30,7 @@ Node<Account>* SignIn::DangNhap(QLNH &X)
             cin >> pass;
             if (pass == "ADMIN")
             {
-                cout << "\t\t\t\t\tDang Nhap Thanh Cong!!!" << endl;
+                cout << "\t\t\t\t\tDang Nhap Thanh Cong Voi Tu!!!" << endl;
                 sleep(1);
                 system("cls");
                 MenuAdmin();
