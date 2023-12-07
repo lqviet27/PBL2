@@ -28,7 +28,7 @@ class Bank{
         bool operator>(const Bank&);
         Node<Account>* searchAccount(const string&);
         Node<User>* searchUser(const string&);
-        void InsertObjecttoFile(ofstream &);
+        void InsertObjecttoFile(ofstream &,int);
         Link_list<Account>* getLinkListAccount();
         Link_list<User>* getLinkListUser();
         //void operator=(const Bank&); 

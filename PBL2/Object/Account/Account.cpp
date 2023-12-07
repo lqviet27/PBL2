@@ -111,18 +111,29 @@ istream &operator>>(istream &in, Account &acc)
     return in;
 }
 
-void Account::InsertObjecttoFile(ofstream &FileOut)
+void Account::InsertObjecttoFile(ofstream &FileOut,int ok)
 {   
-    FileOut << CCCD << "|";
-    FileOut << numAccount << "|";
-    FileOut << amount << "|";
-    FileOut << typeAccount << "|";
-    FileOut << password<<"\n"; 
+    if(ok == 0)
+    {
+        FileOut << CCCD << "|";
+        FileOut << numAccount << "|";
+        FileOut << amount << "|";
+        FileOut << typeAccount << "|";
+        FileOut << password<<"\n";
+    }
+    else 
+    {
+        FileOut << CCCD << "|";
+        FileOut << numAccount << "|";
+        FileOut << amount << "|";
+        FileOut << typeAccount << "|";
+        FileOut << password;
+    } 
 }
 
 void Account::Show(){
     string type = (this->typeAccount) ? "Thanh Toan" : "Tiet Kiem";
-    cout << "\t\t\t|  " << setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
+    cout << "\t\t\t|  " << setw(11)<<this->CCCD<<" |"<<setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
 }
 void Account::operator=(const Account& x)
 {

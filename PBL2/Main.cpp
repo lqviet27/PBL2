@@ -2,6 +2,7 @@
 // #include "Menu/Menu.cpp"
 #include "./DangNhap_DangKy/SignIn.cpp"
 #include "./DangNhap_DangKy/Register.cpp"
+#include "./DataBase/XuatduLieu.cpp"
 #include<iostream>
 
 QLNH banks;
@@ -72,40 +73,7 @@ int main()
     //     NA->data.Show();
     //     NA=NA->next;
     // }
-
-    //* OKEEE 
-    // Link_list<Bank> *NB=banks.getLinkListParBank();
-    // Node<Bank> *temp=NB->head;
-    // while(temp!=nullptr)
-    // {
-    //     Link_list<User>* NU=temp->data.getLinkListUser();
-    //     Node<User> *temp1=NU->head;
-    //     while(temp1!=nullptr)
-    //     {
-    //         Link_list<Account>* NA=temp1->data.getUserAccount();
-    //         Node<Account> *temp2=NA->head;
-    //         while(temp2!=nullptr)
-    //         {
-    //             temp2->data.Show();
-    //             temp2=temp2->next;
-    //         }
-    //         temp1=temp1->next;
-    //     }
-    //     temp=temp->next;
-    // }
-
-    //* okeee
-    //  Link_list<Bank> *NB=banks.getLinkListParBank();
-    // Node<Bank> *temp=NB->head;
-    // while(temp!=nullptr)
-    // {
-    //         Link_list<Account>* NA=temp->data.getLinkListAccount();
-    //         Node<Account> *temp2=NA->head;
-    //         while(temp2!=nullptr)
-    //         {
-    //             temp2->data.Show();
-    //             temp2=temp2->next;
-    //         }
-    //     temp=temp->next;
-    // }
+    xuatDuLieuAccounts(accounts);
+    xuatDuLieuUsers(users);
+    xuatDuLieuBanks(banks);
 }

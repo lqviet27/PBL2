@@ -100,7 +100,7 @@ istream &operator>>(istream &in, User &nv)
     string CCCD;
     while(1)
     {
-    cout<<"Nhap Can Cuoc Cong Dan(Gom 12 Chu So Lien Tiep(Nhap 'Exit' de thoat)):  ";
+    cout<<"\t\t\t\tNhap Can Cuoc Cong Dan(Gom 12 Chu So Lien Tiep(Nhap 'Exit' de thoat)):  ";
     cin>>CCCD;
     if(CCCD=="Exit")
         {
@@ -118,6 +118,7 @@ istream &operator>>(istream &in, User &nv)
             }
 
             if (isAllDigits) {
+                nv.CCCD=CCCD;
                 break;
             }
             else {
@@ -136,15 +137,15 @@ istream &operator>>(istream &in, User &nv)
     fflush(stdin);
     in.getline(str, sizeof(str)); // Trường hợp đặc biệt
     nv._Name = str;
-    cout << "Nhap Ngay Sinh: ";
+    cout << "Nhap Ngay Sinh(dd/mm/yyyy): ";
     in >> nv._Birthday;
-    cout << "Nhap So Dien Thoai: ";
+    cout << "Nhap So Dien Thoai(bao Gom 10 Chu so Lien Tiep): ";
     in >> nv._PhoneNumber;
     cout << "Nhap Dia Chi: "; // Trường hợp đặc biệt
     fflush(stdin);
     in.getline(str, sizeof(str));
     nv._Address = str;
-    cout << "Nhap Gioi Tinh: ";
+    cout << "Nhap Gioi Tinh(Nam/Nu): ";
     string gender;
     do
     {
@@ -215,13 +216,26 @@ void User::operator=(const User &us)
     this->_PhoneNumber = us._PhoneNumber;
 }
 
-void User::InsertObjecttoFile(ofstream &FileOut)
+void User::InsertObjecttoFile(ofstream &FileOut,int ok)
 {
+    if(ok==0)
+    {
+    FileOut << CCCD << '|';
     FileOut << _Name << '|';
     FileOut << _Birthday << '|';
     FileOut << _PhoneNumber << '|';
     FileOut << _Address << '|';
-    FileOut << _Gender;
+    FileOut << _Gender <<endl;
+    }
+    else 
+    {
+    FileOut << CCCD << '|';
+    FileOut << _Name << '|';
+    FileOut << _Birthday << '|';
+    FileOut << _PhoneNumber << '|';
+    FileOut << _Address << '|';
+    FileOut << _Gender ;
+    }
 }
 
 void User::addAccount(Account &ac)
