@@ -37,7 +37,7 @@ Menu:
     case 1:     
         {
             system("cls");
-            Node<Account>* nodeAc=SignIn::DangNhap(banks);
+            Node<Account>* nodeAc=SignIn::DangNhap(banks,users,accounts);
             if(nodeAc!=nullptr)
                 DangNhapAC(nodeAc);
             goto Menu;

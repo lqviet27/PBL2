@@ -22,6 +22,7 @@ public:
     Link_list<Bank>* getLinkListParBank();
     int getCountBank();
     void ImportFromFile();
+    static void DanhSachTaiKhoan(QLNH&);
 };
 
 

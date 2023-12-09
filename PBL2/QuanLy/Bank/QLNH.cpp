@@ -127,3 +127,11 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             NAC=NAC->next;
         }
 } 
+
+void QLNH::DanhSachTaiKhoan(QLNH& banks)
+{
+    banks.showBank();
+    cout<<"\t\t\t\t\tChon";
+    
+}
+

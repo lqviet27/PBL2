@@ -72,3 +72,4 @@ Node<Account> * QLTK::SearchAccount(const string& numAcc){
 void QLTK::ImportFromFile(){
     
 }
+

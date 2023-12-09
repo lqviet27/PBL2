@@ -8,7 +8,7 @@ void SignIn::DangNhapQuaSoLanQuyDinh()
     cout<<"Ban da dang nhap sai qua so lan quy dinh!!"<<endl;
 }
 
-Node<Account>* SignIn::DangNhap(QLNH &X)
+Node<Account>* SignIn::DangNhap(QLNH &X,QLKH &users,QLTK &acccouts)
 {
     
     cout << "\t\t\t\t      *********************************************" << endl;
@@ -30,12 +30,11 @@ Node<Account>* SignIn::DangNhap(QLNH &X)
             cin >> pass;
             if (pass == "ADMIN")
             {
-                cout << "\t\t\t\t\tDang Nhap Thanh Cong Voi Tu!!!" << endl;
+                cout << "\t\t\t\t\tDang Nhap Thanh Cong Voi Tu Cach Admin!!!" << endl;
                 sleep(1);
                 system("cls");
-                MenuAdmin();
-                
-                break;
+                admin(X,users,acccouts);
+                return nullptr;
             }
             else
             {

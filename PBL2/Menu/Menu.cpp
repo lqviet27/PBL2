@@ -4,6 +4,8 @@
 #include"../Object/Account/Account.cpp"
 #include "../Data_structer/Node.cpp"
 #include "../GiaoDich/GiaoDich.cpp"
+#include "../Admin/Admin.cpp"
+
 using namespace std;
 #define en cout << endl;
 // #include <string.h>
@@ -79,19 +81,19 @@ void MenuAdmin()
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                1.Quan ly tai khoan                    \t\t|";
+          << "                1.QUAN LY TAI KHOAN                    \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                2.Quan ly khach hang                   \t\t|";
+          << "                2.QUAN LY KHACH HANG                   \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                3.Quan ly doanh thu                    \t\t|";
+          << "                3.QUAN LY DOANH THU                    \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                4.Thoat                                \t\t|";
+          << "                4.THOAT                                \t\t|";
      cout << "\n\t\t\t|_______________________________________________________________________|";
 }
 void MenuQuanLyTaiKhoan()
@@ -104,31 +106,23 @@ void MenuQuanLyTaiKhoan()
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                1.Danh sach tai khoan                  \t\t|";
+          << "                1.Tra Cuu Thong Tin Tai Khoan          \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                2.Them tai khoan                       \t\t|";
+          << "                2.Tra Cuu Lich Su Giao Dich            \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                3.Xoa tai khoan                        \t\t|";
+          << "                3.Xoa Tai Khoan                        \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                4.Sua thong tin tai khoan              \t\t|";
+          << "                4.Quay lai                             \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                5.Tim kiem tai khoan theo ID           \t\t|";
-     cout << "\n\t\t\t|"
-          << "                                                       \t\t|";
-     cout << "\n\t\t\t|"
-          << "                6.Quay lai                             \t\t|";
-     cout << "\n\t\t\t|"
-          << "                                                       \t\t|";
-     cout << "\n\t\t\t|"
-          << "                7.Thoat                                \t\t|";
+          << "                5.Thoat                                \t\t|";
      cout << "\n\t\t\t|_______________________________________________________________________|";
 }
 void MenuQuanLyKhachHang()
@@ -141,94 +135,108 @@ void MenuQuanLyKhachHang()
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                1.Danh sach khach hang                 \t\t|";
+          << "                1.Tra Cuu Danh Sach Tai Khoan          \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                2.Tim kiem khach hang theo ID          \t\t|";
+          << "                2.Tra Cuu Thong Tin                    \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                3.Quay lai                             \t\t|";
+          << "                3.Tra Cuu Thong Tin                    \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                4.Thoat                                \t\t|";
+          << "                4.Quay lai                             \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                5.Thoat                                \t\t|";
      cout << "\n\t\t\t|_______________________________________________________________________|";
 }
 void MenuQuanLyDoanhThu()
 {
      system("cls");
      TextColor(12);
-     cout << "\n\n\t\t\t\t\t\t     -QUAN LY DOANH THU-";
+     cout << "\n\n\t\t\t\t\t\t     -QUAN LY NGAN HANG-";
      TextColor(14);
      cout << "\n\t\t\t _______________________________________________________________________";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                1.Tong doanh thu                       \t\t|";
+          << "                1.Tra Cuu Danh Sach Tai Khoan                             \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                2.Thong ke so luong nap tien           \t\t|";
+          << "                2.Tong doanh thu                       \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                3.Thong ke so luong rut tien           \t\t|";
+          << "                3.Thong ke so luong nap tien           \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                4.Thong ke so luong chuyen tien        \t\t|";
+          << "                4.Thong ke so luong rut tien           \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                5.Quay lai                             \t\t|";
+          << "                5.Thong ke so luong chuyen tien        \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                6.Thoat                                \t\t|";
+          << "                6.In Danh Sach Ngan Hang Theo Doanh Thu\t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                6.Quay Lai                             \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                7.Thoat                             \t\t|";
      cout << "\n\t\t\t|_______________________________________________________________________|";
 }
 
-void admin(){
+
+
+void admin(QLNH &banks,QLKH &users,QLTK &accounts){
+     start:
      MenuAdmin();
      switch(choose(1,4))
      {
           case 1:
+               startAdTK:
                system("cls");
                MenuQuanLyTaiKhoan();
-               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
-               switch(choose(1,7))
+               switch(choose(1,5))
                {
                     case 1:
-                         system("cls");
-                         // QLTK::DanhSachTaiKhoan(banks);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLTK::TraCuuThongTinTaiKhoan(accounts);
+                              break;
+                         }
                     case 2:
-                         system("cls");
-                         // QLTK::ThemTaiKhoan(banks);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLTK::TraCuuLichSuGiaoDich(accounts);
+                              break;
+                         }
                     case 3:
-                         system("cls");
-                         // QLTK::XoaTaiKhoan(banks);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLTK::XoaTaiKhoan(banks,users,accounts);
+                              break;
+                         }
                     case 4:
-                         system("cls");
-                         // QLTK::SuaThongTinTaiKhoan(banks);
-                         break;
+                         {
+                              system("cls");
+                              goto start;
+                              break;
+                         }
                     case 5:
-                         system("cls");
-                         // QLTK::TimKiemTaiKhoanTheoID(banks);
-                         break;
-                    case 6:
-                         system("cls");
-                         admin();
-                         break;
-                    case 7:
                          return;
                }
-               // QLTK::MenuQuanLyTaiKhoan(banks,users);
-               break;
+               goto startAdTK;
           case 2:
                system("cls");
                MenuQuanLyKhachHang();
@@ -245,7 +253,7 @@ void admin(){
                          break;
                     case 3:
                          system("cls");
-                         admin();
+                         admin(banks,users,accounts);
                          break;
                     case 4:
                          return;
@@ -276,7 +284,7 @@ void admin(){
                          break;
                     case 5:
                          system("cls");
-                         admin();
+                         admin(banks,users,accounts);
                          break;
                     case 6:
                          return;
@@ -286,8 +294,7 @@ void admin(){
           case 4:
                return;
      }
-     admin();
-
+     admin(banks,users,accounts);
 }
 
 
