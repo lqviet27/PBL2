@@ -3,12 +3,12 @@
 #include<fstream>
 #include <conio.h>
 
+
 QLTK::QLTK()
 {
     ifstream FileIn("Database/Account/Account.txt", ios_base::in);
     if(FileIn.fail()){
         cout<<"Khong tim thay file Bank.txt! Import khong thanh cong"<<endl;
-        
     }
     else{
         while(!FileIn.eof()){
@@ -21,11 +21,8 @@ QLTK::QLTK()
             FileIn >> amount >> separator;
             FileIn >> typeAccount >> separator;
             getline(FileIn, password, '\n');
-            
-            Account A(CCCD,numAccount, password, typeAccount, amount);
-            
+            Account A(CCCD,numAccount, password, typeAccount, amount); 
             addAccount(A);
-            // cout<<"Da them thanh cong ngan hang "<<numAccount<<" vao Database!"<<endl;
         }
     }
     FileIn.close();
@@ -72,4 +69,3 @@ Node<Account> * QLTK::SearchAccount(const string& numAcc){
 void QLTK::ImportFromFile(){
     
 }
-

@@ -8,10 +8,9 @@
 
 using namespace std;
 #define en cout << endl;
-// #include <string.h>
+
 
 string soTaiKhoan, matKhau;
-// bool checkChoose(int choose,const int )
 
 void TextColor(int x)
 {
@@ -143,7 +142,7 @@ void MenuQuanLyKhachHang()
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                3.Tra Cuu Thong Tin                    \t\t|";
+          << "                3.Cap Nhat Thong Tin Khach Hang        \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
@@ -238,32 +237,43 @@ void admin(QLNH &banks,QLKH &users,QLTK &accounts){
                }
                goto startAdTK;
           case 2:
+               startAdKH:
                system("cls");
                MenuQuanLyKhachHang();
-               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
-               switch(choose(1,4))
+               switch(choose(1,5))
                {
                     case 1:
-                         system("cls");
-                         // QLKH::DanhSachKhachHang(users);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLKH::TraCuuDanhSachTaiKhoan(users);
+                              break;
+                         }
                     case 2:
-                         system("cls");
-                         // QLKH::TimKiemKhachHangTheoID(users);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLKH::TraCuuThongTin(users);
+                              break;
+                         }
                     case 3:
-                         system("cls");
-                         admin(banks,users,accounts);
-                         break;
+                         {
+                              system("cls");
+                              AdminQLKH::CapNhapThongTinKhachHang(banks,users);
+                              break;
+                         }
                     case 4:
+                         {
+                              system("cls");
+                              goto start;
+                              break;
+                         }
+                    case 5:
                          return;
                }
-               // QLKH::MenuQuanLyKhachHang(banks,users);
+               goto startAdKH;
                break;
           case 3:
                system("cls");
                MenuQuanLyDoanhThu();
-               cout << "\n\n\t\t\t\t\t\tNhap lua chon :";
                switch(choose(1,6))
                {
                     case 1:
@@ -344,7 +354,9 @@ void menuDebitCard()
      cout << endl;
      cout << ("\t\t\t                 5. TRA CUU LICH SU GIAO DICH");
      cout << endl;
-     cout << ("\t\t\t                 6. THOAT");
+     cout << ("\t\t\t                 6. DOI MAT KHAU");
+     cout << endl;
+     cout << ("\t\t\t                 7. THOAT");
      cout << endl;
 }
 void menuSavingCard()
@@ -367,50 +379,40 @@ void menuSavingCard()
      cout << endl;
      cout << ("\t\t\t                 4. TRA CUU LICH SU GIAO DICH");
      cout << endl;
-     cout << ("\t\t\t                 5. THOAT");
+     cout << ("\t\t\t                 5. DOI MAT KHAU");
      cout << endl;
-}
-
-void deposit(Account &X)
-{
-     long long Money;
-     system("cls");
-     en
-         TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     cout << ("\t\t\t                 6. THOAT");
      cout << endl;
-     TextColor(14);
-     cout << ("\t\t               ==========================================================");
-     cout << endl;
-     cout << ("\t\t\t                    NHAP SO TIEN BAN MUON NAP | ");
-     cin>>Money;
-     cout << endl;
-     X.setAmount(Money);
-     cout <<fixed<< ("\t\t\t                    SO DU CUA BAN LA | ")<<X.getAmount()<<" VND"<<endl;
 }
 
 void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
      Start:
      menuSavingCard();
-     switch(choose(1,5))
+     switch(choose(1,6))
      {
           case 1:
-               system("cls");
+               {system("cls");
                GiaoDich::NapTien(nodeAC,banks,users,accounts);
-               break;
+               break;}
           case 2:
-               system("cls");
+               {system("cls");
                GiaoDich::RutTien(nodeAC,banks,users,accounts);
-               break;
+               break;}
           case 3:
-               system("cls");
+               {system("cls");
                GiaoDich::TraCuuSoDu(nodeAC,banks);
-               break;
+               break;}
           case 4:
-               system("cls");
+               {system("cls");
                GiaoDich::TraCuuLichSuGiaoDich(nodeAC);
-               break;
+               break;}
           case 5:
+               {
+               system("cls");
+               GiaoDich::DoiMatKhau(nodeAC,banks,users,accounts);
+               break;   
+               }
+          case 6:
                return;
      }
      goto Start;
@@ -451,7 +453,7 @@ Node<Account> *nodeNA(QLNH &banks)
 void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
      Start:
      menuDebitCard();
-     switch(choose(1,6))
+     switch(choose(1,7))
      {
           
           case 1:
@@ -491,6 +493,12 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
                     break;
                }
           case 6:
+               {
+               system("cls");
+               GiaoDich::DoiMatKhau(nodeAC,banks,users,accounts);
+               break;   
+               }
+          case 7:
                     {return ;}
      }
      goto Start;

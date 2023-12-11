@@ -42,5 +42,5 @@ public:
     void InsertObjecttoFile(ofstream &,int);
     void setEmptyLinkList();
     void copyUser(User);
-    bool CheckUser( User &);
+    bool CheckUser(User &);
 };

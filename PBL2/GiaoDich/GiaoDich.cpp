@@ -291,6 +291,47 @@ class GiaoDich{
                }
                system("pause");
         }
+        static void DoiMatKhau(Node<Account>* NA,QLNH& banks,QLKH& users,QLTK& accounts)
+{
+    string password="";
+    string PWAcc=NA->data.getPassword();
+    int cnt=0;
+    while(1)
+    {
+        cout<<"NHAP MAT KHAU CU('Exit' De Quay Lai): ";
+        cin>>password;
+        if(password=="Exit"||password=="exit")
+          return ;
+        if(password==PWAcc)
+          break;
+        cout<<endl;
+        cout<<"MAT KHAU CU KHONG CHINH XAC! VUI LONG NHAP LAI !!!"<<endl;
+        cout<<"NHAP SAI QUA 5 LAN SE THOAT!!!";
+        system("pause");
+        cnt++;
+        if(cnt==6)
+            return ;
+    }
+    string newpassword;
+    cout<<"NHAP MAT KHAU MOI: "<<endl;
+    cin>>newpassword;
+
+    NA->data.setPassword(newpassword);
+
+    string idBank=NA->data.getNumAccount().substr(0,3);
+    Node<Bank> *NB=banks.getLinkListParBank()->Search(Bank("",idBank));
+    User Us(NA->data.getCCCD(),"",Date(0,0,0),"","",0);
+    Node<User> *NUB=NB->data.getLinkListUser()->Search(Us);
+    NUB->data.getUserAccount()->Search(NA->data)->data.setPassword(newpassword);
+
+    Node<User> *NU=users.getLinkListUser()->Search(Us);
+    NU->data.getUserAccount()->Search(NA->data)->data.setPassword(newpassword);
+
+    accounts.getLinkListAccount()->Search(NA->data)->data.setPassword(newpassword);
+    cout<<"DA THAY DOI MAT KHAU THANH CONG!"<<endl;
+    system("pause");
+}
         
 };
+
 
