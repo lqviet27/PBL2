@@ -1,7 +1,9 @@
-
+#pragma once
 #include"../../Object/Account/Account.cpp"
 #include"../../Data_structer/Link_list.cpp"
 #include"../../Data_structer/Node.cpp"
+#include"../Users/QLKH.cpp"
+// #include"../Bank/QLNH.cpp"
 
 using namespace std;
 class QLTK

@@ -263,7 +263,6 @@ void User::copyUser(User us)
 
 void User::showAccount()
 {
-    cout << "DANH SACH TAI KHOAN CUA KHACH HANG " << this->_Name << " LA:" << endl;
     userAccount.Show();
 }
 

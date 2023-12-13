@@ -10,3 +10,10 @@ class AdminQLTK{
         static void TraCuuLichSuGiaoDich(QLTK &);
         static void XoaTaiKhoan(QLNH &,QLKH &,QLTK &);
 };
+
+class AdminQLKH{
+    public:
+        static void TraCuuDanhSachTaiKhoan(QLKH &);
+        static void TraCuuThongTin(QLKH &);
+        static void CapNhapThongTinKhachHang(QLNH &,QLKH &);
+};
