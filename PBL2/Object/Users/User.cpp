@@ -22,15 +22,15 @@ User::User(string CCCD, string name, Date bi, string pn, string address, bool g)
     this->_Gender = g;
 }
 
-User::User(const User &nv)
+User::User(const User &us)
 {
-    this->userAccount = nv.userAccount;
-    this->CCCD = nv.CCCD;
-    this->_Name = nv._Name;
-    this->_Birthday = nv._Birthday;
-    this->_PhoneNumber = nv._PhoneNumber;
-    this->_Address = nv._Address;
-    this->_Gender = nv._Gender;
+    this->userAccount = us.userAccount;
+    this->CCCD = us.CCCD;
+    this->_Name = us._Name;
+    this->_Birthday = us._Birthday;
+    this->_PhoneNumber = us._PhoneNumber;
+    this->_Address = us._Address;
+    this->_Gender = us._Gender;
 }
 
 User::~User() {}
@@ -94,7 +94,7 @@ Date User::getBirthday()
 {
     return this->_Birthday;
 }
-istream &operator>>(istream &in, User &nv)
+istream &operator>>(istream &in, User &us)
 {   
     int check;
     string CCCD;
@@ -104,7 +104,7 @@ istream &operator>>(istream &in, User &nv)
     cin>>CCCD;
     if(CCCD=="Exit")
         {
-            nv.CCCD=CCCD;
+            us.CCCD=CCCD;
             return in;
         }
     if (CCCD.length() == 12)
@@ -118,7 +118,7 @@ istream &operator>>(istream &in, User &nv)
             }
 
             if (isAllDigits) {
-                nv.CCCD=CCCD;
+                us.CCCD=CCCD;
                 break;
             }
             else {
@@ -136,15 +136,15 @@ istream &operator>>(istream &in, User &nv)
     char str[100];
     fflush(stdin);
     in.getline(str, sizeof(str)); // Trường hợp đặc biệt
-    nv._Name = str;
+    us._Name = str;
     cout << "Nhap Ngay Sinh(dd/mm/yyyy): ";
-    in >> nv._Birthday;
+    in >> us._Birthday;
     cout << "Nhap So Dien Thoai(bao Gom 10 Chu so Lien Tiep): ";
-    in >> nv._PhoneNumber;
+    in >> us._PhoneNumber;
     cout << "Nhap Dia Chi: "; // Trường hợp đặc biệt
     fflush(stdin);
     in.getline(str, sizeof(str));
-    nv._Address = str;
+    us._Address = str;
     cout << "Nhap Gioi Tinh(Nam/Nu): ";
     string gender;
     do
@@ -155,12 +155,12 @@ istream &operator>>(istream &in, User &nv)
         in >> gender;
         if (gender == "nam" || gender == "Nam" || gender == "0")
         {
-            nv._Gender = 0;
+            us._Gender = 0;
             check = 0;
         }
         else if (gender == "Nu" || gender == "nu" || gender == "1")
         {
-            nv._Gender = 1;
+            us._Gender = 1;
             check = 0;
         }
     } while (check);
