@@ -130,10 +130,24 @@ bool Bank::operator==(const Bank& B)
 {
     return (this->IDBank == B.IDBank);
 }
-bool Bank::operator>(const Bank& B)
+
+long long Bank::TotalAmount()
 {
-    int a = stoi(this->IDBank);
-    int b = stoi(B.IDBank);
+    long long total=0;
+    Node<Account> *NA=this->getLinkListAccount()->head;
+    while(NA!=nullptr)
+    {
+        total+=NA->data.getAmount();
+        NA=NA->next;
+    }
+    return total;
+}
+
+bool Bank::operator>(Bank& B)
+{
+
+    long long a = (this->TotalAmount());
+    long long b = B.TotalAmount();
     return (a > b);
 }
 Node<Account>* Bank::searchAccount(const string& numAcc){

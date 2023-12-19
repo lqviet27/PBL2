@@ -17,3 +17,16 @@ class AdminQLKH{
         static void TraCuuThongTin(QLKH &);
         static void CapNhapThongTinKhachHang(QLNH &,QLKH &);
 };
+
+class AdminQLNH{
+    public:
+        static void TraCuuDanhSachNganHang(QLNH&);
+        static void ThemNganHang(QLNH&);
+        static void XoaNganHang(QLNH&,QLKH&,QLTK&);
+        static void TraCuuDanhSachTaiKhoan(QLNH&);
+        static void TraCuuDanhSachKhachHang(QLNH&);
+        static void TongDoanhThu(QLNH&);
+        static void ThongKeSoLuongNapTien(QLNH&);
+        static void ThongKeSoLuongChuyenTien(QLNH&);
+        static void ThongKeSoLuongRutTien(QLNH&);
+};
