@@ -203,7 +203,6 @@ bool User::operator>(const User &us)
     l1=lastName1.substr(0,1);
     l2=lastName2.substr(0,1);
     return (l1 > l2);
-
 }
 void User::operator=(const User &us)
 {   

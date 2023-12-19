@@ -25,12 +25,13 @@ class Bank{
         void addAccount(Account&);
         void addUser(User&);
         bool operator==(const Bank&);
-        bool operator>(const Bank&);
+        bool operator>( Bank&);
         Node<Account>* searchAccount(const string&);
         Node<User>* searchUser(const string&);
         void InsertObjecttoFile(ofstream &,int);
         Link_list<Account>* getLinkListAccount();
         Link_list<User>* getLinkListUser();
         //void operator=(const Bank&); 
+        long long TotalAmount();
 };
 

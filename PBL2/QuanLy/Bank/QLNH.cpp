@@ -2,6 +2,7 @@
 #include "QLNH.h"
 #include <fstream>
 #include <conio.h>
+#include "../../Menu/Menu.cpp"
 
 QLNH::QLNH()
 {
@@ -95,6 +96,7 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             {
                 cout<<"Khong Tim Thay Ngan Hang Cua Tai Khoan: ";
                 cout<<NAC->data.getNumAccount();
+                system("Pause");
                 exit(0);
             }
             
@@ -113,11 +115,4 @@ void QLNH::linkData(QLTK& qltk, QLKH& qlkh){
             NAC=NAC->next;
         }
 } 
-
-void QLNH::DanhSachTaiKhoan(QLNH& banks)
-{
-    banks.showBank();
-    cout<<"\t\t\t\t\tChon";
-    
-}
 

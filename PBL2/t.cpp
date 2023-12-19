@@ -1,34 +1,36 @@
 
 // #include"QuanLy/Bank/QLNH.cpp"
 // #include"Object/Bank/Bank.cpp"
-#include"QuanLy/Bank/QLNH.cpp"
+// #include"QuanLy/Bank/QLNH.cpp"
+#include<iostream>
 #include <fstream>
 #include <conio.h>
-#include<iostream>
+#include <string>
+#include <filesystem>
 using namespace std;
-
+namespace fs = std::filesystem;
 
 int main(){
  
-    QLNH A;
-    QLKH B;
-    QLTK C;
-    A.linkData(C,B);
+    // QLNH A;
+    // QLKH B;
+    // QLTK C;
+    // A.linkData(C,B);
+    // // A.showBank();
     // A.showBank();
-    A.showBank();
-    A.Sort();
-    cout<<"Sau khi sap xep:"<<endl;
-    A.showBank();
-    cout<<endl;
-    B.showUser();
-    B.Sort();
-    cout<<"Sau khi sap xep:"<<endl;
-    B.showUser();
-    cout<<endl;
-    C.showAccount();
-    C.Sort();
-    cout<<"Sau khi sap xep:"<<endl;
-    C.showAccount();
+    // A.Sort();
+    // cout<<"Sau khi sap xep:"<<endl;
+    // A.showBank();
+    // cout<<endl;
+    // B.showUser();
+    // B.Sort();
+    // cout<<"Sau khi sap xep:"<<endl;
+    // B.showUser();
+    // cout<<endl;
+    // C.showAccount();
+    // C.Sort();
+    // cout<<"Sau khi sap xep:"<<endl;
+    // C.showAccount();
 
     // B.showUser();
     // C.showAccount();
@@ -134,4 +136,99 @@ int main(){
     // User u=User("1", "1", Date(0,0,0), "1", "1", true);
     // B.addUser(u);
     // B.showUser();
+
+
+
+    //     ifstream file;
+    //     string folderPath = "DataBase/GiaoDich";
+    //     ifstream directory(folderPath);
+        
+    //     if (!directory.is_open()) {
+    //         cerr << "thu muc khong ton tai" << endl;
+    //         return 0;
+    //     }
+    //     while (!directory.eof()) {
+    //         string filename;
+    //         directory >> filename;
+
+    //         // Kiểm tra xem là file .txt hay không
+    //         size_t pos = filename.find_last_of(".");
+    //         if (pos != string::npos && filename.substr(pos) == ".txt") {
+    //             // In tên file
+    //             cout << filename << endl;
+    //         }
+    //     }
+    // return 0;
+    string IDB = "005";
+    string folderPath = "DataBase/GiaoDich";
+
+    // Kiểm tra xem thư mục có tồn tại không
+    if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
+        std::cerr << "khong ton tai thu muc" << std::endl;
+        return 1;
+    }
+
+    // Duyệt qua tất cả các file trong thư mục
+                cout << "\t\t\t+===========================================================================================================+" << endl;
+               cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
+               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+               cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
+               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+    for (const auto& entry : fs::directory_iterator(folderPath)) {
+        // Kiểm tra xem là file .txt hay không
+        if (entry.path().extension() == ".txt") {
+            // In tên file
+            string name =entry.path().filename().stem().string().substr(0,3);
+            if(name==IDB) {
+
+                string fileName = folderPath + "/" + entry.path().filename().string();
+                string type = "Nap tien";
+                // cout<<fileName<<endl;
+               ifstream file(fileName,ios::in);
+               string line;
+               while(getline(file,line))
+               {
+                    string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
+                    stringstream ss(line);
+                    getline(ss,Type,'|');
+                    getline(ss,IDSourceAccount,'|');
+                    getline(ss,IDDesAccount,'|');
+                    getline(ss,NameBank,'|');
+                    getline(ss,Amount,'|');
+                    getline(ss,Time,'|');
+                    if(Type==type){
+                      cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                    }
+               }
+              //  system("pause");
+              };
+            // cout << entry.path().filename().stem().string() << endl;
+        }
+    }
+
+    return 0;
 }
+/*
+void Bank::addAccounttoFile(Account& acc){
+    ifstream file;
+    string directory = "DataBase/Account";
+    string fileName = directory+ "/Bank_" + this->IDBank + ".txt";
+    // string fileName = directory+ "/Account" + ".txt";
+    file.open(fileName);
+    if(!fs::is_directory(directory)){
+        fs::create_directory(directory);
+    };
+    if(!file){
+       ofstream outFile(fileName); 
+       outFile.close();
+    }
+    ofstream outFile(fileName, ios_base::app);
+    if (!outFile.is_open()) {
+            // Nếu không thể mở file, xuất thông báo lỗi và thoát khỏi phương thức
+            cerr << "Error: Unable to open file " << fileName << endl;
+            return;
+        }
+    acc.InsertObjecttoFile(outFile);
+    outFile.close();
+}
+*/

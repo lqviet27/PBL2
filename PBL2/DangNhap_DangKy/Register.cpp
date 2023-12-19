@@ -21,10 +21,16 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
     {   
         banks.showBank();
         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tao Tai Khoan(Nhap '-1' De Quay Lai): " << endl;
-        int idb=choose(-1,banks.getCountBank());
-        if(idb==-1)
+        string IDB;
+        cin>>IDB;
+        if(IDB=="-1")
             return nullptr;
-        string IDB=to_string(idb);
+        if(IDB.size()>3)
+            {
+                cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
+                system("Pause");
+                continue;
+            }
         switch(IDB.size())
         {
             case 1:
@@ -38,8 +44,14 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
                     break;
                 }
         }
-        Node<Bank> *B=banks.SearchBank(IDB);
-        return B;
+        Node<Bank> *NB=banks.SearchBank(IDB);
+        if(NB==nullptr) 
+        {
+            cout<<"Khong Ton Tai Ngan Hang!!!";
+            system("Pause");
+            continue;
+        }
+        return NB;
     }
 }
 
