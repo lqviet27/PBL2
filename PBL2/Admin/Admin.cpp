@@ -33,13 +33,13 @@ void AdminQLTK::TraCuuThongTinTaiKhoan(QLTK &accounts)
          }
          else 
          {
-            cout << "\t\t\t+==================================================================================+" << endl;
-            cout << "\t\t\t|                             ** THONG TIN TAI KHOAN **                            |" << endl;
-            cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
-            cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |    So Du   |   Mat Khau   |" << endl;
-            cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+            cout << "\t\t\t+=======================================================================================+" << endl;
+            cout << "\t\t\t|                               ** THONG TIN TAI KHOAN **                               |" << endl;
+            cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+            cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |      So Du      |   Mat Khau   |" << endl;
+            cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
             NA->data.Show();
-            cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+            cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
             system("pause");
             return ;
          }
@@ -98,7 +98,7 @@ void AdminQLTK::TraCuuLichSuGiaoDich(QLTK &accounts)
                     getline(ss,NameBank,'|');
                     getline(ss,Amount,'|');
                     getline(ss,Time,'|');
-                    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                }
                system("pause");
                return;

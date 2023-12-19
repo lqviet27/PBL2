@@ -133,7 +133,8 @@ void Account::InsertObjecttoFile(ofstream &FileOut,int ok)
 
 void Account::Show(){
     string type = (this->typeAccount) ? "Thanh Toan" : "Tiet Kiem";
-    cout << "\t\t\t|  " << setw(11)<<this->CCCD<<" |"<<setw(11) << this->numAccount << "   |  " << setw(11) << type << "     |  " << setw(9) << fixed << setprecision(2) << this->amount << "  |  " << setw(6) << this->password << "     |" << endl;
+    cout << "\t\t\t|  " << setw(12)<<this->CCCD<<"  |"<<setw(14) << this->numAccount << "    |  " << setw(11) << type << "     | " << setw(11) << left << this->amount <<" VND"<< " |" << setw(10) << this->password << "  |" << endl;
+    
 }
 void Account::operator=(const Account& x)
 {

@@ -474,9 +474,9 @@ void DebitCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
                     Node<Account> *X=nodeNA(banks);
                     if(X!=nullptr)
                     {
-                    long long money=GiaoDich::ChuyenTien(nodeAC,X->data.getCCCD(),banks,users,accounts);
-                    if(money!=-1)
-                    GiaoDich::NhanTien(X,nodeAC->data.getNumAccount(),money,banks,users,accounts);
+                         long long money=GiaoDich::ChuyenTien(nodeAC,X->data.getCCCD(),banks,users,accounts);
+                         if(money!=-1)
+                         GiaoDich::NhanTien(X,nodeAC->data.getNumAccount(),money,banks,users,accounts);
                     }
                     break;
                }

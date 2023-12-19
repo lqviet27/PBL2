@@ -13,7 +13,7 @@ int main(){
     QLNH A;
     QLKH B;
     QLTK C;
-    // A.linkData(C,B);
+    A.linkData(C,B);
     // A.showBank();
     A.showBank();
     A.Sort();
