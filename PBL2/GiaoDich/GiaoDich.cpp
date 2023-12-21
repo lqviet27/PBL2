@@ -289,6 +289,7 @@ class GiaoDich{
                     getline(ss,Time,'|');
                     cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                }
+               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
                system("pause");
         }
         static void DoiMatKhau(Node<Account>* NA,QLNH& banks,QLKH& users,QLTK& accounts)

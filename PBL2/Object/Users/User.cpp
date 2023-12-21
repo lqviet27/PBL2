@@ -37,14 +37,14 @@ User::~User() {}
 
 void User::Show()
 {
-    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(20) << this->_Name << " | ";
-    cout << this->_Birthday;
-    cout << setw(15) << this->_PhoneNumber << "     | " << setw(25) << this->_Address << "    | " ;
+    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(15) << this->_Name << "      | ";
+    cout << setw(5) << this->_Birthday<< "   | ";
+    cout << setw(14) << this->_PhoneNumber << "     |   " << setw(25) << left << this->_Address ;
     if(this->_Gender){
-        cout << setw(7) << "Nu" << "       |" << endl;
+        cout << "  |      "  << "Nu" << "       |" << endl;
     }
     else{
-        cout << setw(7) << "Nam" << "       |" << endl;
+        cout << "  |      " << "Nam" << "      |" << endl;
     }
 }
 
