@@ -32,3 +32,4 @@ class AdminQLNH{
         static void ThongKeSoLuongRutTien(QLNH&);
         static void ThongKeSoLuongChuyenTien(QLNH&);
 };
+
