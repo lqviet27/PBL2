@@ -380,30 +380,30 @@ void AdminQLNH::TraCuuDanhSachNganHang(QLNH& banks)
     string chon;
     start:
         system("cls");
-        cout<<"Ban Co Muon In Theo Danh Sach Giam Dan Doanh Thu('Exit' De Quay Lai): "<<endl;
-        cout<<"/t/t/t/t Y:Dong Y"<<endl;
-        cout<<"/t/t/t/t N:Khong Dong Y"<<endl;
-        cin>>chon;
-        if(chon=="exit"||chon=="Exit")
-            return ;
-        if(chon!="Y"&&chon!="N"&&chon!="y"&&chon!="n")
-            {
-                cout<<"Vui Long Nhap Dung Cu Phap!!!"<<endl;
-                system("Pause");
-                goto start;
-            }
-        else {
-            if(chon=="Y"||chon=="y")
-                {
-                    //sap xep chua lam
-                    system("pause");
-                }
-            else 
-                {
+        // cout<<"Ban Co Muon In Theo Danh Sach Giam Dan Doanh Thu('Exit' De Quay Lai): "<<endl;
+        // cout<<"/t/t/t/t Y:Dong Y"<<endl;
+        // cout<<"/t/t/t/t N:Khong Dong Y"<<endl;
+        // cin>>chon;
+        // if(chon=="exit"||chon=="Exit")
+        //     return ;
+        // if(chon!="Y"&&chon!="N"&&chon!="y"&&chon!="n")
+        //     {
+        //         cout<<"Vui Long Nhap Dung Cu Phap!!!"<<endl;
+        //         system("Pause");
+        //         goto start;
+        //     }
+        // else {
+        //     if(chon=="Y"||chon=="y")
+        //         {
+        //             //sap xep chua lam
+        //             system("pause");
+        //         }
+        //     else 
+        //         {
                     banks.showBank();
                     system("pause");
-                }
-        }
+                // }
+        // }
 }
 
 void AdminQLNH::ThemNganHang(QLNH& banks)
@@ -555,24 +555,24 @@ void AdminQLNH::TraCuuDanhSachTaiKhoan(QLNH& banks)
             if(chon=="Y"||chon=="y")
                 {
                     NB->data.getLinkListAccount()->Sort();
-                    cout << "\t\t\t+==================================================================================+" << endl;
-                    cout << "\t\t\t|                       **DANH SACH TAI KHOAN CUA KHACH HANG**                     |" << endl;
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
-                    cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |    So Du   |   Mat Khau   |" << endl;
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+                    cout << "\t\t\t+=======================================================================================+" << endl;
+                    cout << "\t\t\t|                         **DANH SACH TAI KHOAN CUA KHACH HANG**                        |" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |      So Du      |   Mat Khau   |" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     NB->data.getLinkListAccount()->Show();
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     system("pause");
                 }
             else 
                 {
-                    cout << "\t\t\t+==================================================================================+" << endl;
-                    cout << "\t\t\t|                       **DANH SACH TAI KHOAN CUA KHACH HANG**                     |" << endl;
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
-                    cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |    So Du   |   Mat Khau   |" << endl;
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+                    cout << "\t\t\t+=======================================================================================+" << endl;
+                    cout << "\t\t\t|                         **DANH SACH TAI KHOAN CUA KHACH HANG**                        |" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |      So Du      |   Mat Khau   |" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     NB->data.getLinkListAccount()->Show();
-                    cout << "\t\t\t+================+==================+==================+============+==============+" << endl;
+                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     system("pause");
                 }
                 return ;
@@ -664,20 +664,20 @@ void AdminQLNH::TraCuuDanhSachKhachHang(QLNH& banks)
 void AdminQLNH::TongDoanhThu(QLNH& banks)
 {
         Node<Bank> *NB=banks.getLinkListParBank()->head;
-        cout << "\t\t\t\t\t+========================================+===================+" << endl;
-        cout << "\t\t\t\t\t|                 ** DANH SACH NGAN HANG **                  |" << endl;
-        cout << "\t\t\t\t\t+======+=================================+===================+" << endl;
-        cout << "\t\t\t\t\t|  ID  |        Ten ngan hang            |     Doanh Thu     |" << endl;
-        cout << "\t\t\t\t\t+======+=================================+===================+" << endl;
+        cout << "\t\t\t\t\t+=======================================+====================+" << endl;
+        cout << "\t\t\t\t\t|                ** DANH SACH NGAN HANG **                   |" << endl;
+        cout << "\t\t\t\t\t+=====+=================================+====================+" << endl;
+        cout << "\t\t\t\t\t| ID  |        Ten ngan hang            |    Doanh Thu       |" << endl;
+        cout << "\t\t\t\t\t+=====+=================================+====================+" << endl;
         while(NB!=nullptr)
         {
             cout<<"\t\t\t\t\t";
-            cout<<"|  "<<NB->data.getIdBank()<<" |"<<"\t"<<NB->data.getNameBank()<<setw(12)<<"\t |";
-            cout<< NB->data.TotalAmount()<<" |";
+            cout <<"| "<< NB->data.getIdBank() << " |          " << left << setw(22) << NB->data.getNameBank()  ;
+            cout << " |    " << setw(15) << left << NB->data.TotalAmount()<<" |";
             cout<<endl;
             NB=NB->next;
         }
-        cout << "\t\t\t\t\t+======+================================+===================+" << endl;
+        cout << "\t\t\t\t\t+=====+=================================+====================+" << endl;
         system("pause");
     return ;      
 }
@@ -753,13 +753,14 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Nap tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
                 }
             }
         }
+        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         system("pause");
         // system("cls");
         return ;
@@ -837,13 +838,14 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Rut tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
                 }
             }
         }
+        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         system("pause");
         // system("cls");
         return ;
@@ -921,13 +923,14 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Chuyen tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
                 }
             }
         }
+        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         system("pause");
         // system("cls");
         return ;
