@@ -53,7 +53,7 @@ template<typename T>
 void Link_list<T>::Show(){
     Node<T> *tmp = head;
     if(tmp==nullptr){
-            cout<<"Link_list is empty!"<<endl;
+            // cout<<"Link_list is empty!"<<endl;
         }
     while(tmp != nullptr){
         tmp->Show();

@@ -194,6 +194,8 @@ void AdminQLTK::XoaTaiKhoan(QLNH &banks,QLKH &users,QLTK &accounts)
             else NU1->data.getUserAccount()->Delete(NA2->data);
 
             accounts.getLinkListAccount()->Delete(NA->data);
+            cout<<"DA XOA THANH CONG TAI KHOAN "<<numAC<<endl;
+            system("pause");
             return ;
         }
     }
@@ -366,6 +368,8 @@ void AdminQLKH::CapNhapThongTinKhachHang(QLNH& banks,QLKH& users)
                 NB=NB->next;
             }
             users.getLinkListUser()->Search(U)->data.copyUser(U);
+            cout<<"DA CAP NHA THANH CONG THONG TIN CUA NGUOI DUNG "<< cccd <<endl;
+            system("pause");
             return ;
     }
 
@@ -560,8 +564,18 @@ void AdminQLNH::TraCuuDanhSachTaiKhoan(QLNH& banks)
                     cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |      So Du      |   Mat Khau   |" << endl;
                     cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
-                    NB->data.getLinkListAccount()->Show();
-                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    if(NB->data.getLinkListAccount()->head==nullptr){
+                        cout<<endl;
+                        cout<<"\t\t\t\t";
+                        cout<<"Khong Co Tai Khoan Nao Cua Ngan Hang Nay!!!"<<endl;
+                        system("pause");
+                        return ;
+                    }
+                    else 
+                    {
+                        NB->data.getLinkListAccount()->Show();
+                        cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    }
                     system("pause");
                 }
             else 
@@ -571,8 +585,18 @@ void AdminQLNH::TraCuuDanhSachTaiKhoan(QLNH& banks)
                     cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
                     cout << "\t\t\t|      CCCD      |   So Tai Khoan   |  Loai Tai Khoan  |      So Du      |   Mat Khau   |" << endl;
                     cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
-                    NB->data.getLinkListAccount()->Show();
-                    cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    if(NB->data.getLinkListAccount()->head==nullptr){
+                        cout<<endl;
+                        cout<<"\t\t\t\t";
+                        cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Tai Khoan !!!"<<endl;
+                        system("pause");
+                        return ;
+                    }
+                    else 
+                    {
+                        NB->data.getLinkListAccount()->Show();
+                        cout << "\t\t\t+================+==================+==================+=================+==============+" << endl;
+                    }
                     system("pause");
                 }
                 return ;
@@ -641,8 +665,19 @@ void AdminQLNH::TraCuuDanhSachKhachHang(QLNH& banks)
                     cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
                     cout << "\t\t\t|      CCCD      |        HoVaTen       |    Ngay Sinh    |    So Dien Thoai   |            Dia Chi           |   Gioi Tinh   |" << endl;
                     cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
-                    NB->data.getLinkListUser()->Show();
-                    cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+                    if(NB->data.getLinkListUser()->head==nullptr){
+                        cout<<endl;
+                        cout<<"\t\t\t\t";
+                        cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Nguoi Dung !!!"<<endl;
+                        system("pause");
+                        return ;
+                    }
+                    else 
+                    {
+                        NB->data.getLinkListUser()->Show();
+                        cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+                    }
+                   
                     system("pause");
                 }
             else 
@@ -652,8 +687,18 @@ void AdminQLNH::TraCuuDanhSachKhachHang(QLNH& banks)
                     cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
                     cout << "\t\t\t|      CCCD      |        HoVaTen       |    Ngay Sinh    |    So Dien Thoai   |            Dia Chi           |   Gioi Tinh   |" << endl;
                     cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
-                    NB->data.getLinkListUser()->Show();
-                    cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+                    if(NB->data.getLinkListUser()->head==nullptr){
+                        cout<<endl;
+                        cout<<"\t\t\t\t";
+                        cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Nguoi Dung !!!"<<endl;
+                        system("pause");
+                        return ;
+                    }
+                    else 
+                    {
+                        NB->data.getLinkListUser()->Show();
+                        cout << "\t\t\t+================+======================+=================+====================+==============================+===============+" << endl;
+                    }
                     system("pause");
                 }
                 return ;
@@ -690,6 +735,7 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
         banks.showBank();
         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Nap Tien(Nhap '-1' De Quay Lai): " << endl;
         string IDB;
+        int check = 0 ;
         cin>>IDB;
         if(IDB=="-1")
             return ;
@@ -723,12 +769,12 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
         string folderPath = "DataBase/GiaoDich";
         // Kiểm tra xem thư mục có tồn tại không
         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "khong ton tai thu muc" << std::endl;
+            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
         cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
+        cout << "\t\t\t|                                           ** LICH SU NAP TIEN **                                          |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
@@ -738,7 +784,7 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
                 // In tên file
                 string name =entry.path().filename().stem().string().substr(0,3);
                 if(name==IDB){
-
+                    check++;
                     string fileName = folderPath + "/" + entry.path().filename().string();
                     ifstream file(fileName,ios::in);
                     string line;
@@ -760,10 +806,21 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
                 }
             }
         }
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        system("pause");
-        // system("cls");
-        return ;
+        if(check==0)
+        {
+            cout<<endl;
+            cout<<"\t\t\t\t";
+            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Nap Tien !!!"<<endl;
+            system("pause");
+            return ;
+        }
+        else 
+        {
+            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            system("pause");
+            // system("cls");
+            return ;
+        }
     }
 }
 
@@ -774,6 +831,7 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
     {   
         banks.showBank();
         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Rut Tien(Nhap '-1' De Quay Lai): " << endl;
+        int check = 0 ;
         string IDB;
         cin>>IDB;
         if(IDB=="-1")
@@ -808,12 +866,12 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
         string folderPath = "DataBase/GiaoDich";
         // Kiểm tra xem thư mục có tồn tại không
         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "khong ton tai thu muc" << std::endl;
+            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
         cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
+        cout << "\t\t\t|                                           ** LICH SU RUT TIEN **                                          |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
@@ -823,7 +881,7 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
                 // In tên file
                 string name =entry.path().filename().stem().string().substr(0,3);
                 if(name==IDB){
-
+                    check++;
                     string fileName = folderPath + "/" + entry.path().filename().string();
                     ifstream file(fileName,ios::in);
                     string line;
@@ -845,10 +903,21 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
                 }
             }
         }
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        system("pause");
-        // system("cls");
-        return ;
+        if(check==0)
+        {
+            cout<<endl;
+            cout<<"\t\t\t\t";
+            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Rut Tien !!!"<<endl;
+            system("pause");
+            return ;
+        }
+        else 
+        {
+            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            system("pause");
+            // system("cls");
+            return ;
+        }
     }
 }
 
@@ -859,6 +928,7 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
     {   
         banks.showBank();
         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Chuyen Tien(Nhap '-1' De Quay Lai): " << endl;
+        int check = 0 ;
         string IDB;
         cin>>IDB;
         if(IDB=="-1")
@@ -893,12 +963,12 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
         string folderPath = "DataBase/GiaoDich";
         // Kiểm tra xem thư mục có tồn tại không
         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "khong ton tai thu muc" << std::endl;
+            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
         cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
+        cout << "\t\t\t|                                          ** LICH SU CHUYEN TIEN **                                        |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
         cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
         cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
@@ -908,7 +978,7 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
                 // In tên file
                 string name =entry.path().filename().stem().string().substr(0,3);
                 if(name==IDB){
-
+                    check++;
                     string fileName = folderPath + "/" + entry.path().filename().string();
                     ifstream file(fileName,ios::in);
                     string line;
@@ -930,9 +1000,20 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
                 }
             }
         }
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        system("pause");
-        // system("cls");
-        return ;
+        if(check==0)
+        {
+            cout<<endl;
+            cout<<"\t\t\t\t";
+            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Chuyen Tien !!!"<<endl;
+            system("pause");
+            return ;
+        }
+        else 
+        {
+            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            system("pause");
+            // system("cls");
+            return ;
+        }
     }
 }
