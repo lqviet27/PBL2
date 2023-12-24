@@ -18,12 +18,13 @@ Record_Rut::~Record_Rut()
 
 void Record_Rut::Show()
 {
-    cout << "\t\t\t+===========================================================================================================+" << endl;
-    cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
-    cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-    cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-    cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " <<"+ "<< setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+    cout << "\t\t\t+================================================================================================================+" << endl;
+    cout << "\t\t\t|                                            ** LICH SU GIAO DICH **                                             |" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+    cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+    cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
 
 }
 

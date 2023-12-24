@@ -82,11 +82,11 @@ void AdminQLTK::TraCuuLichSuGiaoDich(QLTK &accounts)
          {
             string Path="DataBase/GiaoDich/" + NA->data.getNumAccount() + ".txt";
                ifstream file(Path,ios::in);
-               cout << "\t\t\t+===========================================================================================================+" << endl;
-               cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
-               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-               cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+               cout << "\t\t\t+================================================================================================================+" << endl;
+               cout << "\t\t\t|                                            ** LICH SU GIAO DICH **                                             |" << endl;
+               cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+               cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+               cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
                string line;
                while(getline(file,line))
                {
@@ -98,7 +98,7 @@ void AdminQLTK::TraCuuLichSuGiaoDich(QLTK &accounts)
                     getline(ss,NameBank,'|');
                     getline(ss,Amount,'|');
                     getline(ss,Time,'|');
-                    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                    cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                }
                system("pause");
                return;
@@ -384,30 +384,8 @@ void AdminQLNH::TraCuuDanhSachNganHang(QLNH& banks)
     string chon;
     start:
         system("cls");
-        // cout<<"Ban Co Muon In Theo Danh Sach Giam Dan Doanh Thu('Exit' De Quay Lai): "<<endl;
-        // cout<<"/t/t/t/t Y:Dong Y"<<endl;
-        // cout<<"/t/t/t/t N:Khong Dong Y"<<endl;
-        // cin>>chon;
-        // if(chon=="exit"||chon=="Exit")
-        //     return ;
-        // if(chon!="Y"&&chon!="N"&&chon!="y"&&chon!="n")
-        //     {
-        //         cout<<"Vui Long Nhap Dung Cu Phap!!!"<<endl;
-        //         system("Pause");
-        //         goto start;
-        //     }
-        // else {
-        //     if(chon=="Y"||chon=="y")
-        //         {
-        //             //sap xep chua lam
-        //             system("pause");
-        //         }
-        //     else 
-        //         {
-                    banks.showBank();
-                    system("pause");
-                // }
-        // }
+        banks.showBank();
+        system("pause");
 }
 
 void AdminQLNH::ThemNganHang(QLNH& banks)
@@ -773,11 +751,11 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                           ** LICH SU NAP TIEN **                                          |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+        cout << "\t\t\t+================================================================================================================+" << endl;
+        cout << "\t\t\t|                                             ** LICH SU NAP TIEN **                                             |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
         for (const auto& entry : fs::directory_iterator(folderPath)) {
             // Kiểm tra xem là file .txt hay không
             if (entry.path().extension() == ".txt") {
@@ -799,7 +777,7 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Nap tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
@@ -816,7 +794,7 @@ void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
         }
         else 
         {
-            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
             system("pause");
             // system("cls");
             return ;
@@ -870,11 +848,11 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                           ** LICH SU RUT TIEN **                                          |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+        cout << "\t\t\t+================================================================================================================+" << endl;
+        cout << "\t\t\t|                                            ** LICH SU RUT TIEN **                                              |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
         for (const auto& entry : fs::directory_iterator(folderPath)) {
             // Kiểm tra xem là file .txt hay không
             if (entry.path().extension() == ".txt") {
@@ -896,7 +874,7 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Rut tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
@@ -913,7 +891,7 @@ void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
         }
         else 
         {
-            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
             system("pause");
             // system("cls");
             return ;
@@ -967,11 +945,11 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
             return ;
         }
         // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+===========================================================================================================+" << endl;
-        cout << "\t\t\t|                                          ** LICH SU CHUYEN TIEN **                                        |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-        cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-        cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+        cout << "\t\t\t+================================================================================================================+" << endl;
+        cout << "\t\t\t|                                            ** LICH SU CHUYEN TIEN **                                           |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
         for (const auto& entry : fs::directory_iterator(folderPath)) {
             // Kiểm tra xem là file .txt hay không
             if (entry.path().extension() == ".txt") {
@@ -993,7 +971,7 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
                             getline(ss,Amount,'|');
                             getline(ss,Time,'|');
                             if(Type == "Chuyen tien"){
-                            cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                             }
                         }
                 //  system("pause");
@@ -1010,7 +988,7 @@ void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
         }
         else 
         {
-            cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
             system("pause");
             // system("cls");
             return ;

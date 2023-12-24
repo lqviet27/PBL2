@@ -476,7 +476,7 @@ void SavingCard(Node<Account> *nodeAC,QLNH &banks,QLKH &users,QLTK &accounts){
 
 Node<Account> *nodeNA(QLNH &banks)
 {
-                string ACDich;
+               string ACDich;
                Node<Account> *NA;
                while(1)
                {

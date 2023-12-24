@@ -1,29 +1,34 @@
-
 #include"../QuanLy/Account/QLTK.cpp"
 #include"../QuanLy/Bank/QLNH.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../Record_Giaodich/Record_Nap.cpp"
 #include"../Record_Giaodich/Record_Rut.cpp"
 #include"../Record_Giaodich/Record_Chuyen.cpp"
-
 #include<iostream>
 #include<limits> 
 #include<fstream>
 using namespace std;
 class GiaoDich{
     public:
-        static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts) 
-        {
+          static void NapTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts) 
+          {
             
             long long money;
             cout<<"Nhap So Tien Can Nap Vao Tai Khoan((Nhap '-1' De Quay Lai)): ";
-                while (!(cin >> money) || (cin.peek() != '\n')) {
-                         if(money==-1)
-                              return ;
-                         cout << endl;
-                         cout << "So tien khong hop le! Vui long nhap lai((Nhap '-1' De Quay Lai)): ";
-                         cin.clear();
-                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+               while (true) {                  
+                    cin >> money;
+
+                    if (money == -1) {
+                         return;
+                    }
+
+                    if (!cin.fail() && cin.peek() == '\n' && money >= 0) {
+                         break;
+                    }
+
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "So tien khong hop le! Vui long nhap lai((Nhap '-1' De Quay Lai)):" << endl;
                }
                AC->data.setAmount(money);
 
@@ -62,25 +67,29 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
-
                accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(money);
-
                string idBank=AC->data.getNumAccount().substr(0,3);
                Record_Nap R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),money);
                R.RecordtoFile();
-        }
-        static void RutTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts)
-        {
+               cout<<"BAN DA THUC HIEN NAP TIEN THANH CONG!!!"<<endl;
+               system("pause");
+          }
+          static void RutTien(Node<Account>* AC,QLNH &banks,QLKH &users,QLTK &accounts)
+          {
                long long money;
                Start:
                cout<<"Nhap So Tien Can Rut Vao Tai Khoan(Nhap '-1' De Quay Lai): ";
-               if(money==-1)
-                    return;
-               while (!(cin >> money) || (cin.peek() != '\n')) {
-                         cout << endl;
-                         cout << "So tien khong hop le! Vui long nhap lai(Nhap '-1' De Quay Lai): ";
-                         cin.clear();
-                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+               while (true) {                  
+                    cin >> money;
+                    if (money == -1) {
+                         return;
+                    }
+                    if (!cin.fail() && cin.peek() == '\n' && money >= 0) {
+                         break;
+                    }
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "So tien khong hop le! Vui long nhap lai((Nhap '-1' De Quay Lai)):" << endl;
                }
                if(AC->data.getAmount()-money > 0)
                AC->data.setAmount(-money);
@@ -133,22 +142,25 @@ class GiaoDich{
                string idBank=AC->data.getNumAccount().substr(0,3);
                Record_Rut R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),-money);
                R.RecordtoFile();
-        }
-
-       static long long ChuyenTien(Node<Account>* AC,string STKDich,QLNH &banks,QLKH &users,QLTK &accounts)
-        {
+               cout<<"BAN DA THUC HIEN RUT TIEN THANH CONG!!!"<<endl;
+               system("pause");
+          }
+          static long long ChuyenTien(Node<Account>* AC,string STKDich,QLNH &banks,QLKH &users,QLTK &accounts)
+          {
                long long money;
                Start:
                cout<<"Nhap So Tien Can Chuyen(Nhap '-1' De Quay Lai): ";
-               if(money==-1)
-                    return -1;
-               while (!(cin >> money) || (cin.peek() != '\n')) {
-                         if(money==-1)
-                              return -1;
-                         cout<<endl;
-                         cout << "So tien khong hop le! Vui long nhap lai(Nhap '-1' De Quay Lai): ";
-                         cin.clear();
-                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+               while (true) {                  
+                    cin >> money;
+                    if (money == -1) {
+                         return -1;
+                    }
+                    if (!cin.fail() && cin.peek() == '\n' && money >= 0) {
+                         break;
+                    }
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "So tien khong hop le! Vui long nhap lai((Nhap '-1' De Quay Lai)):" << endl;
                }
                if(AC->data.getAmount()-money >= 0)
                AC->data.setAmount(-money);
@@ -200,10 +212,11 @@ class GiaoDich{
                Bank NH=banks.SearchBank(AC->data.getNumAccount().substr(0,3))->data;
                Record_Chuyen Chuyen(AC->data.getNumAccount(),STKDich,NH.getNameBank(),-money);
                Chuyen.RecordtoFile();
+               cout<<"BAN DA THUC HIEN CHUYEN TIEN THANH CONG!!!"<<endl;
+               system("pause");
                return money;
-        }
-
-        static void NhanTien(Node<Account>* AC,string STKNguon,long long money,QLNH &banks,QLKH &users,QLTK &accounts) 
+          }
+          static void NhanTien(Node<Account>* AC,string STKNguon,long long money,QLNH &banks,QLKH &users,QLTK &accounts) 
         {
                AC->data.setAmount(money);
 
@@ -249,50 +262,54 @@ class GiaoDich{
                Record_Chuyen C(AC->data.getNumAccount(),STKNguon,banks.SearchBank(idBank)->data.getNameBank(),money);
                C.RecordtoFile();
         }
-
-
-        static void TraCuuSoDu(Node<Account>* AC,QLNH &bank)
+          static void TraCuuSoDu(Node<Account>* AC,QLNH &bank)
           {
                
                string type= (AC->data.getTypeAccount()==0) ? "Tiet Kiem" : "Ghi no" ;
                string nameB=bank.SearchBank(AC->data.getNumAccount().substr(0,3))->data.getNameBank();
-               cout << "\t\t\t+=====================================================================+" << endl;
-               cout << "\t\t\t|                        ** TRA CUU SO DU **                          |" << endl;
-               cout << "\t\t\t+============+==================+==============+======================+" << endl;
-               cout << "\t\t\t|    Type    | IDSourceAccount  |   NameBank   |        Amount        |" << endl;
-               cout << "\t\t\t+============+==================+==============+======================+" << endl;
-               cout << "\t\t\t| " << setw(11) << left << type << "|   " << setw(15) << AC->data.getNumAccount() << "|   " << setw(11) << nameB << "|  " << setw(18) << AC->data.getAmount() << "|"<< endl;
+               cout << "\t\t\t+======================================================================+" << endl;
+               cout << "\t\t\t|                         ** TRA CUU SO DU **                          |" << endl;
+               cout << "\t\t\t+============+==================+===============+======================+" << endl;
+               cout << "\t\t\t|  LOAI TK   |   SO TAI KHOAN   | TEN NGAN HANG |        SO DU         |" << endl;
+               cout << "\t\t\t+============+==================+===============+======================+" << endl;
+               cout << "\t\t\t| " << setw(11) << left << type << "|   " << setw(15) << AC->data.getNumAccount() << "|   " << setw(12) << nameB << "|  " << setw(20) << left << AC->data.getAmount() << "|"<< endl;
+               cout << "\t\t\t+============+==================+===============+======================+" << endl;
                system("pause");
           }
-
-
-
-        static void TraCuuLichSuGiaoDich(Node<Account>* AC)
+          static void TraCuuLichSuGiaoDich(Node<Account>* AC)
         {
                string Path="DataBase/GiaoDich/" + AC->data.getNumAccount() + ".txt";
                ifstream file(Path,ios::in);
-               cout << "\t\t\t+===========================================================================================================+" << endl;
-               cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
-               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-               cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+               cout << "\t\t\t+================================================================================================================+" << endl;
+               cout << "\t\t\t|                                            ** LICH SU GIAO DICH **                                             |" << endl;
+               cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+               cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+               cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
                string line;
-               while(getline(file,line))
-               {
-                    string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
-                    stringstream ss(line);
-                    getline(ss,Type,'|');
-                    getline(ss,IDSourceAccount,'|');
-                    getline(ss,IDDesAccount,'|');
-                    getline(ss,NameBank,'|');
-                    getline(ss,Amount,'|');
-                    getline(ss,Time,'|');
-                    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+               if(file.peek()==EOF)
+               {    
+                    cout<<"\t\t\t\t"<<endl;
+                    cout<<"TAI KHOAN NAY KHONG CO GIAO DICH NAO!!!"<<endl;
                }
-               cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+               else
+               {
+                    while(getline(file,line))
+                    {
+                         string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
+                         stringstream ss(line);
+                         getline(ss,Type,'|');
+                         getline(ss,IDSourceAccount,'|');
+                         getline(ss,IDDesAccount,'|');
+                         getline(ss,NameBank,'|');
+                         getline(ss,Amount,'|');
+                         getline(ss,Time,'|');
+                         cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+                    }
+                    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+               }
                system("pause");
         }
-        static void DoiMatKhau(Node<Account>* NA,QLNH& banks,QLKH& users,QLTK& accounts)
+          static void DoiMatKhau(Node<Account>* NA,QLNH& banks,QLKH& users,QLTK& accounts)
 {
     string password="";
     string PWAcc=NA->data.getPassword();
@@ -331,8 +348,7 @@ class GiaoDich{
     accounts.getLinkListAccount()->Search(NA->data)->data.setPassword(newpassword);
     cout<<"DA THAY DOI MAT KHAU THANH CONG!"<<endl;
     system("pause");
-}
-        
+}      
 };
 
 
