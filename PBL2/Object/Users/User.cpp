@@ -37,9 +37,11 @@ User::~User() {}
 
 void User::Show()
 {
-    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(15) << this->_Name << "      | ";
-    cout << setw(5) << this->_Birthday<< "   | ";
-    cout << setw(14) << this->_PhoneNumber << "     |   " << setw(25) << left << this->_Address ;
+    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(15) << this->_Name << "      |    ";
+    // cout << setw(5) ;
+    this->_Birthday.ShowDate();
+    cout<< "   |  ";
+    cout << setw(14) << left << this->_PhoneNumber << "    |   " << setw(25) << left << this->_Address ;
     if(this->_Gender){
         cout << "  |      "  << "Nu" << "       |" << endl;
     }

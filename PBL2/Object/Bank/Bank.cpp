@@ -123,8 +123,8 @@ void Bank::show_User(){
 }
 void Bank::Show(){
     cout<<"\t\t\t\t\t";
-    cout<<"|  "<<this->IDBank<<" |"<<"\t"<<this->nameBank<<setw(12)<<"\t |"<<endl;
-    
+    // cout<<"|  "<<this->IDBank<<" |"<<"\t"<<this->nameBank<<setw(25)<<"\t |"<<endl;
+    cout <<"| "<< this->IDBank << " |          " << left << setw(22) << this->nameBank << " |" << endl;
 }
 bool Bank::operator==(const Bank& B)
 {
