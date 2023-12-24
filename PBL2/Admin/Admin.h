@@ -1,9 +1,9 @@
-
+#include <filesystem>
+namespace fs = std::filesystem;
 #include"../QuanLy/Account/QLTK.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../QuanLy/Bank/QLNH.cpp"
-#include <filesystem>
-namespace fs = std::filesystem;
+
 
 
 class AdminQLTK{
