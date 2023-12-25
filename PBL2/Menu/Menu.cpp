@@ -40,33 +40,40 @@ int choose(int l,int r)
 
 
 void startMenu()
-{
+{    
+     system("cls");
      en
-         TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     TextColor(14);
+     cout << ("\t\t               +==========================================================+");
+     cout << endl;
+     cout<<"\t\t\t"<<"       |";
+     TextColor(12);
+     cout << ("                   DO AN CO SO LAP TRINH ");
+     TextColor(14);
+     cout<<"                 |";
      cout << endl;
      TextColor(14);
-     cout << ("\t\t               ==========================================================");
+     cout << ("\t\t               +==========================================================+");
      cout << endl;
-     cout << ("\t\t               De tai: QUAN LY TAI KHOAN LIEN NGAN HANG");
+     cout << ("\t\t               | De tai: QUAN LY TAI KHOAN LIEN NGAN HANG                 |");
      cout << endl;
-     cout << ("\t\t               Giao vien huong dan: LE THI MY HANH");
+     cout << ("\t\t               | Giao vien huong dan: LE THI MY HANH                      |");
      cout << endl;
-     cout << ("\t\t               Ho ten sinh vien 1: Le Quoc Viet"
-              "\t      Lop: 22T_Nhat2");
+     cout << ("\t\t               | Ho ten sinh vien 1: Le Quoc Viet"
+              "       Lop: 22T_Nhat2    |");
      cout << endl;
-     cout << ("\t\t               Ho ten sinh vien 2: Tran Trung Duc "
-              "    Lop: 22T_Nhat2");
+     cout << ("\t\t               | Ho ten sinh vien 2: Tran Trung Duc "
+              "    Lop: 22T_Nhat2    |");
      cout << endl;
-     cout << ("\t\t               Nhom: 04");
+     cout << ("\t\t               | Nhom: 04                                                 |");
      cout << endl;
      TextColor(14);
-     cout << ("\t\t               ==========================================================");
+     cout << ("\t\t               +==========================================================+");
      cout << endl;
      TextColor(3);
      cout << endl;
      cout << "\t\t\t       **********************************************************" << endl;
-     cout << "\t\t                     CHUONG TRINH QUAN LY TAI KHOAN LIEN NGAN HANG         " << endl;
+     cout << "\t\t\t       *     CHUONG TRINH QUAN LY TAI KHOAN LIEN NGAN HANG      *" << endl;
      cout << "\t\t\t       **********************************************************" << endl;
      
 }
@@ -369,13 +376,23 @@ void menuUser()
 {
      system("cls");
      en
-         TextColor(12);
-     cout << ("\t\t\t\t\t          DO AN CO SO LAP TRINH ");
+     TextColor(14);
+     cout << ("\t\t                +==========================================================+");
      cout << endl;
-     cout << ("\t\t\t\t\t          -DANG NHAP HOAC DANG KI- ");
+     cout<<"\t\t\t\t"<<"|";
+     TextColor(12);
+     cout << ("                   DO AN CO SO LAP TRINH                  ");
+     TextColor(14);
+     cout<<"|";
+     cout << endl;
+     cout<<"\t\t\t\t"<<"|";
+     TextColor(12);
+     cout << ("                  -DANG NHAP HOAC DANG KI-                ");
+     TextColor(14);
+     cout<<"|";
      cout << endl;
      TextColor(14);
-     cout << ("\t\t               ==========================================================");
+     cout << ("\t\t                +==========================================================+");
      cout << endl;
      cout << ("\t\t\t\t                MOI BAN LUA CHON THAO TAC!");
      cout << endl;

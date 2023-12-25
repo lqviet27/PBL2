@@ -15,7 +15,7 @@ void Register::DangKi(QLNH& banks,QLKH& users,QLTK& accounts)
 Node<Bank>* Register::ChonNganHang(QLNH& banks)
 {
     cout << "\t\t\t\t      *********************************************" << endl;
-    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *                   DANG KI                 *" << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
     while(1) 
     {   
@@ -58,7 +58,7 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
 void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
 {
     cout << "\t\t\t\t      *********************************************" << endl;
-    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *                  DANG KI                  *" << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
     User user;
     int cnt=0;

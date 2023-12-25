@@ -100,6 +100,7 @@ void AdminQLTK::TraCuuLichSuGiaoDich(QLTK &accounts)
                     getline(ss,Time,'|');
                     cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
                }
+                cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
                system("pause");
                return;
          }
