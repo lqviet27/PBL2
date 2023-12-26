@@ -17,14 +17,14 @@ Record_Chuyen::~Record_Chuyen()
 }
 
 void Record_Chuyen::Show()
-{//* làm lại chỗ IDdesaAccount nếu với tài khoản đc chuyển thì đó phải là Id của accoutn chuyển tói
-    cout << "\t\t\t+===========================================================================================================+" << endl;
-    cout << "\t\t\t|                                           ** LICH SU GIAO DICH **                                         |" << endl;
-    cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-    cout << "\t\t\t|    Type    | IDSourceAccount  |   IDDesAccount   |  NameBank  |     Amount      |           Time          |" << endl;
-    cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
-    cout << "\t\t\t| " << setw(11) << left << Type << "| " << setw(17) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(11) << left << NameBank << "| " <<"+ "<< setw(10) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
-    cout << "\t\t\t+============+==================+==================+============+=================+=========================+" << endl;
+{
+    cout << "\t\t\t+================================================================================================================+" << endl;
+    cout << "\t\t\t|                                            ** LICH SU GIAO DICH **                                             |" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+    cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+    cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+    cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
 }
 
 void Record_Chuyen::RecordtoFile()

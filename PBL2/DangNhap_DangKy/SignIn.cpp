@@ -12,7 +12,7 @@ Node<Account>* SignIn::DangNhap(QLNH &X,QLKH &users,QLTK &acccouts)
 {
     
     cout << "\t\t\t\t      *********************************************" << endl;
-    cout << "\t\t\t\t                       DANG NHAP                       " << endl;
+    cout << "\t\t\t\t      *                  DANG NHAP                *" << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
     string numAccount;
     string pass;

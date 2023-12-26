@@ -15,7 +15,7 @@ void Register::DangKi(QLNH& banks,QLKH& users,QLTK& accounts)
 Node<Bank>* Register::ChonNganHang(QLNH& banks)
 {
     cout << "\t\t\t\t      *********************************************" << endl;
-    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *                   DANG KI                 *" << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
     while(1) 
     {   
@@ -29,6 +29,7 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
             {
                 cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
                 system("Pause");
+                system("cls");
                 continue;
             }
         switch(IDB.size())
@@ -49,6 +50,7 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
         {
             cout<<"Khong Ton Tai Ngan Hang!!!";
             system("Pause");
+            system("cls");
             continue;
         }
         return NB;
@@ -58,7 +60,7 @@ Node<Bank>* Register::ChonNganHang(QLNH& banks)
 void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
 {
     cout << "\t\t\t\t      *********************************************" << endl;
-    cout << "\t\t\t\t                         DANG KI                     " << endl;
+    cout << "\t\t\t\t      *                  DANG KI                  *" << endl;
     cout << "\t\t\t\t      *********************************************" << endl;
     User user;
     int cnt=0;
@@ -69,7 +71,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
         return ;
     if(users.SearchUserAll(user)==false) {
         cnt++;
-        cout<<"Thong Tin Khach Hang Khong Hop Le!!!"<<endl;
+        cout<<"Thong Tin CCCD Khong Dong Bo Thong Tin He Thong!!!"<<endl;
     }
     else break;
     if(cnt==5)
@@ -82,7 +84,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
     string numAC;
     while(1)
     {
-        cout<<"Nhap So Tai Khoan Ban Muon Tao(Gom 7 Chu So Lien Tiep):"<<endl;
+        cout<<"\t\t\tNhap So Tai Khoan Ban Muon Tao(Gom 7 Chu So Lien Tiep):"<<endl;
         cin>>numAC;
             
         if (numAC.length() == 7)
@@ -105,13 +107,13 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
                 else 
                 {   
                     bool typeAC;      
-                    cout<<"Nhap Loai Tai Khoan Can Tao:"<<endl;
-                    cout<<"1: Tai Khoan Tiet Kiem"<<endl;
-                    cout<<"2: Tai Khoan Ghi No"<<endl;
+                    cout<<"\t\t\tNhap Loai Tai Khoan Can Tao:"<<endl;
+                    cout<<"\t\t\t1: Tai Khoan Tiet Kiem"<<endl;
+                    cout<<"\t\t\t2: Tai Khoan Ghi No"<<endl;
                     int c=choose(1,2);
                     typeAC=(c==1)? 0: 1;
                     string password;
-                    cout<<"Nhap Mat Khau: ";
+                    cout<<"\t\t\tNhap Mat Khau: ";
                     cin>>password;
                     Account ACC(user.getCCCD(),numAC,password,typeAC,0);
                     
@@ -126,11 +128,14 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
                         NB->data.searchUser(user.getCCCD())->data.addAccount(ACC);
                     }
 
+                    
                     users.addUser(user);
-                    users.SearchUser(user.getCCCD())->data.addAccount(ACC);
-
+                    if(user.getUserAccount()->head==nullptr)
+                        users.SearchUser(user.getCCCD())->data.addAccount(ACC);
+                        
                     accounts.addAccount(ACC);
-                    cout<<"Ban Da Tao Xong Tai Khoan! So Tai Khoan Cua Ban La: "<<ACC.getNumAccount()<<endl;
+                    cout<<"\t\t\tBan Da Tao Xong Tai Khoan! So Tai Khoan Cua Ban La: "<<ACC.getNumAccount()<<endl;
+                    system("pause");
                     return ;
                 }
             }
