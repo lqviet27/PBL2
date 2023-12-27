@@ -39,22 +39,25 @@ class GiaoDich{
                {
                     Link_list<User> *U=NB->data.getLinkListUser();
                     Node<User> *NU=U->head;
+                    
                      while (NU!=nullptr)
                      {
-
+                         
                          if(NU->data.getCCCD()==AC->data.getCCCD())
-                         {
-                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
+                         {    
+                              Node<Account> *AC1=NU->data.getUserAccount()->Search(AC->data);
+                              // NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
+                              cout<<1<<endl;
                               success=1;
                               break;
                          }
                          NU=NU->next;
                      }
+                     
                      if(success==1)
                          break;
                     NB=NB->next;
-               }
-
+               }  
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)

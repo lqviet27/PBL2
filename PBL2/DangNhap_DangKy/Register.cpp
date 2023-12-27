@@ -127,8 +127,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
                     }
 
                     users.addUser(user);
-                    users.SearchUser(user.getCCCD())->data.addAccount(ACC);
-
+                    // users.SearchUser(user.getCCCD())->data.addAccount(ACC);
                     accounts.addAccount(ACC);
                     cout<<"Ban Da Tao Xong Tai Khoan! So Tai Khoan Cua Ban La: "<<ACC.getNumAccount()<<endl;
                     system("pause");

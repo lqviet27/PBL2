@@ -38,4 +38,21 @@ void Record_Nap::RecordtoFile()
     file << this->Amount << "|";
     file << this->Time << "|"<<endl;
     file.close();
+
+
+    // string Path = "DataBase/GiaoDich/" + this->IDSourceAccount + ".txt";
+    // ifstream file;
+    // if(!file){
+    //    ofstream outFile(Path); 
+    //    outFile.close();
+    // }
+    // ofstream outFile(Path, ios::app);
+    // outFile << this->Type << "|";
+    // outFile << this->IDSourceAccount << "|";
+    // outFile << this->IDDesAccount << "|";
+    // outFile << this->NameBank << "|";
+    // outFile << fixed<<setprecision(2);
+    // outFile << this->Amount << "|";
+    // outFile << this->Time << "|"<<endl;
+    // outFile.close();
 }
