@@ -707,292 +707,292 @@ void AdminQLNH::TongDoanhThu(QLNH& banks)
 }
 
 
-void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
-{
-    while(1) 
-    {   
-        banks.showBank();
-        cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Nap Tien(Nhap '-1' De Quay Lai): " << endl;
-        string IDB;
-        int check = 0 ;
-        cin>>IDB;
-        if(IDB=="-1")
-            return ;
-        if(IDB.size()>3)
-            {
-                cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
-                system("Pause");
-                continue;
-            }
-        switch(IDB.size())
-        {
-            case 1:
-                {
-                    IDB="00"+IDB;
-                    break;
-                }
-            case 2:
-                {
-                    IDB="0"+IDB;
-                    break;
-                }
-        }
-        Node<Bank> *NB=banks.SearchBank(IDB);
-        if(NB==nullptr) 
-        {
-            cout<<"Khong Ton Tai Ngan Hang!!!";
-            system("Pause");
-            continue;
-        }
-        system("cls");
-        string folderPath = "DataBase/GiaoDich";
-        // Kiểm tra xem thư mục có tồn tại không
-        if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
-            return ;
-        }
-        // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+================================================================================================================+" << endl;
-        cout << "\t\t\t|                                             ** LICH SU NAP TIEN **                                             |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        for (const auto& entry : fs::directory_iterator(folderPath)) {
-            // Kiểm tra xem là file .txt hay không
-            if (entry.path().extension() == ".txt") {
-                // In tên file
-                string name =entry.path().filename().stem().string().substr(0,3);
-                if(name==IDB){
-                    check++;
-                    string fileName = folderPath + "/" + entry.path().filename().string();
-                    ifstream file(fileName,ios::in);
-                    string line;
-                    while(getline(file,line))
-                        {
-                            string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
-                            stringstream ss(line);
-                            getline(ss,Type,'|');
-                            getline(ss,IDSourceAccount,'|');
-                            getline(ss,IDDesAccount,'|');
-                            getline(ss,NameBank,'|');
-                            getline(ss,Amount,'|');
-                            getline(ss,Time,'|');
-                            if(Type == "Nap tien"){
-                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
-                            }
-                        }
-                //  system("pause");
-                }
-            }
-        }
-        if(check==0)
-        {
-            cout<<endl;
-            cout<<"\t\t\t\t";
-            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Nap Tien !!!"<<endl;
-            system("pause");
-            return ;
-        }
-        else 
-        {
-            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-            system("pause");
-            // system("cls");
-            return ;
-        }
-    }
-}
+// void AdminQLNH::ThongKeSoLuongNapTien(QLNH& banks)
+// {
+//     while(1) 
+//     {   
+//         banks.showBank();
+//         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Nap Tien(Nhap '-1' De Quay Lai): " << endl;
+//         string IDB;
+//         int check = 0 ;
+//         cin>>IDB;
+//         if(IDB=="-1")
+//             return ;
+//         if(IDB.size()>3)
+//             {
+//                 cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
+//                 system("Pause");
+//                 continue;
+//             }
+//         switch(IDB.size())
+//         {
+//             case 1:
+//                 {
+//                     IDB="00"+IDB;
+//                     break;
+//                 }
+//             case 2:
+//                 {
+//                     IDB="0"+IDB;
+//                     break;
+//                 }
+//         }
+//         Node<Bank> *NB=banks.SearchBank(IDB);
+//         if(NB==nullptr) 
+//         {
+//             cout<<"Khong Ton Tai Ngan Hang!!!";
+//             system("Pause");
+//             continue;
+//         }
+//         system("cls");
+//         string folderPath = "DataBase/GiaoDich";
+//         // Kiểm tra xem thư mục có tồn tại không
+//         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
+//             std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
+//             return ;
+//         }
+//         // Duyệt qua tất cả các file trong thư mục
+//         cout << "\t\t\t+================================================================================================================+" << endl;
+//         cout << "\t\t\t|                                             ** LICH SU NAP TIEN **                                             |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         for (const auto& entry : fs::directory_iterator(folderPath)) {
+//             // Kiểm tra xem là file .txt hay không
+//             if (entry.path().extension() == ".txt") {
+//                 // In tên file
+//                 string name =entry.path().filename().stem().string().substr(0,3);
+//                 if(name==IDB){
+//                     check++;
+//                     string fileName = folderPath + "/" + entry.path().filename().string();
+//                     ifstream file(fileName,ios::in);
+//                     string line;
+//                     while(getline(file,line))
+//                         {
+//                             string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
+//                             stringstream ss(line);
+//                             getline(ss,Type,'|');
+//                             getline(ss,IDSourceAccount,'|');
+//                             getline(ss,IDDesAccount,'|');
+//                             getline(ss,NameBank,'|');
+//                             getline(ss,Amount,'|');
+//                             getline(ss,Time,'|');
+//                             if(Type == "Nap tien"){
+//                             cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+//                             }
+//                         }
+//                 //  system("pause");
+//                 }
+//             }
+//         }
+//         if(check==0)
+//         {
+//             cout<<endl;
+//             cout<<"\t\t\t\t";
+//             cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Nap Tien !!!"<<endl;
+//             system("pause");
+//             return ;
+//         }
+//         else 
+//         {
+//             cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//             system("pause");
+//             // system("cls");
+//             return ;
+//         }
+//     }
+// }
 
 
-void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
-{
-    while(1) 
-    {   
-        banks.showBank();
-        cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Rut Tien(Nhap '-1' De Quay Lai): " << endl;
-        int check = 0 ;
-        string IDB;
-        cin>>IDB;
-        if(IDB=="-1")
-            return ;
-        if(IDB.size()>3)
-            {
-                cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
-                system("Pause");
-                continue;
-            }
-        switch(IDB.size())
-        {
-            case 1:
-                {
-                    IDB="00"+IDB;
-                    break;
-                }
-            case 2:
-                {
-                    IDB="0"+IDB;
-                    break;
-                }
-        }
-        Node<Bank> *NB=banks.SearchBank(IDB);
-        if(NB==nullptr) 
-        {
-            cout<<"Khong Ton Tai Ngan Hang!!!";
-            system("Pause");
-            continue;
-        }
-        system("cls");
-        string folderPath = "DataBase/GiaoDich";
-        // Kiểm tra xem thư mục có tồn tại không
-        if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
-            return ;
-        }
-        // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+================================================================================================================+" << endl;
-        cout << "\t\t\t|                                            ** LICH SU RUT TIEN **                                              |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        for (const auto& entry : fs::directory_iterator(folderPath)) {
-            // Kiểm tra xem là file .txt hay không
-            if (entry.path().extension() == ".txt") {
-                // In tên file
-                string name =entry.path().filename().stem().string().substr(0,3);
-                if(name==IDB){
-                    check++;
-                    string fileName = folderPath + "/" + entry.path().filename().string();
-                    ifstream file(fileName,ios::in);
-                    string line;
-                    while(getline(file,line))
-                        {
-                            string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
-                            stringstream ss(line);
-                            getline(ss,Type,'|');
-                            getline(ss,IDSourceAccount,'|');
-                            getline(ss,IDDesAccount,'|');
-                            getline(ss,NameBank,'|');
-                            getline(ss,Amount,'|');
-                            getline(ss,Time,'|');
-                            if(Type == "Rut tien"){
-                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
-                            }
-                        }
-                //  system("pause");
-                }
-            }
-        }
-        if(check==0)
-        {
-            cout<<endl;
-            cout<<"\t\t\t\t";
-            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Rut Tien !!!"<<endl;
-            system("pause");
-            return ;
-        }
-        else 
-        {
-            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-            system("pause");
-            // system("cls");
-            return ;
-        }
-    }
-}
+// void AdminQLNH::ThongKeSoLuongRutTien(QLNH& banks)
+// {
+//     while(1) 
+//     {   
+//         banks.showBank();
+//         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Rut Tien(Nhap '-1' De Quay Lai): " << endl;
+//         int check = 0 ;
+//         string IDB;
+//         cin>>IDB;
+//         if(IDB=="-1")
+//             return ;
+//         if(IDB.size()>3)
+//             {
+//                 cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
+//                 system("Pause");
+//                 continue;
+//             }
+//         switch(IDB.size())
+//         {
+//             case 1:
+//                 {
+//                     IDB="00"+IDB;
+//                     break;
+//                 }
+//             case 2:
+//                 {
+//                     IDB="0"+IDB;
+//                     break;
+//                 }
+//         }
+//         Node<Bank> *NB=banks.SearchBank(IDB);
+//         if(NB==nullptr) 
+//         {
+//             cout<<"Khong Ton Tai Ngan Hang!!!";
+//             system("Pause");
+//             continue;
+//         }
+//         system("cls");
+//         string folderPath = "DataBase/GiaoDich";
+//         // Kiểm tra xem thư mục có tồn tại không
+//         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
+//             std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
+//             return ;
+//         }
+//         // Duyệt qua tất cả các file trong thư mục
+//         cout << "\t\t\t+================================================================================================================+" << endl;
+//         cout << "\t\t\t|                                            ** LICH SU RUT TIEN **                                              |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         for (const auto& entry : fs::directory_iterator(folderPath)) {
+//             // Kiểm tra xem là file .txt hay không
+//             if (entry.path().extension() == ".txt") {
+//                 // In tên file
+//                 string name =entry.path().filename().stem().string().substr(0,3);
+//                 if(name==IDB){
+//                     check++;
+//                     string fileName = folderPath + "/" + entry.path().filename().string();
+//                     ifstream file(fileName,ios::in);
+//                     string line;
+//                     while(getline(file,line))
+//                         {
+//                             string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
+//                             stringstream ss(line);
+//                             getline(ss,Type,'|');
+//                             getline(ss,IDSourceAccount,'|');
+//                             getline(ss,IDDesAccount,'|');
+//                             getline(ss,NameBank,'|');
+//                             getline(ss,Amount,'|');
+//                             getline(ss,Time,'|');
+//                             if(Type == "Rut tien"){
+//                             cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+//                             }
+//                         }
+//                 //  system("pause");
+//                 }
+//             }
+//         }
+//         if(check==0)
+//         {
+//             cout<<endl;
+//             cout<<"\t\t\t\t";
+//             cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Rut Tien !!!"<<endl;
+//             system("pause");
+//             return ;
+//         }
+//         else 
+//         {
+//             cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//             system("pause");
+//             // system("cls");
+//             return ;
+//         }
+//     }
+// }
 
 
-void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
-{
-    while(1) 
-    {   
-        banks.showBank();
-        cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Chuyen Tien(Nhap '-1' De Quay Lai): " << endl;
-        int check = 0 ;
-        string IDB;
-        cin>>IDB;
-        if(IDB=="-1")
-            return ;
-        if(IDB.size()>3)
-            {
-                cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
-                system("Pause");
-                continue;
-            }
-        switch(IDB.size())
-        {
-            case 1:
-                {
-                    IDB="00"+IDB;
-                    break;
-                }
-            case 2:
-                {
-                    IDB="0"+IDB;
-                    break;
-                }
-        }
-        Node<Bank> *NB=banks.SearchBank(IDB);
-        if(NB==nullptr) 
-        {
-            cout<<"Khong Ton Tai Ngan Hang!!!";
-            system("Pause");
-            continue;
-        }
-        system("cls");
-        string folderPath = "DataBase/GiaoDich";
-        // Kiểm tra xem thư mục có tồn tại không
-        if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
-            std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
-            return ;
-        }
-        // Duyệt qua tất cả các file trong thư mục
-        cout << "\t\t\t+================================================================================================================+" << endl;
-        cout << "\t\t\t|                                            ** LICH SU CHUYEN TIEN **                                           |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
-        cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-        for (const auto& entry : fs::directory_iterator(folderPath)) {
-            // Kiểm tra xem là file .txt hay không
-            if (entry.path().extension() == ".txt") {
-                // In tên file
-                string name =entry.path().filename().stem().string().substr(0,3);
-                if(name==IDB){
-                    check++;
-                    string fileName = folderPath + "/" + entry.path().filename().string();
-                    ifstream file(fileName,ios::in);
-                    string line;
-                    while(getline(file,line))
-                        {
-                            string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
-                            stringstream ss(line);
-                            getline(ss,Type,'|');
-                            getline(ss,IDSourceAccount,'|');
-                            getline(ss,IDDesAccount,'|');
-                            getline(ss,NameBank,'|');
-                            getline(ss,Amount,'|');
-                            getline(ss,Time,'|');
-                            if(Type == "Chuyen tien"){
-                            cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
-                            }
-                        }
-                //  system("pause");
-                }
-            }
-        }
-        if(check==0)
-        {
-            cout<<endl;
-            cout<<"\t\t\t\t";
-            cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Chuyen Tien !!!"<<endl;
-            system("pause");
-            return ;
-        }
-        else 
-        {
-            cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
-            system("pause");
-            // system("cls");
-            return ;
-        }
-    }
-}
+// void AdminQLNH::ThongKeSoLuongChuyenTien(QLNH& banks)
+// {
+//     while(1) 
+//     {   
+//         banks.showBank();
+//         cout<< "\t\t\t\t  Nhap Id Ngan Hang Ban Muon Tra Cuu Giao Dich Chuyen Tien(Nhap '-1' De Quay Lai): " << endl;
+//         int check = 0 ;
+//         string IDB;
+//         cin>>IDB;
+//         if(IDB=="-1")
+//             return ;
+//         if(IDB.size()>3)
+//             {
+//                 cout<<"Khong Ton Tai Id Ngan Hang Nay!!!";
+//                 system("Pause");
+//                 continue;
+//             }
+//         switch(IDB.size())
+//         {
+//             case 1:
+//                 {
+//                     IDB="00"+IDB;
+//                     break;
+//                 }
+//             case 2:
+//                 {
+//                     IDB="0"+IDB;
+//                     break;
+//                 }
+//         }
+//         Node<Bank> *NB=banks.SearchBank(IDB);
+//         if(NB==nullptr) 
+//         {
+//             cout<<"Khong Ton Tai Ngan Hang!!!";
+//             system("Pause");
+//             continue;
+//         }
+//         system("cls");
+//         string folderPath = "DataBase/GiaoDich";
+//         // Kiểm tra xem thư mục có tồn tại không
+//         if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
+//             std::cerr << "Khong Ton Tai Thu Muc " << std::endl;
+//             return ;
+//         }
+//         // Duyệt qua tất cả các file trong thư mục
+//         cout << "\t\t\t+================================================================================================================+" << endl;
+//         cout << "\t\t\t|                                            ** LICH SU CHUYEN TIEN **                                           |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         cout << "\t\t\t|   LOAI GD   |   STK THUC HIEN   | STK CHUYEN TIEN  | TEN NGAN HANG |     SO TIEN     |   THOI GIAN THUC HIEN   |" << endl;
+//         cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//         for (const auto& entry : fs::directory_iterator(folderPath)) {
+//             // Kiểm tra xem là file .txt hay không
+//             if (entry.path().extension() == ".txt") {
+//                 // In tên file
+//                 string name =entry.path().filename().stem().string().substr(0,3);
+//                 if(name==IDB){
+//                     check++;
+//                     string fileName = folderPath + "/" + entry.path().filename().string();
+//                     ifstream file(fileName,ios::in);
+//                     string line;
+//                     while(getline(file,line))
+//                         {
+//                             string Type,IDSourceAccount,IDDesAccount,NameBank,Amount,Time;
+//                             stringstream ss(line);
+//                             getline(ss,Type,'|');
+//                             getline(ss,IDSourceAccount,'|');
+//                             getline(ss,IDDesAccount,'|');
+//                             getline(ss,NameBank,'|');
+//                             getline(ss,Amount,'|');
+//                             getline(ss,Time,'|');
+//                             if(Type == "Chuyen tien"){
+//                             cout << "\t\t\t| " << setw(12) << left << Type << "| " << setw(18) << left << IDSourceAccount << "| " << setw(17) << left << IDDesAccount << "| " << setw(14) << left << NameBank << "| " << setw(12) << left << Amount <<" VND"<< "| " << setw(10) << left << Time << "|" << endl;
+//                             }
+//                         }
+//                 //  system("pause");
+//                 }
+//             }
+//         }
+//         if(check==0)
+//         {
+//             cout<<endl;
+//             cout<<"\t\t\t\t";
+//             cout<<"Ngan Hang "<<NB->data.getNameBank()<<" Khong Co Giao Dich Chuyen Tien !!!"<<endl;
+//             system("pause");
+//             return ;
+//         }
+//         else 
+//         {
+//             cout << "\t\t\t+=============+===================+==================+===============+=================+=========================+" << endl;
+//             system("pause");
+//             // system("cls");
+//             return ;
+//         }
+//     }
+// }

@@ -31,7 +31,7 @@ class GiaoDich{
                     cout << "So tien khong hop le! Vui long nhap lai((Nhap '-1' De Quay Lai)):" << endl;
                }
                AC->data.setAmount(money);
-
+               
                Link_list<Bank> *B=banks.getLinkListParBank();
                Node<Bank> *NB=B->head;
                bool success=0;
@@ -42,12 +42,17 @@ class GiaoDich{
                     
                      while (NU!=nullptr)
                      {
-                         
                          if(NU->data.getCCCD()==AC->data.getCCCD())
-                         {    
-                              Node<Account> *AC1=NU->data.getUserAccount()->Search(AC->data);
-                              // NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
-                              cout<<1<<endl;
+                         {
+                              Node<Account> *NAUSER=NU->data.getUserAccount()->head;
+                              while(NAUSER!=nullptr)
+                              {
+                                   if(NAUSER->data==AC->data)
+                                   {
+                                        NAUSER->data.setAmount(money);
+                                   }
+                                   NAUSER=NAUSER->next;
+                              }
                               success=1;
                               break;
                          }
@@ -57,7 +62,7 @@ class GiaoDich{
                      if(success==1)
                          break;
                     NB=NB->next;
-               }  
+               }
                Link_list<User> *X=users.getLinkListUser();
                Node<User> *NX=X->head;
                while(NX!=nullptr)
@@ -70,7 +75,9 @@ class GiaoDich{
                     }
                     NX=NX->next;
                }
+               
                accounts.SearchAccount(AC->data.getNumAccount())->data.setAmount(money);
+               
                string idBank=AC->data.getNumAccount().substr(0,3);
                Record_Nap R(AC->data.getNumAccount(),banks.SearchBank(idBank)->data.getNameBank(),money);
                R.RecordtoFile();
@@ -114,7 +121,15 @@ class GiaoDich{
 
                          if(NU->data.getCCCD()==AC->data.getCCCD())
                          {
-                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(-money);
+                              Node<Account> *NAUSER=NU->data.getUserAccount()->head;
+                              while(NAUSER!=nullptr)
+                              {
+                                   if(NAUSER->data==AC->data)
+                                   {
+                                        NAUSER->data.setAmount(-money);
+                                   }
+                                   NAUSER=NAUSER->next;
+                              }
                               success=1;
                               break;
                          }
@@ -185,7 +200,15 @@ class GiaoDich{
 
                          if(NU->data.getCCCD()==AC->data.getCCCD())
                          {
-                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(-money);
+                              Node<Account> *NAUSER=NU->data.getUserAccount()->head;
+                              while(NAUSER!=nullptr)
+                              {
+                                   if(NAUSER->data==AC->data)
+                                   {
+                                        NAUSER->data.setAmount(-money);
+                                   }
+                                   NAUSER=NAUSER->next;
+                              }
                               success=1;
                               break;
                          }
@@ -235,7 +258,15 @@ class GiaoDich{
 
                          if(NU->data.getCCCD()==AC->data.getCCCD())
                          {
-                              NU->data.getUserAccount()->Search(AC->data)->data.setAmount(money);
+                              Node<Account> *NAUSER=NU->data.getUserAccount()->head;
+                              while(NAUSER!=nullptr)
+                              {
+                                   if(NAUSER->data==AC->data)
+                                   {
+                                        NAUSER->data.setAmount(money);
+                                   }
+                                   NAUSER=NAUSER->next;
+                              }
                               success=1;
                               break;
                          }

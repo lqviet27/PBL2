@@ -1,9 +1,9 @@
-
+// #include <filesystem>
+// namespace fs = std::filesystem;
 #include"../QuanLy/Account/QLTK.cpp"
 #include"../QuanLy/Users/QLKH.cpp"
 #include"../QuanLy/Bank/QLNH.cpp"
-#include <filesystem>
-namespace fs = std::filesystem;
+
 
 
 class AdminQLTK{
@@ -28,8 +28,8 @@ class AdminQLNH{
         static void TraCuuDanhSachTaiKhoan(QLNH&);
         static void TraCuuDanhSachKhachHang(QLNH&);
         static void TongDoanhThu(QLNH&);
-        static void ThongKeSoLuongNapTien(QLNH&);
-        static void ThongKeSoLuongRutTien(QLNH&);
-        static void ThongKeSoLuongChuyenTien(QLNH&);
+        // static void ThongKeSoLuongNapTien(QLNH&);
+        // static void ThongKeSoLuongRutTien(QLNH&);
+        // static void ThongKeSoLuongChuyenTien(QLNH&);
 };
 

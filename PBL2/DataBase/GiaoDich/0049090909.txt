@@ -1,0 +1,2 @@
+Rut tien|0049090909|NULL|BackKhoaBank|-12|Tue Dec 26 21:42:52 2023|
+Chuyen tien|0049090909|0031111111|BackKhoaBank|12|Tue Dec 26 21:46:07 2023|

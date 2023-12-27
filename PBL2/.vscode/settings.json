@@ -53,6 +53,7 @@
         "vector": "cpp",
         "functional": "cpp",
         "memory_resource": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "filesystem": "cpp"
     }
 }

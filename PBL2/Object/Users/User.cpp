@@ -124,35 +124,35 @@ istream &operator>>(istream &in, User &us)
                 break;
             }
             else {
-                cout << "Ban Phai Nhap Chu So!!!" <<endl;
+                cout << "\t\t\t\tBan Phai Nhap Chu So!!!" <<endl;
                 system("Pause");
             }
         }
         else {
-            cout << "Ban Phai Nhap Dung 12 Chu So!!!" <<endl;
+            cout << "\t\t\t\tBan Phai Nhap Dung 12 Chu So!!!" <<endl;
             // system("Pause");
         }
 
     }
-    cout << "Nhap Ho Va Ten: ";
+    cout << "\t\t\t\tNhap Ho Va Ten: ";
     char str[100];
     fflush(stdin);
     in.getline(str, sizeof(str)); // Trường hợp đặc biệt
     us._Name = str;
-    cout << "Nhap Ngay Sinh(dd/mm/yyyy): ";
+    cout << "\t\t\t\tNhap Ngay Sinh(dd/mm/yyyy): ";
     in >> us._Birthday;
-    cout << "Nhap So Dien Thoai(bao Gom 10 Chu so Lien Tiep): ";
+    cout << "\t\t\t\tNhap So Dien Thoai(bao Gom 10 Chu so Lien Tiep): ";
     in >> us._PhoneNumber;
-    cout << "Nhap Dia Chi: "; // Trường hợp đặc biệt
+    cout << "\t\t\t\tNhap Dia Chi: "; // Trường hợp đặc biệt
     fflush(stdin);
     in.getline(str, sizeof(str));
     us._Address = str;
-    cout << "Nhap Gioi Tinh(Nam/Nu): ";
+    cout << "\t\t\t\tNhap Gioi Tinh(Nam/Nu): ";
     string gender;
     do
     {
         if (check == 1)
-            cout << "Sai Cu Phap Gioi Tinh, Moi Ban Nhap Lai :";
+            cout << "\t\t\t\tSai Cu Phap Gioi Tinh, Moi Ban Nhap Lai :";
         check = 1;
         in >> gender;
         if (gender == "nam" || gender == "Nam" || gender == "0")

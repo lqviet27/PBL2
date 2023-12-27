@@ -28,6 +28,7 @@ void Record_Nap::Show()
 
 void Record_Nap::RecordtoFile()
 {
+    cout<<"Nap";
     string Path = "DataBase/GiaoDich/" + this->IDSourceAccount + ".txt";
     ofstream file(Path, ios::app);
     file << this->Type << "|";

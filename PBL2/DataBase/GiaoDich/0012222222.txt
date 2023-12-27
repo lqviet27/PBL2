@@ -1,2 +1,0 @@
-Nap tien|0012222222|NULL|VietBank|123|Tue Dec 26 20:37:52 2023|
-Nap tien|0012222222|NULL|VietBank|232|Tue Dec 26 21:17:28 2023|

@@ -337,19 +337,19 @@ void admin(QLNH &banks,QLKH &users,QLTK &accounts){
                     case 7:
                          {
                               system("cls");
-                              AdminQLNH::ThongKeSoLuongNapTien(banks);
+                              //AdminQLNH::ThongKeSoLuongNapTien(banks);
                               break;
                          }
                     case 8:
                          {
                               system("cls");
-                              AdminQLNH::ThongKeSoLuongRutTien(banks);
+                              //AdminQLNH::ThongKeSoLuongRutTien(banks);
                               break;
                          }
                     case 9:
                          {
                               system("cls");
-                              AdminQLNH::ThongKeSoLuongChuyenTien(banks);
+                              //AdminQLNH::ThongKeSoLuongChuyenTien(banks);
                               break;
                          }
                     case 10:
