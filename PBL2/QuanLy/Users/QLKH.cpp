@@ -89,10 +89,6 @@ Node<User> *QLKH::SearchUser(const string & CCCD)
     Node<User> *b = this->parUser.Search(Us);
     return b;
 }
-void QLKH::ImportFromFile()
-{
-
-}
 
 bool QLKH::SearchUserAll(User & Us)
 {

@@ -1,2 +1,0 @@
-Rut tien|0031111111|NULL|HelloBank|-2|Tue Dec 26 21:45:44 2023|
-Chuyen tien|0031111111|048112325521|HelloBank|-12|Tue Dec 26 21:46:05 2023|

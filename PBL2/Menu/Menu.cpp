@@ -183,35 +183,39 @@ void MenuQuanLyNganHang()
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                4.Tra Cuu Danh Sach Tai Khoan          \t\t|";
+          << "                4.Chinh Sua Ten Ngan Hang              \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                5.Tra Cuu Danh Sach Khach Hang         \t\t|";     
+          << "                5.Tra Cuu Danh Sach Tai Khoan          \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                6.Tong doanh thu                       \t\t|";
+          << "                6.Tra Cuu Danh Sach Khach Hang         \t\t|";     
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                7.Thong ke so luong nap tien           \t\t|";
+          << "                7.Tong doanh thu                       \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                8.Thong ke so luong rut tien           \t\t|";
+          << "                8.Thong ke so luong nap tien           \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                9.Thong ke so luong chuyen tien        \t\t|";
+          << "                9.Thong ke so luong rut tien           \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                10.Quay Lai                            \t\t|";
+          << "                10.Thong ke so luong chuyen tien        \t\t|";
      cout << "\n\t\t\t|"
           << "                                                       \t\t|";
      cout << "\n\t\t\t|"
-          << "                11.Thoat                               \t\t|";
+          << "                11.Quay Lai                            \t\t|";
+     cout << "\n\t\t\t|"
+          << "                                                       \t\t|";
+     cout << "\n\t\t\t|"
+          << "                12.Thoat                               \t\t|";
      cout << "\n\t\t\t|_______________________________________________________________________|";
 }
 
@@ -296,7 +300,7 @@ void admin(QLNH &banks,QLKH &users,QLTK &accounts){
                startAdNH:
                system("cls");
                MenuQuanLyNganHang();
-               switch(choose(1,11))
+               switch(choose(1,12))
                {
                     case 1:
                          {
@@ -319,46 +323,52 @@ void admin(QLNH &banks,QLKH &users,QLTK &accounts){
                     case 4:
                          {
                               system("cls");
-                              AdminQLNH::TraCuuDanhSachTaiKhoan(banks);
+                              AdminQLNH::CapNhapThongTinNganHang(banks);
                               break;
                          }
                     case 5:
                          {
                               system("cls");
-                              AdminQLNH::TraCuuDanhSachKhachHang(banks);
+                              AdminQLNH::TraCuuDanhSachTaiKhoan(banks);
                               break;
                          }
                     case 6:
                          {
                               system("cls");
-                              AdminQLNH::TongDoanhThu( banks);
+                              AdminQLNH::TraCuuDanhSachKhachHang(banks);
                               break;
                          }
                     case 7:
                          {
                               system("cls");
-                              //AdminQLNH::ThongKeSoLuongNapTien(banks);
+                              AdminQLNH::TongDoanhThu( banks);
                               break;
                          }
                     case 8:
                          {
                               system("cls");
-                              //AdminQLNH::ThongKeSoLuongRutTien(banks);
+                              AdminQLNH::ThongKeSoLuongNapTien(banks);
                               break;
                          }
                     case 9:
                          {
                               system("cls");
-                              //AdminQLNH::ThongKeSoLuongChuyenTien(banks);
+                              AdminQLNH::ThongKeSoLuongRutTien(banks);
                               break;
                          }
                     case 10:
                          {
                               system("cls");
-                              goto start;
+                              AdminQLNH::ThongKeSoLuongChuyenTien(banks);
                               break;
                          }
                     case 11:
+                         {
+                              system("cls");
+                              goto start;
+                              break;
+                         }
+                    case 12:
                          return;
                }
                goto startAdNH;

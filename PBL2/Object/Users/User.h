@@ -29,9 +29,9 @@ public:
     string getPhoneNumber();
     Date getBirthday();
     bool getGender();
-    bool SearchAccount(const Account &);
     string getName();
     string getCCCD();
+    bool SearchAccount(const Account &);
     Link_list<Account>* getUserAccount();
     void addAccount(Account &);
     void showAccount();

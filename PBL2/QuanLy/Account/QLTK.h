@@ -20,6 +20,5 @@ public:
     void showAccount();
     Link_list<Account> *getLinkListAccount();
     Node<Account> * SearchAccount(const string&);
-    void ImportFromFile();
 };
 

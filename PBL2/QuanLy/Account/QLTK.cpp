@@ -73,6 +73,4 @@ Node<Account> * QLTK::SearchAccount(const string& numAcc){
     Node<Account> *b = this->parAccount.Search(A);
     return b;
 }
-void QLTK::ImportFromFile(){
-    
-}
+

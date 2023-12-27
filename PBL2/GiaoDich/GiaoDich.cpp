@@ -361,7 +361,7 @@ class GiaoDich{
         cout<<"NHAP SAI QUA 5 LAN SE THOAT!!!";
         system("pause");
         cnt++;
-        if(cnt==6)
+        if(cnt==5)
             return ;
     }
     string newpassword;

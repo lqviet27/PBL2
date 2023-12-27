@@ -14,14 +14,13 @@ class Bank{
         Bank(string,string);
         ~Bank();
         string getIdBank();
+        string getNameBank();
+        void setNameBank(string);
         void show_User();
         void show_Account();
         void Show();
-        string getNameBank();
         bool searchAccount(const Account&);
         bool searchUser( User&);
-        // Link_list<User> get 
-        //void addAccounttoFile(Account&);
         void addAccount(Account&);
         void addUser(User&);
         bool operator==(const Bank&);
@@ -31,7 +30,6 @@ class Bank{
         void InsertObjecttoFile(ofstream &,int);
         Link_list<Account>* getLinkListAccount();
         Link_list<User>* getLinkListUser();
-        //void operator=(const Bank&); 
         long long TotalAmount();
 };
 

@@ -2,8 +2,8 @@
 #include"../../Object/Bank/Bank.cpp"
 #include "../Users/QLKH.cpp"
 #include "../Account/QLTK.cpp"
-
 using namespace std;
+
 class QLNH
 {
 private:
@@ -17,10 +17,9 @@ public:
     void Sort();
     void showBank();
     void linkData(QLTK&,QLKH&);
-    Node<Bank>* SearchBank(const string&);
     Link_list<Bank>* getLinkListParBank();
+    Node<Bank>* SearchBank(const string&);
     int getCountBank();
-    void ImportFromFile();
 };
 
 

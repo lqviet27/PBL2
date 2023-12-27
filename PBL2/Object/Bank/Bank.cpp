@@ -2,16 +2,14 @@
 #include"Bank.h"
 #include<iostream>
 #include<fstream>
-//#include <filesystem>
 using namespace std;
-// namespace fs = std::filesystem;
 
 Bank::Bank(){
-    // this->countAccount=0;
+    this->nameBank = "";
+    this->IDBank = "";
 }
 Bank::Bank(string nameBank, string IDBank)
 {   
-    // this->countAccount = 0;
     this->nameBank = nameBank;
     this->IDBank = IDBank;
 }
@@ -37,30 +35,7 @@ void Bank::addAccount(Account & ac)
         cout<<"Ngan Hang "<<this->getIdBank()<<" Da Co Tai Khoan "<<ac.getNumAccount()<<endl;
     }
 }
-/*
-void Bank::addAccounttoFile(Account& acc){
-    ifstream file;
-    string directory = "DataBase/Account";
-    string fileName = directory+ "/Bank_" + this->IDBank + ".txt";
-    // string fileName = directory+ "/Account" + ".txt";
-    file.open(fileName);
-    if(!fs::is_directory(directory)){
-        fs::create_directory(directory);
-    };
-    if(!file){
-       ofstream outFile(fileName); 
-       outFile.close();
-    }
-    ofstream outFile(fileName, ios_base::app);
-    if (!outFile.is_open()) {
-            // Nếu không thể mở file, xuất thông báo lỗi và thoát khỏi phương thức
-            cerr << "Error: Unable to open file " << fileName << endl;
-            return;
-        }
-    acc.InsertObjecttoFile(outFile);
-    outFile.close();
-}
-*/
+
 void Bank::addUser(User& us)
 {
      if(this->searchUser(us)==false)
@@ -73,11 +48,6 @@ void Bank::addUser(User& us)
     }
 }
 
-// string Bank::getCountAccount()
-// {
-//     string tmp = to_string(this->countAccount);
-//     return tmp;
-// }
 bool Bank::searchAccount(const Account& AC)
 {
     Node<Account> *tail=parAccount.head;
@@ -101,17 +71,16 @@ bool Bank::searchUser( User& US)
     return false;
 }
 
-// void Bank::show_User()
-// {
-//     cout<<"DANH SACH NGUOI DUNG CUA NGAN HANG "<<this->nameBank<<" LA:"<<endl;
-//     parUser.Show();
-// }
 
 string Bank::getNameBank()
 {
     return this->nameBank;
 }
 
+void Bank::setNameBank(string nameBank)
+{
+    this->nameBank = nameBank;
+}
 void Bank::show_Account()
 {
     cout<<"DANH SACH TAI KHOAN CUA NGAN HANG "<<this->nameBank<<" LA:"<<endl;
@@ -123,7 +92,6 @@ void Bank::show_User(){
 }
 void Bank::Show(){
     cout<<"\t\t\t\t\t";
-    // cout<<"|  "<<this->IDBank<<" |"<<"\t"<<this->nameBank<<setw(25)<<"\t |"<<endl;
     cout <<"| "<< this->IDBank << " |          " << left << setw(22) << this->nameBank << " |" << endl;
 }
 bool Bank::operator==(const Bank& B)
@@ -176,9 +144,4 @@ Link_list<User>* Bank::getLinkListUser(){
 Link_list<Account>* Bank::getLinkListAccount(){
     return &(this->parAccount);
 }
-
-// void Bank::operator=(const Bank& B)
-// {
-    
-// }
 
