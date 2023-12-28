@@ -109,7 +109,7 @@ void Register::NhapThongTinKhachHang(Node<Bank> *NB,QLKH &users,QLTK &accounts)
                     bool typeAC;      
                     cout<<"\t\t\tNhap Loai Tai Khoan Can Tao:"<<endl;
                     cout<<"\t\t\t1: Tai Khoan Tiet Kiem"<<endl;
-                    cout<<"\t\t\t2: Tai Khoan Ghi No"<<endl;
+                    cout<<"\t\t\t2: Tai Khoan Thanh Toan"<<endl;
                     int c=choose(1,2);
                     typeAC=(c==1)? 0: 1;
                     string password;

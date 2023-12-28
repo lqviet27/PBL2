@@ -1,7 +1,7 @@
-001|VietBank
-002|DucBank
-003|HelloBank
-004|BackKhoaBank
-005|DUTBank
-006|BipBank
-007|BIDVTEC
+001|VietinBank
+002|Agribank
+003|Vietcombank
+004|SHB
+005|VPBank
+006|BIDV
+007|MBBank

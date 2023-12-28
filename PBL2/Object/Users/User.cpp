@@ -37,7 +37,7 @@ User::~User() {}
 
 void User::Show()
 {
-    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(15) << this->_Name << "      |    ";
+    cout << "\t\t\t|  " << this->CCCD << "  | " << setw(19) << left << this->_Name << "      |    ";
     // cout << setw(5) ;
     this->_Birthday.ShowDate();
     cout<< "   |  ";

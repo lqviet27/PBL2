@@ -1,0 +1,2 @@
+Nap tien|0012222222|NULL|VietinBank|1000000|Thu Dec 28 20:07:45 2023|
+Rut tien|0012222222|NULL|VietinBank|-200000|Thu Dec 28 20:07:50 2023|

@@ -299,7 +299,7 @@ class GiaoDich{
           static void TraCuuSoDu(Node<Account>* AC,QLNH &bank)
           {
                
-               string type= (AC->data.getTypeAccount()==0) ? "Tiet Kiem" : "Ghi no" ;
+               string type= (AC->data.getTypeAccount()==0) ? "Tiet Kiem" : "Thanh Toan" ;
                string nameB=bank.SearchBank(AC->data.getNumAccount().substr(0,3))->data.getNameBank();
                cout << "\t\t\t+======================================================================+" << endl;
                cout << "\t\t\t|                         ** TRA CUU SO DU **                          |" << endl;
