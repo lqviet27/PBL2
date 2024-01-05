@@ -106,44 +106,6 @@ void AdminQLTK::TraCuuLichSuGiaoDich(QLTK &accounts)
          }
     }
 }
-
-// void AdminQLTK::DoiMatKhau(QLNH &banks,QLKH &users,QLTK &accounts)
-// {
-//     string numAC;
-//     while(1)
-//     {
-//         start:
-//         system("cls");
-//         cout<<"Nhap So Tai Khoan Can Tra Cuu(Gom 10 So Lien Tiep(Nhap 'Exit' De Quay Lai)): ";
-//         cin>>numAC;
-//         if(numAC=="Exit"||numAC=="exit")
-//             return ;
-//         if(numAC.size()!=10)
-//             {
-//                 cout<<"So Tai Khoan Khong Hop Le !!!"<<endl;
-//                 goto start;
-//             }
-//         for(int i=0;i<numAC.size();i++)
-//             if(!isdigit(numAC[i]))
-//             {
-//                 cout<<"So Tai Khoan Khong Hop Le !!!"<<endl;
-//                 goto start;
-//             }
-//          Node<Account> *NA = accounts.SearchAccount(numAC);
-//          if(NA==nullptr) 
-//          {  
-//             cout<<"So Tai Khoan Khong Ton Tai !!!"<<endl;
-//             goto start;
-//          }
-//          else 
-//          {
-//             string password;
-//             cout<<"Nhap Mat Khau :";
-
-//          }
-//     }
-// }
-
 void AdminQLTK::XoaTaiKhoan(QLNH &banks,QLKH &users,QLTK &accounts)
 {
     string numAC;
@@ -378,7 +340,6 @@ void AdminQLKH::CapNhapThongTinKhachHang(QLNH& banks,QLKH& users)
 
 
 }
-
 
 void AdminQLNH::TraCuuDanhSachNganHang(QLNH& banks)
 {

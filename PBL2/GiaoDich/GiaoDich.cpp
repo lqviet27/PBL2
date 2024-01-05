@@ -306,7 +306,7 @@ class GiaoDich{
                cout << "\t\t\t+============+==================+===============+======================+" << endl;
                cout << "\t\t\t|  LOAI TK   |   SO TAI KHOAN   | TEN NGAN HANG |        SO DU         |" << endl;
                cout << "\t\t\t+============+==================+===============+======================+" << endl;
-               cout << "\t\t\t| " << setw(11) << left << type << "|   " << setw(15) << AC->data.getNumAccount() << "|   " << setw(12) << nameB << "|  " << setw(20) << left << AC->data.getAmount() << "|"<< endl;
+               cout << "\t\t\t| " << setw(11) << left << type << "|   " << setw(15) << AC->data.getNumAccount() << "|   " << setw(12) << left << nameB << "|  " << setw(20) << left << AC->data.getAmount() << "|"<< endl;
                cout << "\t\t\t+============+==================+===============+======================+" << endl;
                system("pause");
           }
