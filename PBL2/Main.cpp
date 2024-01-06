@@ -1,5 +1,3 @@
-
-// #include "Menu/Menu.cpp"
 #include "./DangNhap_DangKy/SignIn.cpp"
 #include "./DangNhap_DangKy/Register.cpp"
 #include "./DataBase/XuatduLieu.cpp"
@@ -8,7 +6,6 @@
 QLNH banks;
 QLKH users;
 QLTK accounts;
-
 
 
 void DangNhapAC(Node<Account> *nodeAC)
